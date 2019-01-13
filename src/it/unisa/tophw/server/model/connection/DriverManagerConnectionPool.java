@@ -1,4 +1,4 @@
-package it.unisa.tophw.server.model;
+package it.unisa.tophw.server.model.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

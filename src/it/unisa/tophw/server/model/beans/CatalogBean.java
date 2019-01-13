@@ -1,6 +1,8 @@
 package it.unisa.tophw.server.model.beans;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.stream.Collectors;
 
 public class CatalogBean {
 
@@ -53,6 +55,44 @@ public class CatalogBean {
 
     public void setProdottiCatalogo(ArrayList<ProductBean> prodottiCatalogo) {
         this.prodottiCatalogo = prodottiCatalogo;
+    }
+
+    public String addProduct(ProductBean prodotto){
+
+        if(prodotto!=null){
+            if(this.prodottiCatalogo!=null && this.prodottiCatalogo.size()>0){
+                this.prodottiCatalogo.forEach(productBean -> {
+                    if(productBean.getId_prodotto()==prodotto.getId_prodotto()){
+                        return ;
+                    }else{
+                        this.prodottiCatalogo.add(prodotto);
+                    }
+                });
+            }else{
+                this.prodottiCatalogo=new ArrayList<>();
+                this.prodottiCatalogo.add(prodotto);
+                return "ok";
+            }
+        }
+        return "ok";
+    }
+
+    public String deleteProduct(ProductBean prodotto){
+        if(prodotto!=null){
+            if(this.prodottiCatalogo!=null && this.prodottiCatalogo.size()>0){
+                Iterator it=this.prodottiCatalogo.iterator();
+                while (it.hasNext()){
+                    ProductBean p= (ProductBean) it.next();
+                    if(p.getId_prodotto()==prodotto.getId_prodotto())
+                        it.remove();
+                }
+            }else{
+                return "lista Vuota";
+            }
+        }else
+            return "prodotto Nullo";
+
+        return "ok";
     }
 
     @Override

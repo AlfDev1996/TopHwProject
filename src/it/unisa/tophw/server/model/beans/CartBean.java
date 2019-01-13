@@ -44,7 +44,7 @@ public class CartBean {
         this.prezzoTotale = prezzoTotale;
     }
 
-    public void addProduct(ProductBean prodotto){
+    public String addProduct(ProductBean prodotto){
         if(prodotto!=null)
         {
             if(this.prodotti!=null && this.prodotti.size()>0){
@@ -52,36 +52,36 @@ public class CartBean {
                 this.prodotti.stream().forEach(productBean -> {
                     if(productBean.getId_prodotto()==prodotto.getId_prodotto() && productBean.getNome().equalsIgnoreCase(prodotto.getNome())){
                         productBean.setQuantita(productBean.getQuantita() !=0 ? (productBean.getQuantita()+prodotto.getQuantita()) : ( 0+prodotto.getQuantita() ) );
-                        return ;
+
                     }
                 });
             }else{
                 this.prodotti.add(prodotto);
-                return;
+
             }
-
-
         }
-        prodotti.add(prodotto);
+        return "ok";
     }
 
-    public void updateProdotto(int quantita, ProductBean prodotto) {
+    public String updateProdotto(int quantita, ProductBean prodotto) {
 
         if(this.prodotti!=null && this.prodotti.size()>0){
 
             this.prodotti.stream().forEach(productBean -> {
                 if(productBean.getId_prodotto()==prodotto.getId_prodotto() && productBean.getNome().equalsIgnoreCase(prodotto.getNome())){
                     productBean.setQuantita(productBean.getQuantita() !=0 ? (productBean.getQuantita()+quantita) : ( 0+quantita ) );
-                    return ;
+
                 }
             });
 
         }else{
-            return ;
+            return "Lista Vuota";
         }
+
+        return "ok";
     }
 
-    public void deleteProdotto(ProductBean prodotto){
+    public String deleteProdotto(ProductBean prodotto){
 
         if(this.prodotti!=null && this.prodotti.size()>0){
             Iterator it = this.prodotti.iterator();
@@ -89,12 +89,11 @@ public class CartBean {
                 ProductBean prod = (ProductBean) it.next();
                 if(prod.getId_prodotto()==prodotto.getId_prodotto())
                     it.remove();
-                    return ;
             }
         }else{
-            return ;
+            return "Lista vuota";
         }
-
+        return "ok";
     }
 
     public void deleteAllProducts(){

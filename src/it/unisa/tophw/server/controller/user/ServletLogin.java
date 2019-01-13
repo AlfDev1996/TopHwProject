@@ -1,4 +1,4 @@
-package it.unisa.tophw.server.controller;
+package it.unisa.tophw.server.controller.user;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "GestioneProdotto")
-public class GestioneProdotto extends HttpServlet {
+@WebServlet(name = "ServletLogin")
+public class ServletLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
