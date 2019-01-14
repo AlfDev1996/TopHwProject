@@ -31,27 +31,24 @@
                             <ul>
                                 <li class="hassubs active">
                                     <a href="index.jsp">Home</a>
-                                    <ul>
-                                        <li><a href="categories.jsp">Categories</a></li>
-                                        <li><a href="product.jsp">Product</a></li>
-                                        <li><a href="cart.jsp">Cart</a></li>
-                                        <li><a href="checkout.jsp">Check out</a></li>
-                                        <li><a href="contact.jsp">Contact</a></li>
-                                    </ul>
+
                                 </li>
                                 <li class="hassubs">
-                                    <a href="categories.jsp">Categories</a>
+                                    <a href="categories.jsp">Categorie</a>
                                     <ul>
-                                        <li><a href="categories.jsp">Category</a></li>
-                                        <li><a href="categories.jsp">Category</a></li>
-                                        <li><a href="categories.jsp">Category</a></li>
-                                        <li><a href="categories.jsp">Category</a></li>
-                                        <li><a href="categories.jsp">Category</a></li>
+                                        <li><a href="categories.jsp">Processori</a></li>
+                                        <li><a href="categories.jsp">Monitor</a></li>
+                                        <li><a href="categories.jsp">Schede video</a></li>
+                                        <li><a href="categories.jsp">Hard disk</a></li>
+                                        <li><a href="categories.jsp">Pc assemblati</a></li>
+                                        <li><a href="categories.jsp">Schede madri</a></li>
+                                        <li><a href="categories.jsp">RAM</a></li>
+                                        <li><a href="categories.jsp">Mouse e tastiere</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">Offers</a></li>
-                                <li><a href="contact.jsp">Contact</a></li>
+                                <li><a href="#">Accessori</a></li>
+                                <li><a href="#">Offerte</a></li>
+                                <li><a href="contact.jsp">Contatti</a></li>
                             </ul>
                         </nav>
                         <div class="header_extra ml-auto">
