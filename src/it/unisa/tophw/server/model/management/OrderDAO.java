@@ -1,15 +1,12 @@
 package it.unisa.tophw.server.model.management;
 
-import com.mysql.jdbc.Statement;
+
 import it.unisa.tophw.server.model.beans.OrderBean;
 import it.unisa.tophw.server.model.beans.ProductBean;
 import it.unisa.tophw.server.model.beans.UserBean;
 import it.unisa.tophw.server.model.connection.DriverManagerConnectionPool;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 

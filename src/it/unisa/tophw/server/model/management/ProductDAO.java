@@ -39,7 +39,7 @@ public class ProductDAO {
                 if(id_marca!=0)
                 {
                     BrandDAO marcaDao= new BrandDAO();
-                    BrandBean marca = marcaDao.doRetriveById(id_marca);
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
                         prodotto.setMarca(marca);
                     else
@@ -90,7 +90,7 @@ public class ProductDAO {
                 if(id_marca!=0)
                 {
                     BrandDAO marcaDao= new BrandDAO();
-                    BrandBean marca = marcaDao.doRetriveById(id_marca);
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
                         prodotto.setMarca(marca);
                     else
@@ -143,7 +143,7 @@ public class ProductDAO {
                 if(id_marca!=0)
                 {
                     BrandDAO marcaDao= new BrandDAO();
-                    BrandBean marca = marcaDao.doRetriveById(id_marca);
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
                         prodotto.setMarca(marca);
                     else
@@ -196,7 +196,7 @@ public class ProductDAO {
                 if(id_marca!=0)
                 {
                     BrandDAO marcaDao= new BrandDAO();
-                    BrandBean marca = marcaDao.doRetriveById(id_marca);
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
                         prodotto.setMarca(marca);
                     else
@@ -254,7 +254,7 @@ public class ProductDAO {
                 if(id_marca!=0)
                 {
                     BrandDAO marcaDao= new BrandDAO();
-                    BrandBean marca = marcaDao.doRetriveById(id_marca);
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
                         prodotto.setMarca(marca);
                     else
