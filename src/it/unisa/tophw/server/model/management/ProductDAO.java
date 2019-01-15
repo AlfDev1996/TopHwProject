@@ -63,7 +63,7 @@ public class ProductDAO {
         return null;
     }
 
-        public synchronized ArrayList<ProductBean> doRetriveByNome(String nome)  {
+        public synchronized ArrayList<ProductBean> doRetriveByLikeNome(String nome)  {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -114,6 +114,60 @@ public class ProductDAO {
         }
 
         return prodotti;
+    }
+
+    public synchronized ProductBean doRetriveByNome(String nome)  {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ProductBean prodotto =  new ProductBean();
+        try {
+
+            conn = (Connection) DriverManagerConnectionPool.getConnection();
+            ps=(PreparedStatement) conn.prepareStatement("SELECT * from prodotto where nome like  ?  ");
+            ps.setString(1, "'"+nome+"'");
+
+            ResultSet res =ps.executeQuery();
+
+            //Prendo il risultato dalla query
+            if(res.next()) {
+                prodotto=new ProductBean();
+                prodotto.setId_prodotto(res.getInt("id_prodotto"));
+                prodotto.setNome(res.getString("nome"));
+                prodotto.setDescrizione_breve(res.getString("descrizione_breve"));
+                prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
+                prodotto.setPrezzo(res.getDouble("prezzo"));
+                prodotto.setQuantita(res.getInt("quantita"));
+
+                int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
+                if(id_marca!=0)
+                {
+                    BrandDAO marcaDao= new BrandDAO();
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
+                    if(marca!=null && marca.getIdMarca()>0)
+                        prodotto.setMarca(marca);
+                    else
+                        prodotto.setMarca(null);
+                }
+                res.close();
+                return prodotto;
+            }
+
+            res.close();
+        }catch(SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            try {
+                ps.close();
+                conn.close();
+                DriverManagerConnectionPool.releaseConnection(conn);
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+        return prodotto;
     }
 
     public synchronized ArrayList<ProductBean> doRetriveByBrand(BrandBean brand)  {
