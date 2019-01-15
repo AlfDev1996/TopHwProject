@@ -72,15 +72,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="username" class="cols-sm-2 control-label">Username</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="username" required id="username"  placeholder="es: MarioRed1"/>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="form-group">
                         <label for="password" class="cols-sm-2 control-label">Password</label>
