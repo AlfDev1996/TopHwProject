@@ -38,7 +38,7 @@
             </div>
         </div>-->
         <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="/ServletLogin">
+            <form class="form-horizontal" method="post" action="ServletLogin">
 
                 <div class="form-group">
                     <label  class="cols-sm-2 control-label">E-mail</label>

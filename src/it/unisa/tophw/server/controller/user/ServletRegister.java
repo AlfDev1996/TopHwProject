@@ -15,14 +15,14 @@ import java.io.IOException;
 @WebServlet(name = "/ServletRegister")
 public class ServletRegister extends HttpServlet {
 
-    String error="";
-    UserDAO dao = new UserDAO();
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
     System.out.println("Ciao");
+        String error = "";
+        UserDAO dao = new UserDAO();
         String email= request.getParameter("email");
         String nome=request.getParameter("name");
         String cognome=request.getParameter("cognome");
@@ -43,7 +43,7 @@ public class ServletRegister extends HttpServlet {
     System.out.println(user.toString());
 
 
-        if(verifica(request.getParameter("email"))) {
+        if(verifica(request.getParameter("email"),dao,error)) {
             dao.doSave(user);
             String success = "Complimenti "+user.getNome()+", ti sei registrato con successo. Accedi per iniziare ad acquistare";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp?errore="+success);
@@ -62,8 +62,8 @@ public class ServletRegister extends HttpServlet {
     }
 
 
-    protected boolean verifica(String mail) {
-        UserBean tmp = null;
+    protected boolean verifica(String mail, UserDAO dao, String error) {
+        UserBean tmp = new UserBean();
 
         tmp = dao.doRetriveByEmail(mail);
         if(tmp==null) return true;

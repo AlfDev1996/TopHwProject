@@ -34,7 +34,7 @@ public class UserDAO {
                 utente.setEmail(res.getString("email"));
                 utente.setPassword(res.getString("password"));
                 utente.setRuolo(res.getString("ruolo"));
-                utente.setNazione(res.getString("nazione"));
+
                 return utente;
             }
         }catch(SQLException ex) {
@@ -42,7 +42,7 @@ public class UserDAO {
         }finally{
             try {
                 ps.close();
-                DriverManagerConnectionPool.releaseConnection(conn);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) conn);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -58,7 +58,7 @@ public class UserDAO {
         PreparedStatement ps = null;
         UserBean utente =null;
         try {
-            conn = (Connection) DriverManagerConnectionPool.getConnection();
+            conn = DriverManagerConnectionPool.getConnection();
             ps=(PreparedStatement) conn.prepareStatement("SELECT * from utente where email = ?");
             ps.setString(1, email);
 
@@ -75,21 +75,20 @@ public class UserDAO {
                 utente.setEmail(res.getString("email"));
                 utente.setPassword(res.getString("password"));
                 utente.setRuolo(res.getString("ruolo"));
-                utente.setNazione(res.getString("nazione"));
-                return utente;
+
             }
         }catch(SQLException ex) {
             ex.printStackTrace();
         }finally{
             try {
                 ps.close();
-                DriverManagerConnectionPool.releaseConnection(conn);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) conn);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
-        return null;
+        return utente;
     }
 
     public synchronized ArrayList<UserBean> doRetrieveAll(String orderBy){
@@ -117,7 +116,6 @@ public class UserDAO {
                 utente.setEmail(res.getString("email"));
                 utente.setPassword(res.getString("password"));
                 utente.setRuolo(res.getString("ruolo"));
-                utente.setNazione(res.getString("nazione"));
                 utenti.add(utente);
 
             }
@@ -127,7 +125,7 @@ public class UserDAO {
         }finally{
             try {
                 preparedStatement.close();
-                DriverManagerConnectionPool.releaseConnection(connection);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -142,7 +140,7 @@ public class UserDAO {
         {
             Connection connection = null;
             PreparedStatement preparedStatement = null;
-            String sqlInsert = "Insert into utente (nome,cognome,email,password,ruolo,nazione) values (?,?,?,?,?,?) ";
+            String sqlInsert = "Insert into utente (nome,cognome,email,password,ruolo) values (?,?,?,?,?) ";
 
             try {
 
@@ -153,8 +151,6 @@ public class UserDAO {
                 preparedStatement.setString(3, utente.getEmail());
                 preparedStatement.setString(4, utente.getPassword());
                 preparedStatement.setString(5, utente.getRuolo());
-                preparedStatement.setString(6, utente.getNazione());
-
                 preparedStatement.executeUpdate();
 
             } catch (SQLException e) {
@@ -163,7 +159,7 @@ public class UserDAO {
             }finally{
                 try {
                     preparedStatement.close();
-                    DriverManagerConnectionPool.releaseConnection(connection);
+                    DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -193,7 +189,6 @@ public class UserDAO {
                 utente.setEmail(res.getString("email"));
                 utente.setPassword(res.getString("password"));
                 utente.setRuolo(res.getString("ruolo"));
-                utente.setNazione(res.getString("nazione"));
                 return utente;
             }
         }catch(SQLException ex) {
@@ -201,7 +196,7 @@ public class UserDAO {
         }finally{
             try {
                 ps.close();
-                DriverManagerConnectionPool.releaseConnection(conn);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) conn);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -233,7 +228,7 @@ public class UserDAO {
             try {
                 preparedStatement.close();
 
-                DriverManagerConnectionPool.releaseConnection(connection);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -250,7 +245,7 @@ public class UserDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int res=0;
-        String sqlUpdate = "UPDATE utente SET nome = ? , cognome = ? , email = ? , password = ? , ruolo = ? , nazione = ?  where id_utente = ?";
+        String sqlUpdate = "UPDATE utente SET nome = ? , cognome = ? , email = ? , password = ? , ruolo = ?   where id_utente = ?";
         try {
             connection = (Connection) DriverManagerConnectionPool.getConnection();
             preparedStatement=(PreparedStatement) connection.prepareStatement(sqlUpdate);
@@ -260,8 +255,7 @@ public class UserDAO {
             preparedStatement.setString(3, utente.getEmail());
             preparedStatement.setString(4, utente.getPassword());
             preparedStatement.setString(5, utente.getRuolo());
-            preparedStatement.setString(6, utente.getNazione());
-            preparedStatement.setInt(13, utente.getId_utente());
+            preparedStatement.setInt(6, utente.getId_utente());
 
             res = preparedStatement.executeUpdate();
 
@@ -272,7 +266,7 @@ public class UserDAO {
         }finally{
             try {
                 preparedStatement.close();
-                DriverManagerConnectionPool.releaseConnection(connection);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

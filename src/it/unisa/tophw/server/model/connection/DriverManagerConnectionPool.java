@@ -1,6 +1,8 @@
 package it.unisa.tophw.server.model.connection;
 
-import java.sql.Connection;
+
+import com.mysql.jdbc.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -28,10 +30,14 @@ public class DriverManagerConnectionPool {
         String username = "root";
         String password = "";
 
-        newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+db+"?autoReconnect=true&useSSL=false", username, password);
+        String url = "jdbc:mysql://"+ip+":"+port+"/"+ db;
+        System.out.println(url+"<---- url db");
+        newConnection = (Connection) DriverManager.getConnection(url, username, password);
 
 
         newConnection.setAutoCommit(true);
+
+        System.out.println("Connessione al db eseguita");
         return newConnection;
     }
 
@@ -58,6 +64,7 @@ public class DriverManagerConnectionPool {
     }
 
     public static synchronized void releaseConnection(Connection connection) throws SQLException {
+        connection = (com.mysql.jdbc.Connection) connection;
         if(connection != null) freeDbConnections.add(connection);
     }
 

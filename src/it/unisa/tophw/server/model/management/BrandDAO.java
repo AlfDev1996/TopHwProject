@@ -36,7 +36,7 @@ public class BrandDAO {
         }finally{
             try {
                 ps.close();
-                DriverManagerConnectionPool.releaseConnection(conn);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) conn);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -72,7 +72,7 @@ public class BrandDAO {
         }finally{
             try {
                 preparedStatement.close();
-                DriverManagerConnectionPool.releaseConnection(connection);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -107,7 +107,7 @@ public class BrandDAO {
             }finally{
                 try {
                     preparedStatement.close();
-                    DriverManagerConnectionPool.releaseConnection(connection);
+                    DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -139,7 +139,7 @@ public class BrandDAO {
             try {
                 preparedStatement.close();
 
-                DriverManagerConnectionPool.releaseConnection(connection);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -182,7 +182,7 @@ public class BrandDAO {
         }finally{
             try {
                 preparedStatement.close();
-                DriverManagerConnectionPool.releaseConnection(connection);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -220,7 +220,7 @@ public class BrandDAO {
         }finally{
             try {
                 preparedStatement.close();
-                DriverManagerConnectionPool.releaseConnection(connection);
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

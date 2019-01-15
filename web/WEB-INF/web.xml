@@ -6,17 +6,17 @@
     <servlet>
         <servlet-name>servletRegister</servlet-name>
         <servlet-class>it.unisa.tophw.server.controller.user.ServletRegister</servlet-class>
-
-
     </servlet>
-
-
-
     <servlet-mapping>
         <servlet-name>servletRegister</servlet-name>
         <url-pattern>/ServletRegister</url-pattern>
     </servlet-mapping>
-
-
-
+    <servlet>
+        <servlet-name>servletLogin</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.user.ServletLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletLogin</servlet-name>
+        <url-pattern>/ServletLogin</url-pattern>
+    </servlet-mapping>
 </web-app>
