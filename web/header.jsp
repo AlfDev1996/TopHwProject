@@ -1,3 +1,4 @@
+<%@ page import="it.unisa.tophw.server.model.beans.UserBean" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +16,16 @@
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <script>
+        function submit(){
+            document.getElementById("logoutForm").submit();
+        }
+    </script>
+
 </head>
 <body>
+
+<%UserBean us=(UserBean)session.getAttribute("utente");%>
 
 <!-- Header -->
 
@@ -114,10 +123,19 @@
     <!-- Social -->
     <div class="header_social">
         <ul>
-            <li><a href="login.jsp"> Accedi</a></li>
+    <% if(us!=null){%>
+            <li> Ciao, <%=us.getNome()%></li>
             <li>|</li>
-            <li><a href="registration.jsp">Registrati</a></li>
+            <form method="post" action="ServletLogout" id="logoutForm"><li onclick="submit()"> <a href="#">Logout</a></li></form>
+<%} else {%>
 
+            <li><a href="login.jsp">Accedi</a></li>
+            <li>|</li>
+            <li><a href="registration.jsp">Registrati </a></li>
+
+
+
+            <%}%>
         </ul>
     </div>
 </header>
