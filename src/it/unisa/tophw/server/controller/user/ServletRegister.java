@@ -31,7 +31,7 @@ public class ServletRegister extends HttpServlet {
         user.setEmail(request.getParameter("email"));
         user.setPassword(request.getParameter("password"));
 
-        if(dominio.equalsIgnoreCase("@tophw.it"))
+        if(dominio.contains("tophw.it"))
             user.setRuolo("Admin");
         else
             user.setRuolo("User");
@@ -39,7 +39,6 @@ public class ServletRegister extends HttpServlet {
 
 
         if(verifica(request.getParameter("email"))) {
-
             dao.doSave(user);
             String success = "Complimenti "+user.getNome()+", ti sei registrato con successo. Accedi per iniziare ad acquistare";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp?errore="+success);
