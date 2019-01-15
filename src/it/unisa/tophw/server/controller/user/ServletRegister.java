@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 
 @WebServlet(name = "/ServletRegister")
@@ -21,25 +22,25 @@ public class ServletRegister extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-
+    System.out.println("Ciao");
         String email= request.getParameter("email");
         String nome=request.getParameter("name");
         String cognome=request.getParameter("cognome");
         String pass= request.getParameter("password");
-        String username = request.getParameter("username");
-        String dominio = email.substring(email.indexOf("@"), email.length());
-
+        //String dominio = email.substring(email.indexOf("@"),email.length());
+    String dominio ="";
         UserBean user = new UserBean();
-        user.setCognome(request.getParameter("cognome"));
-        user.setNome(request.getParameter("nome"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
+        user.setCognome(cognome);
+        user.setNome(nome);
+        user.setEmail(email);
+        user.setPassword(pass);
+
 
         if(dominio.contains("tophw.it"))
             user.setRuolo("Admin");
         else
             user.setRuolo("User");
-
+    System.out.println(user.toString());
 
 
         if(verifica(request.getParameter("email"))) {
