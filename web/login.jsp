@@ -38,14 +38,14 @@
             </div>
         </div>-->
         <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="servley.java">
+            <form class="form-horizontal" method="post" action="ServletLogin">
 
                 <div class="form-group">
-                    <label  class="cols-sm-2 control-label">Username</label>
+                    <label  class="cols-sm-2 control-label">E-mail</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="user" id="user"  placeholder="es : Mario" required />
+                            <input type="text" class="form-control" name="user" id="email"  placeholder="es : Mario" required />
                         </div>
                     </div>
                 </div>
