@@ -34,7 +34,6 @@ public class DriverManagerConnectionPool {
         System.out.println(url+"<---- url db");
         newConnection = (Connection) DriverManager.getConnection(url, username, password);
 
-
         newConnection.setAutoCommit(true);
 
         System.out.println("Connessione al db eseguita");
