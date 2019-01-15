@@ -123,8 +123,16 @@
     <!-- Social -->
     <div class="header_social">
         <ul>
-    <% if(us!=null){%>
-            <li> Ciao, <%=us.getNome()%></li>
+    <% if(us==null){%>
+            <li class="hassubs">
+               Ciao, Utente
+                <ul>
+                    <li><a href="user.jsp">Profilo utente</a></li>
+                    <li><a href="categories.jsp">I miei ordini</a></li>
+
+                    <
+                </ul>
+            </li>
             <li>|</li>
             <form method="post" action="ServletLogout" id="logoutForm"><li onclick="submit()"> <a href="#">Logout</a></li></form>
 <%} else {%>
