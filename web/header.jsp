@@ -29,10 +29,10 @@
                         <div class="logo"><a href="#">Sublime.</a></div>
                         <nav class="main_nav">
                             <ul>
-                                <li class="hassubs active">
-                                    <a href="index.jsp">Home</a>
 
-                                </li>
+                                   <li> <a href="index.jsp">Home</a> </li>
+
+
                                 <li class="hassubs">
                                     <a href="categories.jsp">Categorie</a>
                                     <ul>
