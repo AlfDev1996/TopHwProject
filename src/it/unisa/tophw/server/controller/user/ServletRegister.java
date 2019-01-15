@@ -14,8 +14,8 @@ import java.io.IOException;
 @WebServlet(name = "/ServletRegister")
 public class ServletRegister extends HttpServlet {
 
-    static String error="";
-    static UserDAO dao = new UserDAO();
+    String error="";
+    UserDAO dao = new UserDAO();
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
