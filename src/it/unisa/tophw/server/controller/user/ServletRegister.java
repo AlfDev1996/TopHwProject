@@ -11,12 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ServletRegister")
+@WebServlet(name = "/ServletRegister")
 public class ServletRegister extends HttpServlet {
-    String error="";
-    UserDAO dao = new UserDAO();
+
+    static String error="";
+    static UserDAO dao = new UserDAO();
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 
         String email= request.getParameter("email");
         String nome=request.getParameter("name");

@@ -67,7 +67,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="email"  required id="email"  placeholder="es : marioRossi@gmail.com"/>
+                                <input type="text" class="form-control" name="email"  required id="email"  placeholder="es : CIAO@gmail.com"/>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="confirm" required id="confirm"  placeholder="Ripeti Password"/>
+                                <input type="password" class="form-control" name="confirm" required id="confirm"  placeholder="Ripeti --- Password"/>
                             </div>
                         </div>
                     </div>
