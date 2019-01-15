@@ -40,7 +40,7 @@
                 </div> -->
             </div>
             <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="ServletRegister.java">
+                <form class="form-horizontal" method="post" action="ServletRegister">
 
                     <div class="form-group">
                         <label for="name" class="cols-sm-2 control-label">Nome</label>
