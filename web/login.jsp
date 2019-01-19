@@ -29,6 +29,12 @@
 
 <%@include  file="header.jsp" %>
 
+<% if(request.getParameter("msgOutput")!= null && !request.getParameter("msgOutput").isEmpty()){%>
+<div class="alert alert-danger" role="alert">
+   <%=request.getParameter("msgOutput")%>
+</div>
+<%}%>
+
 <div class="container">
     <div class="row main">
         <!--<div class="panel-heading">
