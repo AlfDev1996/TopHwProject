@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.Console;
 import java.io.IOException;
 
 @WebServlet(name = "ServletLogin")
@@ -39,6 +40,7 @@ public class ServletLogin extends HttpServlet {
             }
 
             if(msgOutput=="") {
+                System.out.println("Login effettuato con successo");
                 HttpSession session = request.getSession();
                 session.setAttribute("utente", userToLogin);
 
@@ -50,6 +52,7 @@ public class ServletLogin extends HttpServlet {
                 dispatcher.forward(request, response);
             }
         }else{
+
             //Entra con la sessione
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
