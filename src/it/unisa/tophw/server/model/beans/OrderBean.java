@@ -2,6 +2,7 @@ package it.unisa.tophw.server.model.beans;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 public class OrderBean {
 
@@ -100,6 +101,46 @@ public class OrderBean {
     public void setUtente(UserBean utente) {
         this.utente = utente;
     }
+
+    public String addVoceOrdine(OrderVoiceBean orderVoice){
+
+        if(orderVoice!=null){
+            if(this.vociOrdine!=null && this.vociOrdine.size()>0){
+                this.vociOrdine.forEach(orderVoiceBean -> {
+                    if(orderVoiceBean.getId_voce_ordine()==orderVoice.getId_voce_ordine()){
+                        orderVoiceBean.setQuantita(orderVoiceBean.getQuantita()+orderVoice.getQuantita());
+                    }else{
+                        this.vociOrdine.add(orderVoice);
+                    }
+                });
+            }else{
+                this.vociOrdine=new ArrayList<>();
+                this.vociOrdine.add(orderVoice);
+                return "ok";
+            }
+        }
+        return "ok";
+    }
+
+    public String deleteOrderVoice(OrderVoiceBean orderVoice){
+        if(orderVoice!=null){
+            if(this.vociOrdine!=null && this.vociOrdine.size()>0){
+                Iterator it=this.vociOrdine.iterator();
+                while (it.hasNext()){
+                    OrderVoiceBean p= (OrderVoiceBean) it.next();
+                    if(p.getId_voce_ordine()==orderVoice.getId_voce_ordine())
+                        it.remove();
+                }
+            }else{
+                return "lista Vuota";
+            }
+        }else
+            return "Voce  NullA";
+
+        return "ok";
+    }
+
+
 
     @Override
     public String toString() {

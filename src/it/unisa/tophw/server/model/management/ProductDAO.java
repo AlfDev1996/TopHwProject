@@ -34,6 +34,7 @@ public class ProductDAO {
                 prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
 
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
@@ -86,6 +87,7 @@ public class ProductDAO {
                 prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -138,7 +140,7 @@ public class ProductDAO {
                 prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
-
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -193,6 +195,7 @@ public class ProductDAO {
                 prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -246,6 +249,7 @@ public class ProductDAO {
                 prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -304,6 +308,7 @@ public class ProductDAO {
                 prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -341,7 +346,7 @@ public class ProductDAO {
         {
             Connection connection = null;
             PreparedStatement preparedStatement = null;
-            String sqlInsert = "Insert into prodotto (nome,descrizione_breve,descrizione_estesa,prezzo,id_marca,quantita) values (?,?,?,?,?,?) ";
+            String sqlInsert = "Insert into prodotto (nome,descrizione_breve,descrizione_estesa,prezzo,id_marca,quantita,perc_sconto) values (?,?,?,?,?,?,?) ";
             int res=0;
             try {
 
@@ -351,9 +356,10 @@ public class ProductDAO {
                 preparedStatement.setString(1, prodotto.getNome());
                 preparedStatement.setString(2, prodotto.getDescrizione_breve());
                 preparedStatement.setString(3, prodotto.getDescrizione_estesa());
-                preparedStatement.setDouble(6, prodotto.getPrezzo());
-                preparedStatement.setInt(8, prodotto.getMarca().getIdMarca());
-                preparedStatement.setInt(10, prodotto.getQuantita());
+                preparedStatement.setDouble(4, prodotto.getPrezzo());
+                preparedStatement.setInt(5, prodotto.getMarca().getIdMarca());
+                preparedStatement.setInt(6, prodotto.getQuantita());
+                preparedStatement.setInt(7, prodotto.getPerc_sconto());
 
                 res = preparedStatement.executeUpdate();
 
@@ -412,7 +418,7 @@ public class ProductDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int res=0;
-        String sqlUpdate = "UPDATE prodotto SET nome = ? , descrizione_breve = ? , descrizione_estesa = ? , modello = ? , prezzo = ? , id_marca = ? ,quantita = ? where id_prodotto = ?";
+        String sqlUpdate = "UPDATE prodotto SET nome = ? , descrizione_breve = ? , descrizione_estesa = ? , modello = ? , prezzo = ? , id_marca = ? ,quantita = ? , perc_sconto = ? where id_prodotto = ?";
         try {
             connection = (Connection) DriverManagerConnectionPool.getConnection();
             preparedStatement=(PreparedStatement) connection.prepareStatement(sqlUpdate);
@@ -420,9 +426,10 @@ public class ProductDAO {
             preparedStatement.setString(1, prodotto.getNome());
             preparedStatement.setString(2, prodotto.getDescrizione_breve());
             preparedStatement.setString(3, prodotto.getDescrizione_estesa());
-            preparedStatement.setDouble(6, prodotto.getPrezzo());
-            preparedStatement.setInt(8, prodotto.getMarca().getIdMarca());
-            preparedStatement.setInt(10, prodotto.getQuantita());
+            preparedStatement.setDouble(4, prodotto.getPrezzo());
+            preparedStatement.setInt(5, prodotto.getMarca().getIdMarca());
+            preparedStatement.setInt(6, prodotto.getQuantita());
+            preparedStatement.setInt(7, prodotto.getPerc_sconto());
             preparedStatement.setInt(11, prodotto.getId_prodotto());
 
             res = preparedStatement.executeUpdate();

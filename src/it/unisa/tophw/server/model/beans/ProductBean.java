@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ProductBean {
 
-    private int id_prodotto, quantita;
+    private int id_prodotto, quantita, perc_sconto;
     private String nome, descrizione_breve, descrizione_estesa, pathImg1, pathImg2, pathImg3;
     private double prezzo ;
     private BrandBean marca;
@@ -15,6 +15,7 @@ public class ProductBean {
         prezzo=0.0;
         marca=new BrandBean();
         quantita=0;
+        perc_sconto=0;
     }
 
     public ProductBean(int id_prodotto, int quantita, String nome, String descrizione_breve, String descrizione_estesa, String pathImg1, String pathImg2, String pathImg3, double prezzo, BrandBean marca) {
@@ -28,6 +29,14 @@ public class ProductBean {
         this.pathImg3 = pathImg3;
         this.prezzo = prezzo;
         this.marca = marca;
+    }
+
+    public int getPerc_sconto() {
+        return perc_sconto;
+    }
+
+    public void setPerc_sconto(int perc_sconto) {
+        this.perc_sconto = perc_sconto;
     }
 
     public int getId_prodotto() {
