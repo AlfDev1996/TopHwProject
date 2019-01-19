@@ -123,9 +123,9 @@
     <!-- Social -->
     <div class="header_social">
         <ul>
-    <% if(us==null){%>
+    <% if(us!=null){%>
             <li class="hassubs">
-               Ciao, Utente
+               Ciao, <%=us.getNome()%>
                 <ul>
                     <li><a href="user.jsp">Profilo utente</a></li>
                     <li><a href="categories.jsp">I miei ordini</a></li>
