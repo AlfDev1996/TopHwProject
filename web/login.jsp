@@ -29,13 +29,11 @@
 
 <%@include  file="header.jsp" %>
 
-<% if(request.getParameter("msgOutput")!= null && !request.getParameter("msgOutput").isEmpty()){%>
-<div class="alert alert-danger" role="alert">
-   <%=request.getParameter("msgOutput")%>
-</div>
-<%}%>
 
 <div class="container">
+
+
+
     <div class="row main">
         <!--<div class="panel-heading">
             <div class="panel-title text-center">
@@ -44,6 +42,11 @@
             </div>
         </div>-->
         <div class="main-login main-center">
+            <%if(request.getParameter("msgOutput")!=null ){%>
+            <div class="alert alert-danger" role="alert">
+                <%=request.getParameter("msgOutput")%>
+            </div>
+            <%}%>
             <form class="form-horizontal" method="post" action="ServletLogin">
 
                 <div class="form-group">
