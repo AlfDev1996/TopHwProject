@@ -24,6 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/userFunction.js"></script>
+    <%UserBean utente = (UserBean) session.getAttribute("utente");%>
 </head>
 <body>
 <%@include  file="header.jsp" %>
@@ -76,14 +77,14 @@
 
                             <div class="col-xs-6">
                                 <label for="first_name"><h4>Nome</h4></label>
-                                <input readonly="readonly" type="text" class="form-control" name="first_name" id="modnome" placeholder="" title="">
+                                <input readonly="readonly" type="text" value='<%=utente.getNome()%>' class="form-control" name="first_name" id="modnome" placeholder="" title="">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="last_name"><h4>Cognome</h4></label>
-                                <input type="text"  readonly="readonly" class="form-control" name="last_name" id="modcognome" placeholder="last name" title="enter your last name if any.">
+                                <input type="text"  readonly="readonly" class="form-control"  value='<%=utente.getCognome()%>' name="last_name" id="modcognome" placeholder="last name" title="enter your last name if any.">
                             </div>
                         </div>
 
@@ -91,14 +92,14 @@
 
                             <div class="col-xs-6">
                                 <label for="phone"><h4>E-mail</h4></label>
-                                <input type="text"  readonly="readonly" class="form-control" name="phone" id="modmail" placeholder="" title="">
+                                <input type="text"  readonly="readonly" class="form-control"  value='<%=utente.getEmail()%>' name="phone" id="modmail" placeholder="" title="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label for="mobile"><h4>Password</h4></label>
-                                <input type="password"  readonly="readonly" class="form-control" name="mobile" id="modpassword" placeholder="" title="">
+                                <input type="password"  readonly="readonly" class="form-control"  value='<%=utente.getPassword()%>' name="mobile" id="modpassword" placeholder="" title="">
                             </div>
                         </div>
 
@@ -128,7 +129,7 @@
 
                             <div class="col-xs-6">
                                 <label for="modvia"><h4>Via</h4></label>
-                                <input type="text" class="form-control" name="modvia" id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
+                                <input type="text" class="form-control"  name="modvia" id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
                             </div>
                         </div>
                         <div class="form-group">
