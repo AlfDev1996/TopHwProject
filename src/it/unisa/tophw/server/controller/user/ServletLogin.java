@@ -41,6 +41,7 @@ public class ServletLogin extends HttpServlet {
             if(msgOutput=="") {
                 HttpSession session = request.getSession();
                 session.setAttribute("utente", userToLogin);
+
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
             }else {
