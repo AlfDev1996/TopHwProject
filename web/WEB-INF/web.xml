@@ -19,4 +19,184 @@
         <servlet-name>servletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletCreateBrand</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.brand.ServletCreateBrand</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletCreateBrand</servlet-name>
+        <url-pattern>/ServletCreateBrand</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletDeleteBrand</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.brand.ServletDeleteBrand</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletDeleteBrand</servlet-name>
+        <url-pattern>/ServletDeleteBrand</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletUpdateBrand</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.brand.ServletUpdateBrand</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletUpdateBrand</servlet-name>
+        <url-pattern>/ServletUpdateBrand</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletAddProductToCart</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.cart.ServletAddProductToCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletAddProductToCart</servlet-name>
+        <url-pattern>/ServletAddProductToCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletDeleteProductFromCart</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.cart.ServletDeleteProductFromCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletDeleteProductFromCart</servlet-name>
+        <url-pattern>/ServletDeleteProductFromCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletUpdateProductInCart</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.cart.ServletUpdateProductInCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletUpdateProductInCart</servlet-name>
+        <url-pattern>/ServletUpdateProductInCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletAddProductToCatalog</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.catalog.ServletAddProductToCatalog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletAddProductToCatalog</servlet-name>
+        <url-pattern>/ServletAddProductToCatalog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletCreateCatalog</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.catalog.ServletCreateCatalog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletCreateCatalog</servlet-name>
+        <url-pattern>/ServletCreateCatalog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletDeleteCatalog</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.catalog.ServletDeleteCatalog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletDeleteCatalog</servlet-name>
+        <url-pattern>/ServletDeleteCatalog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletDeleteProductFromCatalog</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.catalog.ServletDeleteProductFromCatalog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletDeleteProductFromCatalog</servlet-name>
+        <url-pattern>/ServletDeleteProductFromCatalog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletUpdateCatalog</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.catalog.ServletUpdateCatalog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletUpdateCatalog</servlet-name>
+        <url-pattern>/ServletUpdateCatalog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletCreateOrder</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.order.ServletCreateOrder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletCreateOrder</servlet-name>
+        <url-pattern>/ServletCreateOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletDeleteOrder</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.order.ServletDeleteOrder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletDeleteOrder</servlet-name>
+        <url-pattern>/ServletDeleteOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletUpdateOrder</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.order.ServletUpdateOrder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletUpdateOrder</servlet-name>
+        <url-pattern>/ServletUpdateOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletCreateProduct</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.product.ServletCreateProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletCreateProduct</servlet-name>
+        <url-pattern>/ServletCreateProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletDeleteProduct</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.product.ServletDeleteProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletDeleteProduct</servlet-name>
+        <url-pattern>/ServletDeleteProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletUpdateProduct</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.product.ServletUpdateProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletUpdateProduct</servlet-name>
+        <url-pattern>/ServletUpdateProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletLogout</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.user.ServletLogout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletLogout</servlet-name>
+        <url-pattern>/ServletLogout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletUpdateAddressUser</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.user.ServletUpdateAddressUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletUpdateAddressUser</servlet-name>
+        <url-pattern>/ServletUpdateAddressUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletUpdateUser</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.user.ServletUpdateUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletUpdateUser</servlet-name>
+        <url-pattern>/ServletUpdateUser</url-pattern>
+    </servlet-mapping>
 </web-app>
