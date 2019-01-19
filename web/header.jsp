@@ -130,7 +130,7 @@
                     <li><a href="user.jsp">Profilo utente</a></li>
                     <li><a href="categories.jsp">I miei ordini</a></li>
 
-                    <
+
                 </ul>
             </li>
             <li>|</li>

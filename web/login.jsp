@@ -45,7 +45,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="user" id="email"  placeholder="es : Mario" required />
+                            <input type="text" class="form-control" name="email" id="email"  placeholder="es : Mario" required />
                         </div>
                     </div>
                 </div>
