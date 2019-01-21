@@ -95,7 +95,7 @@ function saveAddress(salva){
     var inputs = document.getElementsByTagName('input');
 
     for(var i = 0; i < inputs.length; i++) {
-        if(inputs[i].type.toLowerCase() == 'text' || inputs[i].type.toLowerCase() == 'password'  || inputs[i].type.toLowerCase() == 'hidden')
+        if(inputs[i].type.toLowerCase() == 'text' || inputs[i].type.toLowerCase() == 'password'  || inputs[i].type.toLowerCase() == 'hidden'  || inputs[i].type.toLowerCase() == 'number')
         {
 
             if(inputs[i].id=="modvia")
