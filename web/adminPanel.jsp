@@ -159,14 +159,14 @@
                     <div class="form-group">
                         <div class="col-xs-9" style="margin-bottom: 10px;">
                             <label for="prezzo"><h4>Marca</h4></label>
-                            <select id="selectMarca"></select>
+                            <select name ="selectMarca" id="selectMarca"></select>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-xs-9" style="margin-bottom: 10px;">
                             <label for="prezzo"><h4>Catalogo</h4></label>
-                            <select id="selectCatalog"></select>
+                            <select name="selectCatalog" id="selectCatalog"></select>
                         </div>
                     </div>
 

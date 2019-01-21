@@ -70,7 +70,7 @@ function loadCatalog(){
 
                 var option = document.createElement("option");
 
-                option.text = catalogJson[i].nome;
+                option.text = catalogJson[i].nomeCatalogo;
 
                 option.id=catalogJson[i].id_catalogo;
 
