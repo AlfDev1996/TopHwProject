@@ -1,6 +1,7 @@
 package it.unisa.tophw.server.model.management;
 
 import it.unisa.tophw.server.model.beans.BrandBean;
+import it.unisa.tophw.server.model.beans.CatalogBean;
 import it.unisa.tophw.server.model.beans.ProductBean;
 import it.unisa.tophw.server.model.connection.DriverManagerConnectionPool;
 
@@ -42,9 +43,20 @@ public class ProductDAO {
                     BrandDAO marcaDao= new BrandDAO();
                     BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
-                        prodotto.setMarca(marca);
+                        prodotto.setId_marca(marca.getIdMarca());
                     else
-                        prodotto.setMarca(null);
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
                 }
                 res.close();
                 return prodotto;
@@ -94,9 +106,20 @@ public class ProductDAO {
                     BrandDAO marcaDao= new BrandDAO();
                     BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
-                        prodotto.setMarca(marca);
+                        prodotto.setId_marca(marca.getIdMarca());
                     else
-                        prodotto.setMarca(null);
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
                 }
                 prodotti.add(prodotto);
             }
@@ -147,9 +170,20 @@ public class ProductDAO {
                     BrandDAO marcaDao= new BrandDAO();
                     BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
-                        prodotto.setMarca(marca);
+                        prodotto.setId_marca(marca.getIdMarca());
                     else
-                        prodotto.setMarca(null);
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
                 }
                 res.close();
                 return prodotto;
@@ -202,9 +236,20 @@ public class ProductDAO {
                     BrandDAO marcaDao= new BrandDAO();
                     BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
-                        prodotto.setMarca(marca);
+                        prodotto.setId_marca(marca.getIdMarca());
                     else
-                        prodotto.setMarca(null);
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
                 }
                 prodotti.add(prodotto);
             }
@@ -256,9 +301,20 @@ public class ProductDAO {
                     BrandDAO marcaDao= new BrandDAO();
                     BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
-                        prodotto.setMarca(marca);
+                        prodotto.setId_marca(marca.getIdMarca());
                     else
-                        prodotto.setMarca(null);
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
                 }
 
                 prodotti.add(prodotto);
@@ -315,9 +371,20 @@ public class ProductDAO {
                     BrandDAO marcaDao= new BrandDAO();
                     BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
-                        prodotto.setMarca(marca);
+                        prodotto.setId_marca(marca.getIdMarca());
                     else
-                        prodotto.setMarca(null);
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
                 }
                 prodotti.add(prodotto);
 
@@ -346,7 +413,7 @@ public class ProductDAO {
         {
             Connection connection = null;
             PreparedStatement preparedStatement = null;
-            String sqlInsert = "Insert into prodotto (nome,descrizione_breve,descrizione_estesa,prezzo,id_marca,quantita,perc_sconto) values (?,?,?,?,?,?,?) ";
+            String sqlInsert = "Insert into prodotto (nome,descrizione_breve,descrizione_estesa,prezzo,id_marca,quantita,perc_sconto,id_catalogo) values (?,?,?,?,?,?,?,?) ";
             int res=0;
             try {
 
@@ -357,9 +424,10 @@ public class ProductDAO {
                 preparedStatement.setString(2, prodotto.getDescrizione_breve());
                 preparedStatement.setString(3, prodotto.getDescrizione_estesa());
                 preparedStatement.setDouble(4, prodotto.getPrezzo());
-                preparedStatement.setInt(5, prodotto.getMarca().getIdMarca());
+                preparedStatement.setInt(5, prodotto.getId_marca());
                 preparedStatement.setInt(6, prodotto.getQuantita());
                 preparedStatement.setInt(7, prodotto.getPerc_sconto());
+                preparedStatement.setInt(8, prodotto.getId_catalogo());
 
                 res = preparedStatement.executeUpdate();
 
@@ -418,7 +486,7 @@ public class ProductDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int res=0;
-        String sqlUpdate = "UPDATE prodotto SET nome = ? , descrizione_breve = ? , descrizione_estesa = ? , modello = ? , prezzo = ? , id_marca = ? ,quantita = ? , perc_sconto = ? where id_prodotto = ?";
+        String sqlUpdate = "UPDATE prodotto SET nome = ? , descrizione_breve = ? , descrizione_estesa = ? , prezzo = ? , id_marca = ? ,quantita = ? , perc_sconto = ?, id_catalogo=? where id_prodotto = ?";
         try {
             connection = (Connection) DriverManagerConnectionPool.getConnection();
             preparedStatement=(PreparedStatement) connection.prepareStatement(sqlUpdate);
@@ -427,10 +495,12 @@ public class ProductDAO {
             preparedStatement.setString(2, prodotto.getDescrizione_breve());
             preparedStatement.setString(3, prodotto.getDescrizione_estesa());
             preparedStatement.setDouble(4, prodotto.getPrezzo());
-            preparedStatement.setInt(5, prodotto.getMarca().getIdMarca());
+            preparedStatement.setInt(5, prodotto.getId_marca());
             preparedStatement.setInt(6, prodotto.getQuantita());
             preparedStatement.setInt(7, prodotto.getPerc_sconto());
-            preparedStatement.setInt(11, prodotto.getId_prodotto());
+            preparedStatement.setInt(8, prodotto.getId_catalogo());
+
+            preparedStatement.setInt(9, prodotto.getId_prodotto());
 
             res = preparedStatement.executeUpdate();
 

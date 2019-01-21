@@ -92,7 +92,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
                         <hr>
-                <form method="POST" action="ServletCreateProduct">
+                <form method="POST" action="ServletCreateProduct" enctype="multipart/form-data">
                         <div class="form-group"  >
 
                             <div class="col-xs-9" style="margin-bottom: 10px;">

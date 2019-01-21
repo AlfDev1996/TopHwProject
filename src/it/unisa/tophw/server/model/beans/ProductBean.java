@@ -7,18 +7,20 @@ public class ProductBean {
     private int id_prodotto, quantita, perc_sconto;
     private String nome, descrizione_breve, descrizione_estesa, pathImg1, pathImg2, pathImg3;
     private double prezzo ;
-    private BrandBean marca;
+    private int id_marca;
+    private int id_catalogo;
 
     public ProductBean() {
         id_prodotto=0;
         nome=descrizione_breve=descrizione_estesa=pathImg1=pathImg2=pathImg3="";
         prezzo=0.0;
-        marca=new BrandBean();
+        id_marca=0;
         quantita=0;
         perc_sconto=0;
+        id_catalogo=0;
     }
 
-    public ProductBean(int id_prodotto, int quantita, String nome, String descrizione_breve, String descrizione_estesa, String pathImg1, String pathImg2, String pathImg3, double prezzo, BrandBean marca) {
+    public ProductBean(int id_prodotto, int quantita, String nome, String descrizione_breve, String descrizione_estesa, String pathImg1, String pathImg2, String pathImg3, double prezzo, int marca,int catalogBean) {
         this.id_prodotto = id_prodotto;
         this.quantita = quantita;
         this.nome = nome;
@@ -28,8 +30,11 @@ public class ProductBean {
         this.pathImg2 = pathImg2;
         this.pathImg3 = pathImg3;
         this.prezzo = prezzo;
-        this.marca = marca;
+        this.id_marca = marca;
+        this.id_catalogo=catalogBean;
     }
+
+
 
     public int getPerc_sconto() {
         return perc_sconto;
@@ -111,19 +116,28 @@ public class ProductBean {
         this.prezzo = prezzo;
     }
 
-    public BrandBean getMarca() {
-        return marca;
+    public int getId_marca() {
+        return id_marca;
     }
 
-    public void setMarca(BrandBean marca) {
-        this.marca = marca;
+    public void setId_marca(int id_marca) {
+        this.id_marca = id_marca;
+    }
+
+    public int getId_catalogo() {
+        return id_catalogo;
+    }
+
+    public void setId_catalogo(int id_catalogo) {
+        this.id_catalogo = id_catalogo;
     }
 
     @Override
     public String toString() {
-        return "ProdottoBean{" +
+        return "ProductBean{" +
                 "id_prodotto=" + id_prodotto +
                 ", quantita=" + quantita +
+                ", perc_sconto=" + perc_sconto +
                 ", nome='" + nome + '\'' +
                 ", descrizione_breve='" + descrizione_breve + '\'' +
                 ", descrizione_estesa='" + descrizione_estesa + '\'' +
@@ -131,7 +145,10 @@ public class ProductBean {
                 ", pathImg2='" + pathImg2 + '\'' +
                 ", pathImg3='" + pathImg3 + '\'' +
                 ", prezzo=" + prezzo +
-                ", marca=" + marca +
+                ", id_marca=" + id_marca +
+                ", id_catalogo=" + id_catalogo +
                 '}';
     }
+
+
 }

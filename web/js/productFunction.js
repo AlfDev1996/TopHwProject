@@ -25,7 +25,9 @@ function loadMarche(){
 
                 option.text = marcheJson[i].nome;
 
-                option.id=marcheJson[i].id_categoria;
+                option.value= marcheJson[i].id_marca;
+
+                option.id=marcheJson[i].id_marca;
 
                 select.add(option);
 
@@ -73,6 +75,8 @@ function loadCatalog(){
                 option.text = catalogJson[i].nomeCatalogo;
 
                 option.id=catalogJson[i].id_catalogo;
+
+                option.value = catalogJson[i].id_catalogo;
 
                 select.add(option);
 
