@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class AddressDAO {
 
     public synchronized boolean doSave(AddressBean addressBean) {
-        if(addressBean!=null && addressBean.getUser()!=null && addressBean.getUser().getId_utente()>0)
+        if(addressBean!=null && addressBean.getId_utente()>0)
         {
             Connection connection = null;
             PreparedStatement preparedStatement = null;
@@ -28,7 +28,7 @@ public class AddressDAO {
                 preparedStatement.setString(4, addressBean.getComune());
                 preparedStatement.setString(5, addressBean.getNazione());
                 preparedStatement.setString(6, addressBean.getProvincia());
-                preparedStatement.setInt(7, addressBean.getUser().getId_utente());
+                preparedStatement.setInt(7, addressBean.getId_utente());
                 preparedStatement.executeUpdate();
 
 
@@ -150,8 +150,7 @@ public class AddressDAO {
                     addressBean.setComune(res.getString("comune"));
                     addressBean.setNazione(res.getString("nazione"));
                     addressBean.setProvincia(res.getString("provincia"));
-                    addressBean.setUser(new UserBean());
-                    addressBean.getUser().setId_utente(res.getInt("id_utente"));
+                    addressBean.setId_utente(res.getInt("id_utente"));
 
 
                 }

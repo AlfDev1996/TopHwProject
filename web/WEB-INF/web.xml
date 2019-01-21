@@ -199,4 +199,14 @@
         <servlet-name>servletUpdateUser</servlet-name>
         <url-pattern>/ServletUpdateUser</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletBrandFindAll</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.brand.ServletBrandFindAll</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletBrandFindAll</servlet-name>
+        <url-pattern>/ServletBrandFindAll</url-pattern>
+    </servlet-mapping>
+
 </web-app>

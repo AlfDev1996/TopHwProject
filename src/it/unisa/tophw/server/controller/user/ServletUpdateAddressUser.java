@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "ServletUpdateAddressUser")
@@ -90,10 +91,13 @@ public class ServletUpdateAddressUser extends HttpServlet {
 
                 if(!error && userBean!=null && userBean.getId_utente()>0){
                     //Salvataggio e modifica Indirizzo
-                    AddressBean addressBean = null;
+                    AddressBean addressBean = new AddressBean();
                     AddressDAO addressDAO = new AddressDAO();
 
                     addressBean= addressDAO.doRetriveByUser(userBean);
+
+                    if(addressBean==null)
+                        addressBean=new AddressBean();
 
                     if(addressToUpdate!=null){
                         if(addressToUpdate.getVia()!=null && addressToUpdate.getVia().length()>0)
@@ -121,11 +125,12 @@ public class ServletUpdateAddressUser extends HttpServlet {
                             }
                             else{
                                 msgOutput="Modifica indirizzo effettuata con successo!";
+                                userBean.setIndirizzo(addressBean);
                             }
                          }
                     }else{
                         //Salvataggio Nuovo indirizzo
-                        addressBean.setUser(userBean);
+                        addressBean.setId_utente(userBean.getId_utente());
                         boolean resSave=addressDAO.doSave(addressBean);
                         if(!resSave){
                             error=true;
@@ -133,6 +138,7 @@ public class ServletUpdateAddressUser extends HttpServlet {
                         }
                         else{
                             msgOutput="Salvataggio indirizzo effettuato con successo!";
+                            userBean.setIndirizzo(addressBean);
                         }
 
                     }
@@ -140,6 +146,14 @@ public class ServletUpdateAddressUser extends HttpServlet {
                 }else{
                     error=true;
                     msgOutput="Errore, non c'è un riferimento all'utente";
+                }
+
+                if(userBean!=null && userBean.getId_utente()>0){
+                    HttpSession session = request.getSession();
+                    session.setAttribute("utente", userBean);
+                }else{
+                    HttpSession session = request.getSession();
+                    session.setAttribute("utente", null);
                 }
 
 

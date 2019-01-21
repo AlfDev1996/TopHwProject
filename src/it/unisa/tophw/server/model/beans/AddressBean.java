@@ -5,9 +5,9 @@ public class AddressBean {
     private int id_indirizzo;
     private int cap, civico;
     private String via, comune, provincia, nazione;
-    private UserBean user;
+    private int id_utente;
 
-    public AddressBean(int id_indirizzo, int cap, int civico, String via, String comune, String provincia, String nazione, UserBean user) {
+    public AddressBean(int id_indirizzo, int cap, int civico, String via, String comune, String provincia, String nazione, int id_utente) {
         this.id_indirizzo = id_indirizzo;
         this.cap = cap;
         this.civico = civico;
@@ -15,7 +15,7 @@ public class AddressBean {
         this.comune = comune;
         this.provincia = provincia;
         this.nazione = nazione;
-        this.user = user;
+        this.id_utente = id_utente;
     }
 
     public AddressBean() {
@@ -26,15 +26,15 @@ public class AddressBean {
         this.comune = "";
         this.provincia = "";
         this.nazione = "";
-        this.user=new UserBean();
+        this.id_utente=0;
     }
 
-    public UserBean getUser() {
-        return user;
+    public int getId_utente() {
+        return id_utente;
     }
 
-    public void setUser(UserBean user) {
-        this.user = user;
+    public void setId_utente(int id_utente) {
+        this.id_utente = id_utente;
     }
 
     public int getId_indirizzo() {
