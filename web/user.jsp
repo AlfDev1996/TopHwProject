@@ -115,7 +115,7 @@
                             </div>
                         </div>
 
-                    <input type="hidden" id= "id_utente" value='<%=utente.getId_utente()%>'>
+
 
 
 
@@ -181,6 +181,8 @@
                                 <input type="text" class="form-control" id="modnazione" placeholder="es: ITALIA " title="" readonly="readonly">
                             </div>
                         </div>
+
+                    <input type="hidden" id= "id_utente" value='<%=utente.getId_utente()%>'>
 
                         <div class="form-group">
                             <div class="col-xs-12">
