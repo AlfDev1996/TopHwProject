@@ -104,7 +104,7 @@
 
                             <div class="col-xs-6">
                                 <label for="phone"><h4>E-mail</h4></label>
-                                <input type="text"  readonly="readonly" class="form-control"  value='<%=utente.getEmail()%>' name="phone" id="modemail" placeholder="" title="">
+                                <input type="text"   disabled class="form-control"  value='<%=utente.getEmail()%>' name="phone" id="modemail" placeholder="" title="">
                             </div>
                         </div>
 
