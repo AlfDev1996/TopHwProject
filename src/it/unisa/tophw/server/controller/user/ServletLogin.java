@@ -18,13 +18,15 @@ public class ServletLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String msgOutput = "";
+        boolean error = false;
         UserBean utenteSession  = (UserBean) request.getSession().getAttribute("utente");
+        String emailParameter = request.getParameter("email");
+        String passwordParameter= request.getParameter("pass");
 
         if(utenteSession==null){
-            String emailParameter = request.getParameter("email");
             if(emailParameter==null || emailParameter.isEmpty())
                 emailParameter="";
-            String passwordParameter= request.getParameter("pass");
+
             if(passwordParameter==null || passwordParameter.isEmpty())
                 passwordParameter="";
 
@@ -34,30 +36,35 @@ public class ServletLogin extends HttpServlet {
             userToLogin = userDAO.doRetriveByEmail(emailParameter);
             if(userToLogin==null) {
                 msgOutput = "Email non presente";
+                error=true;
             }else {
-                if(!userToLogin.getPassword().equals(passwordParameter))
+                if(!userToLogin.getPassword().equals(passwordParameter)){
                     msgOutput="Password errata";
-            }
+                    error=true;
+                }
 
-            if(msgOutput=="") {
-                System.out.println("Login effettuato con successo");
+            }
+            if(!error) {
+                msgOutput="Login effettuato con successo";
                 HttpSession session = request.getSession();
                 session.setAttribute("utente", userToLogin);
-
-                msgOutput="ok";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-                dispatcher.forward(request, response);
             }else {
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp?msgOutput="+msgOutput);
-                dispatcher.forward(request, response);
+                error=true;
+                msgOutput="Login incorretta";
             }
         }else{
-
-            //Entra con la sessione
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-            dispatcher.forward(request, response);
+            if(  ( emailParameter==null || emailParameter.isEmpty() ) || ( passwordParameter==null || passwordParameter.isEmpty() ) )
+                ;
+            else{
+                HttpSession session = request.getSession();
+                if(session!=null)
+                    session.invalidate();
+            }
         }
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp?msgOutput="+msgOutput);
+       if(error)
+           dispatcher = getServletContext().getRequestDispatcher("/login.jsp?msgOutput="+msgOutput);
+       dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
