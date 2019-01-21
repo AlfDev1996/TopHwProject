@@ -64,7 +64,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="pass" id="pass"  placeholder="es : Rossi" required/>
+                            <input type="password" class="form-control" name="pass" id="pass"  placeholder="es : Rossi" required/>
                         </div>
                     </div>
                 </div>
