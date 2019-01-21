@@ -129,7 +129,9 @@
                 <ul>
                     <li><a href="user.jsp">Profilo utente</a></li>
                     <li><a href="categories.jsp">I miei ordini</a></li>
-
+                    <%if(us.getRuolo().equalsIgnoreCase("Admin")){%>
+                    <li><a href="adminPanel.jsp">Pannello Admin</a></li>
+                    <%}%>
 
                 </ul>
             </li>

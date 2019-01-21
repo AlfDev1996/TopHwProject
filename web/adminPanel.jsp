@@ -8,87 +8,253 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="js/functionPanelAdmin.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/panelAdminCss.css">
+    <title>Pannello Amministratore</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/userFunction.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sublime project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
 </head>
 <body>
-<div>
-<%@include  file="header.jsp" %>
+<%UserBean utente = new UserBean();
 
-<div class="container" style="margin-left: 0px;">
-    <div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active text-center">
-                        <h4 class="glyphicon glyphicon-plane"></h4><br/>Flight
-                    </a>
-                    <a href="#" class="list-group-item text-center">
-                        <h4 class="glyphicon glyphicon-road"></h4><br/>Train
-                    </a>
-                    <a href="#" class="list-group-item text-center">
-                        <h4 class="glyphicon glyphicon-home"></h4><br/>Hotel
-                    </a>
-                    <a href="#" class="list-group-item text-center">
-                        <h4 class="glyphicon glyphicon-cutlery"></h4><br/>Restaurant
-                    </a>
-                    <a href="#" class="list-group-item text-center">
-                        <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Credit Card
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
-                <!-- flight section -->
-                <div class="bhoechie-tab-content active">
-                    <center>
-                        <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
-                    </center>
-                </div>
-                <!-- train section -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
-                    </center>
-                </div>
+    if( session.getAttribute("utente")!= null)
+        utente = (UserBean) session.getAttribute("utente");
+    else
 
-                <!-- hotel search -->
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
-                    </center>
-                </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a">Restaurant Diirectory</h3>
-                    </center>
-                </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                        <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
-                        <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                        <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
-                    </center>
-                </div>
-            </div>
+    {String redirectURL = "/index.jsp";
+        response.sendRedirect(request.getContextPath() + redirectURL);
+    }
+
+%>
+
+<div  class="super_container">
+    <%@include  file="header.jsp" %>
+
+    <hr>
+    <div class="container bootstrap snippet" style="margin-top: 140px;">
+        <div class="row">
+            <div class="col-sm-10"><h1>Pannello Admin : <%=utente.getNome()%></h1></div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-sm-3"><!--left col-->
+
+
+                <div class="text-center">
+                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+
+                </div></hr><br>
+
+
+
+
+
+
+            </div><!--/col-3-->
+            <div class="col-sm-9" style="margin-bottom: 5%;">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab1">Inserisci Articolo</a></li>
+                    <li><a data-toggle="tab" href="#tab2">Rimuovi Articolo</a></li>
+                    <li><a data-toggle="tab" href="#tab3">Inserisci Catalogo</a></li>
+                    <li><a data-toggle="tab" href="#tab4">Rimuovi Catalogo</a></li>
+                    <li><a data-toggle="tab" href="#tab5">Modifica Catalogo</a></li>
+                    <li><a data-toggle="tab" href="#tab6">Visualizza Utenti</a></li>
+
+
+                </ul>
+
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <hr>
+
+                        <div class="form-group"  >
+
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label for="product_name"><h4>Nome Prodotto</h4></label>
+                                <input  type="text"  class="form-control" name="product_name" id="product_name" placeholder="" title="">
+                            </div>
+                        </div>
+                        <div class="form-group" >
+
+                            <div class="col-xs-9" style="margin-bottom: 10px;" >
+                                <label for="desc_breve"><h4>Descrizione Breve</h4></label>
+                                <input type="text"  class="form-control"  name="desc_breve" id="desc_breve" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-9" style="margin-bottom: 10px;" >
+                                <label for="desc_estesa"><h4>Descrizione Estesa</h4></label>
+                                <textarea class="form-control"  name="desc_estesa" id="desc_estesa"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group" >
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label for="img1"><h4>Immagine 1</h4></label>
+                                <input type="file"  class="form-control-file"  name="img1" id="img1">
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label for="img2"><h4>Immagine 2</h4></label>
+                                <input type="file"   class="form-control-file"   name="img2" id="img2">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label for="img3"><h4>Immagine 3</h4></label>
+                                <input type="file"  class="form-control-file"   name="img3" id="img3">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label for="quantita"><h4>Quantità</h4></label>
+                                <input type="number" min="0" class="form-control"  name="quantita" id="quantita">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label for="prezzo"><h4>Prezzo</h4></label>
+                                <input type="number" min="0" class="form-control"  name="prezzo" id="prezzo">
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+
+                                <input type="button" class="btn btn-success btn-lg" name ="saveButton" value="Inserisci Articolo" id="save" onclick="">
+
+
+                            </div>
+                        </div>
+
+
+                        <hr>
+
+                    </div><!--/tab-pane-->
+                    <div class="tab-pane" id="tab2">
+
+                        <h2></h2>
+
+                        <hr>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="modvia"><h4>Via</h4></label>
+                                <input type="text" class="form-control"  name="modvia" id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="modcivico"><h4>civico</h4></label>
+                                <input type="number" class="form-control" name="last_name" id="modcivico" placeholder="es: 10" readonly="readonly" title="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="modcomune"><h4>Comune</h4></label>
+                                <input type="text" class="form-control" name="phone" id="modcomune" placeholder="es: Somma Vesuviana" title="" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="modprovincia"><h4>Provincia</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="modprovincia" placeholder="Napoli" title="" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="modcap"><h4>CAP</h4></label>
+                                <input type="number" class="form-control" name="email" id="modcap" placeholder="es: 80049" title="" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="modnazione"><h4>Nazione</h4></label>
+                                <input type="text" class="form-control" id="modnazione" placeholder="es: ITALIA " title="" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <input type="button" class="btn btn-warning" value="Modifica" id="modIndirizzo" onclick="enableMod(this)">
+                                <input type="button" class="btn btn-success" value="Salva" name ="saveButton" id="saveIndirizzo" onclick="saveAddress(this)" style="display:none;">
+                            </div>
+                        </div>
+
+
+                    </div><!--/tab-pane-->
+                    <
+
+                </div><!--/tab-pane-->
+            </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+
+    <%@include  file="footer.jsp" %>
 </div>
-</div>
-<div class="footer_overlay"></div>
-<%@include  file="footer.jsp" %>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/custom.js"></script>
+
 </body>
 </html>
+

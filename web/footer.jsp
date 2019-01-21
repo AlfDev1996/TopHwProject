@@ -16,9 +16,10 @@
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
 </head>
 <body>
-
+<div class="footer_overlay"></div>
 <footer class="footer">
     <div class="footer_background" style="background-image:url(images/footer.jpg)"></div>
     <div class="container">
