@@ -50,7 +50,7 @@ function save(salva){
 
 
     }
-    console.log(jsonObj);
+
 
     var xh= new XMLHttpRequest;
     xh.onreadystatechange=function(){
@@ -65,7 +65,7 @@ function save(salva){
 
     xh.open("GET","ServletUpdateUser?utenteJs="+encodeURIComponent(x),true);
     xh.send();
-
+    console.log(jsonObj);
     for(var i = 0; i < inputs.length; i++) {
         if(inputs[i].type.toLowerCase() == 'text'|| inputs[i].type.toLowerCase() == 'password' || inputs[i].type.toLowerCase() == 'number') {
             inputs[i].setAttribute("readonly","readonly");

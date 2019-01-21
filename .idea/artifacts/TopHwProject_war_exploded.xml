@@ -10,6 +10,7 @@
           <element id="library" level="project" name="Java EE 6-Java EE 6" />
           <element id="library" level="project" name="gson-2.6.2" />
           <element id="library" level="project" name="mysql-connector-java-5.1.42-bin" />
+          <element id="library" level="project" name="json-simple-1.1" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="TopHwProject/web/Web" />

@@ -1,11 +1,14 @@
 package it.unisa.tophw.server.controller.user;
 
 
+
 import it.unisa.tophw.server.model.beans.UserBean;
 import it.unisa.tophw.server.model.management.UserDAO;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +16,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
 
 @WebServlet(name = "ServletUpdateUser")
 public class ServletUpdateUser extends HttpServlet {
@@ -26,6 +31,7 @@ public class ServletUpdateUser extends HttpServlet {
         String msgOutput="";
         boolean error=false;
         try {
+
             JSONObject utenteJs= (JSONObject) parser.parse(request.getParameter("utenteJs"));
             if(utenteJs!=null){
                 String email = utenteJs.get("email")!=null ? (String) utenteJs.get("email") : "";
@@ -47,8 +53,12 @@ public class ServletUpdateUser extends HttpServlet {
                         boolean res=false;
                         if(utente!=null && utente.getId_utente()>0)
                             res = utenteDAO.doUpdate(utente);
-                        if(res)
-                            msgOutput="ok";
+                        if(res) {
+                            msgOutput = "ok";
+                            HttpSession session = request.getSession();
+                            session.setAttribute("utente", utente);
+                        }
+
                         else
                             msgOutput="Non e' stato possibile modificare i dati";
 
@@ -65,6 +75,9 @@ public class ServletUpdateUser extends HttpServlet {
                 //Json nullo
                 msgOutput="Dati inconsistenti!";
             }
+
+
+
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/user.jsp?msgOutput="+msgOutput);
             dispatcher.forward(request, response);
