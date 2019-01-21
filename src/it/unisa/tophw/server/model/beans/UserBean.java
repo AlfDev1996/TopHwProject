@@ -4,13 +4,15 @@ public class UserBean {
 
     private int id_utente;
     private String nome,cognome,email,password,ruolo,nazione;
+    private AddressBean indirizzo;
 
     public UserBean() {
         id_utente=0;
         nome=cognome=email=password=ruolo=nazione="";
+        indirizzo=new AddressBean();
     }
 
-    public UserBean(int id_utente, String nome, String cognome, String email, String password, String ruolo, String nazione) {
+    public UserBean(int id_utente, String nome, String cognome, String email, String password, String ruolo, String nazione, AddressBean indirizzo) {
         this.id_utente = id_utente;
         this.nome = nome;
         this.cognome = cognome;
@@ -18,6 +20,15 @@ public class UserBean {
         this.password = password;
         this.ruolo = ruolo;
         this.nazione = nazione;
+        this.indirizzo=indirizzo;
+    }
+
+    public AddressBean getIndirizzo() {
+        return indirizzo;
+    }
+
+    public void setIndirizzo(AddressBean indirizzo) {
+        this.indirizzo = indirizzo;
     }
 
     public int getId_utente() {

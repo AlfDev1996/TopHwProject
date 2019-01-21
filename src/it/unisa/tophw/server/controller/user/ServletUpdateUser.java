@@ -43,7 +43,7 @@ public class ServletUpdateUser extends HttpServlet {
                     if(utente!=null){
                         String nome = utenteJs.get("nome")!=null && utenteJs.get("nome").toString().length()>0 ? (String) utenteJs.get("nome") : null;
                         String cognome = utenteJs.get("cognome")!=null && utenteJs.get("cognome").toString().length()>0 ? (String) utenteJs.get("cognome") : null;
-                        utente.setEmail(email);
+                        //utente.setEmail(email);
                         utente.setPassword(password);
                         if(nome!=null)
                             utente.setNome(nome);

@@ -26,8 +26,7 @@ public class ServletRegister extends HttpServlet {
         String nome=request.getParameter("name")!=null ? request.getParameter("name") : "" ;
         String cognome=request.getParameter("cognome")!=null ? request.getParameter("cognome") : "";
         String pass= request.getParameter("password")!=null ? request.getParameter("password") : "";
-        //String dominio = email.substring(email.indexOf("@"),email.length());
-        String dominio ="";
+        String dominio = email.substring(email.indexOf("@"),email.length());
         UserBean user = new UserBean();
         if(!email.isEmpty() && !nome.isEmpty() && !cognome.isEmpty() && !pass.isEmpty() && !error){
             user.setCognome(cognome);

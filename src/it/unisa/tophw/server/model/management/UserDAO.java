@@ -135,7 +135,7 @@ public class UserDAO {
         return utenti;
     }
 
-    public synchronized void doSave(UserBean utente) {
+    public synchronized boolean doSave(UserBean utente) {
         if(utente!=null)
         {
             Connection connection = null;
@@ -153,6 +153,8 @@ public class UserDAO {
                 preparedStatement.setString(5, utente.getRuolo());
                 preparedStatement.executeUpdate();
 
+
+
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -162,10 +164,14 @@ public class UserDAO {
                     DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block
+
                     e.printStackTrace();
+                    return false;
                 }
             }
+            return true;
         }
+        return false;
 
     }
 
