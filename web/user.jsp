@@ -115,6 +115,7 @@
                             </div>
                         </div>
 
+                    <input type="hidden" id= "id_utente" value='<%=utente.getId_utente()%>'>
 
 
 

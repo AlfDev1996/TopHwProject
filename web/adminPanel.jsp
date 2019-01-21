@@ -91,19 +91,19 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
                         <hr>
-
+                <form method="POST" action="ServletCreateProduct">
                         <div class="form-group"  >
 
                             <div class="col-xs-9" style="margin-bottom: 10px;">
                                 <label for="product_name"><h4>Nome Prodotto</h4></label>
-                                <input  type="text"  class="form-control" name="product_name" id="product_name" placeholder="" title="">
+                                <input  type="text"  class="form-control" name="Nome_Prodotto" id="product_name" placeholder="" title="">
                             </div>
                         </div>
                         <div class="form-group" >
 
                             <div class="col-xs-9" style="margin-bottom: 10px;" >
                                 <label for="desc_breve"><h4>Descrizione Breve</h4></label>
-                                <input type="text"  class="form-control"  name="desc_breve" id="desc_breve" >
+                                <input type="text"  class="form-control"  name="Descrizione_Breve" id="desc_breve" >
                             </div>
                         </div>
 
@@ -111,7 +111,7 @@
 
                             <div class="col-xs-9" style="margin-bottom: 10px;" >
                                 <label for="desc_estesa"><h4>Descrizione Estesa</h4></label>
-                                <textarea class="form-control"  name="desc_estesa" id="desc_estesa"></textarea>
+                                <textarea class="form-control"  name="Descrizione" id="desc_estesa"></textarea>
                             </div>
                         </div>
 
@@ -149,11 +149,18 @@
                         <div class="form-group">
                             <div class="col-xs-9" style="margin-bottom: 10px;">
                                 <label for="prezzo"><h4>Prezzo</h4></label>
-                                <input type="number" min="0" class="form-control"  name="prezzo" id="prezzo">
+                                <input type="number" min="0" class="form-control"  name="Prezzo" id="prezzo">
                             </div>
                         </div>
 
 
+
+                    <div class="form-group">
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <label for="prezzo"><h4>Marca</h4></label>
+                            <select id="selectMarca"></select>
+                        </div>
+                    </div>
 
 
 
@@ -161,13 +168,13 @@
                             <div class="col-xs-12">
                                 <br>
 
-                                <input type="button" class="btn btn-success btn-lg" name ="saveButton" value="Inserisci Articolo" id="save" onclick="">
+                                <input type="submit" class="btn btn-success btn-lg" name ="saveButton" value="Inserisci Articolo" id="save" onclick="">
 
 
                             </div>
                         </div>
 
-
+                </form>
                         <hr>
 
                     </div><!--/tab-pane-->

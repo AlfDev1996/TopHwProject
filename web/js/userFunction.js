@@ -88,13 +88,14 @@ function saveAddress(salva){
         "comune" : "",
         "provincia" : "",
         "cap": 0,
-        "nazione" : ""
+        "nazione" : "",
+        "id_utente":0
     };
 
     var inputs = document.getElementsByTagName('input');
 
     for(var i = 0; i < inputs.length; i++) {
-        if(inputs[i].type.toLowerCase() == 'text' || inputs[i].type.toLowerCase() == 'password')
+        if(inputs[i].type.toLowerCase() == 'text' || inputs[i].type.toLowerCase() == 'password'  || inputs[i].type.toLowerCase() == 'hidden')
         {
 
             if(inputs[i].id=="modvia")
@@ -109,11 +110,10 @@ function saveAddress(salva){
                 jsonObj.cap=inputs[i].value;
             if(inputs[i].id=="modnazione")
                 jsonObj.nazione=inputs[i].value;
+            if(inputs[i].id=="id_utente")
+                jsonObj.id_utente=inputs[i].value;
 
         }
-
-
-
 
     }
     console.log(jsonObj);
@@ -129,7 +129,7 @@ function saveAddress(salva){
     }
     var x  = JSON.stringify(jsonObj);
 
-    xh.open("GET","ServletUpdateAddress?addressJs="+encodeURIComponent(x),true);
+    xh.open("GET","ServletUpdateAddressUser?addressJs="+encodeURIComponent(x),true);
     xh.send();
 
     for(var i = 0; i < inputs.length; i++) {
