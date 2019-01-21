@@ -209,4 +209,13 @@
         <url-pattern>/ServletBrandFindAll</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servletCatalogFindAll</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.catalog.ServletCatalogFindAll</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletCatalogFindAll</servlet-name>
+        <url-pattern>/ServletCatalogFindAll</url-pattern>
+    </servlet-mapping>
+
 </web-app>
