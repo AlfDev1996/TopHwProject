@@ -1,9 +1,6 @@
 function loadMarche(){
 
 
-
-
-
     var xh= new XMLHttpRequest;
 
     xh.onreadystatechange=function(){
@@ -24,14 +21,6 @@ function loadMarche(){
 
             {
 
-
-
-
-
-
-
-
-
                 var option = document.createElement("option");
 
                 option.text = marcheJson[i].nome;
@@ -39,9 +28,6 @@ function loadMarche(){
                 option.id=marcheJson[i].id_categoria;
 
                 select.add(option);
-
-
-
 
 
             }
@@ -55,7 +41,51 @@ function loadMarche(){
     xh.send();
 
 
+}
 
+
+
+function loadCatalog(){
+
+
+    var xh= new XMLHttpRequest;
+
+    xh.onreadystatechange=function(){
+
+
+
+        if(xh.readyState==4 && xh.status==200){
+
+            var response=xh.responseText;
+
+            var catalogJson= JSON.parse(response);
+
+            var select = document.getElementById("selectCatalog");
+
+
+
+            for(var i=0; i<catalogJson.length; ++i)
+
+            {
+
+                var option = document.createElement("option");
+
+                option.text = catalogJson[i].nome;
+
+                option.id=catalogJson[i].id_catalogo;
+
+                select.add(option);
+
+
+            }
+
+        }
+
+    }
+
+    xh.open("GET","ServletCatalogFindAll",true);
+
+    xh.send();
 
 
 }

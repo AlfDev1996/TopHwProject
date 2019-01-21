@@ -40,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
 </head>
-<body onload="loadMarche()">
+<body onload="loadMarche(); loadCatalog()">
 <%UserBean utente = new UserBean();
 
     if( session.getAttribute("utente")!= null)
@@ -160,6 +160,13 @@
                         <div class="col-xs-9" style="margin-bottom: 10px;">
                             <label for="prezzo"><h4>Marca</h4></label>
                             <select id="selectMarca"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <label for="prezzo"><h4>Catalogo</h4></label>
+                            <select id="selectCatalog"></select>
                         </div>
                     </div>
 
