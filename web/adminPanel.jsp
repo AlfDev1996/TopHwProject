@@ -246,9 +246,138 @@
 
 
                     </div><!--/tab-pane-->
-                    <
+
+
+                    <div class="tab-pane" id="tab3">
+
+                    <h2></h2>
+
+                    <hr>
+                    <form method="POST" action="ServletCreateCatalog">
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="modvia"><h4>Nome catalogo</h4></label>
+                            <input type="text" class="form-control"  name="namecatalogo" id="namecatalogo" placeholder="es : Catalogo Monitor">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="desc_catalogo"><h4>Descrizione Catalogo</h4></label>
+                           <textarea id="desc_catalogo" name="desc_catalogo"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="modcomune"><h4>Sconto</h4></label>
+                            <input type="number" class="form-control" min ="0" max="100" name="scontocatalogo" id="scontocatalogo" placeholder="es:10" >
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+
+                            <input type="button" class="btn btn-success btn-lg" value="Inserisci Catalogo" name ="saveCatalog" id="saveCatalog">
+                        </div>
+                    </div>
+                    </form>
+
+                </div>
+
+
+
+
+                    <div class="tab-pane" id="tab4">
+
+                        <h2></h2>
+
+                        <hr>
+                        <form method="POST" action="ServletDeleteCatalog">
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+                                    <label ><h4>Catalogo</h4></label>
+                                    <select name="selectCatalog" ></select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+
+                                    <input type="button" class="btn btn-danger btn-lg" value="Rimuovi Catalogo" name ="deleteCatalog" id="deleteCatalog">
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+
+
+                    <div class="tab-pane" id="tab5">
+
+                        <h2></h2>
+
+                        <hr>
+                        <form method="POST" action="ServletUpdateCatalog">
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+                                    <label ><h4>Catalogo</h4></label>
+                                    <select name="selectCatalog" onchange="updateField(this)"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+                                    <label ><h4>Nome Catalogo</h4></label>
+                                    <input type="text" id="mod_namecatalog" name="mod_namecatalog" >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+
+                                    <textarea id="mod_descrizionecatalogo" name="mod_descrizionecatalogo" >Descrizione Catalogo</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label ><h4>Sconto</h4></label>
+                                    <input type="number" class="form-control" min ="0" max="100" name="modscontocatalogo" id="modscontocatalogo" placeholder="es:10" >
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+
+                                    <input type="button" class="btn btn-warning btn-lg" value="Applica Modifiche" name ="updateCatalog" id="updateCatalog">
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
 
                 </div><!--/tab-pane-->
+
+
+
+
+
+
             </div><!--/tab-content-->
 
         </div><!--/col-9-->

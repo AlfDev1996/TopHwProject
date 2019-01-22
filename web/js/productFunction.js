@@ -62,27 +62,27 @@ function loadCatalog(){
 
             var catalogJson= JSON.parse(response);
 
-            var select = document.getElementById("selectCatalog");
+            var select = document.getElementsByName("selectCatalog");
+
+            for(var j=0; j<select.length;++j) {
+
+                for (var i = 0; i < catalogJson.length; ++i) {
+
+                    var option = document.createElement("option");
+
+                    option.text = catalogJson[i].nomeCatalogo;
+
+                    option.id = catalogJson[i].id_catalogo;
+
+                    option.value = catalogJson[i].id_catalogo;
+
+                    console.log(catalogJson);
+                    option.setAttribute("title", catalogJson[i].sconto );
+                    select[j].add(option);
 
 
-
-            for(var i=0; i<catalogJson.length; ++i)
-
-            {
-
-                var option = document.createElement("option");
-
-                option.text = catalogJson[i].nomeCatalogo;
-
-                option.id=catalogJson[i].id_catalogo;
-
-                option.value = catalogJson[i].id_catalogo;
-
-                select.add(option);
-
-
+                }
             }
-
         }
 
     }
@@ -91,5 +91,14 @@ function loadCatalog(){
 
     xh.send();
 
+
+}
+
+
+function updateField(object){
+    var currentCatalog= object.options[object.selectedIndex].text;
+    var n_catalog= document.getElementById("mod_namecatalog");
+    n_catalog.setAttribute("value",""+currentCatalog);
+    console.log(object.options[object.selectedIndex].title);
 
 }

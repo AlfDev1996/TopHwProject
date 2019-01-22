@@ -142,14 +142,14 @@
 
                             <div class="col-xs-6">
                                 <label for="modvia"><h4>Via</h4></label>
-                                <input type="text" class="form-control"  name="modvia" id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
+                                <input type="text" class="form-control"  name="modvia" value ='<%=utente.getIndirizzo().getVia()%>' id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="modcivico"><h4>civico</h4></label>
-                                <input type="number" class="form-control" name="last_name" id="modcivico" placeholder="es: 10" readonly="readonly" title="">
+                                <input type="number" class="form-control" name="last_name" value ='<%=utente.getIndirizzo().getCivico()%>' id="modcivico" placeholder="es: 10" readonly="readonly" title="">
                             </div>
                         </div>
 
@@ -157,28 +157,28 @@
 
                             <div class="col-xs-6">
                                 <label for="modcomune"><h4>Comune</h4></label>
-                                <input type="text" class="form-control" name="phone" id="modcomune" placeholder="es: Somma Vesuviana" title="" readonly="readonly">
+                                <input type="text" class="form-control" name="phone" value ='<%=utente.getIndirizzo().getComune()%>' id="modcomune" placeholder="es: Somma Vesuviana" title="" readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label for="modprovincia"><h4>Provincia</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="modprovincia" placeholder="Napoli" title="" readonly="readonly">
+                                <input type="text" class="form-control" name="mobile" value ='<%=utente.getIndirizzo().getProvincia()%>' id="modprovincia" placeholder="Napoli" title="" readonly="readonly">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="modcap"><h4>CAP</h4></label>
-                                <input type="number" class="form-control" name="email" id="modcap" placeholder="es: 80049" title="" readonly="readonly">
+                                <input type="number" class="form-control" name="email" id="modcap" value ='<%=utente.getIndirizzo().getCap()%>' placeholder="es: 80049" title="" readonly="readonly">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="modnazione"><h4>Nazione</h4></label>
-                                <input type="text" class="form-control" id="modnazione" placeholder="es: ITALIA " title="" readonly="readonly">
+                                <input type="text" class="form-control" id="modnazione" value ='<%=utente.getIndirizzo().getNazione()%>' placeholder="es: ITALIA " title="" readonly="readonly">
                             </div>
                         </div>
 
@@ -194,7 +194,7 @@
 
 
                 </div><!--/tab-pane-->
-                <
+
 
             </div><!--/tab-pane-->
         </div><!--/tab-content-->
