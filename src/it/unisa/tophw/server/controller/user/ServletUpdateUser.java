@@ -2,7 +2,9 @@ package it.unisa.tophw.server.controller.user;
 
 
 
+import it.unisa.tophw.server.model.beans.AddressBean;
 import it.unisa.tophw.server.model.beans.UserBean;
+import it.unisa.tophw.server.model.management.AddressDAO;
 import it.unisa.tophw.server.model.management.UserDAO;
 
 import org.json.simple.JSONObject;
@@ -39,7 +41,7 @@ public class ServletUpdateUser extends HttpServlet {
                 if(email.length()>0 && password.length()>0){
                     UserBean utente = new UserBean();
                     UserDAO utenteDAO=new UserDAO();
-                    utente = utenteDAO.doRetriveByEmailAndPassword(email,password);
+                    utente = utenteDAO.doRetriveByEmail(email);
                     if(utente!=null){
                         String nome = utenteJs.get("nome")!=null && utenteJs.get("nome").toString().length()>0 ? (String) utenteJs.get("nome") : null;
                         String cognome = utenteJs.get("cognome")!=null && utenteJs.get("cognome").toString().length()>0 ? (String) utenteJs.get("cognome") : null;
@@ -55,6 +57,19 @@ public class ServletUpdateUser extends HttpServlet {
                             res = utenteDAO.doUpdate(utente);
                         if(res) {
                             msgOutput = "ok";
+
+                            //Inizializzo l'indirizzo se esiste
+                            if(utente.getId_utente()>0){
+                                AddressBean addressBean=null;
+                                AddressDAO addressDAO = new AddressDAO();
+
+                                addressBean = addressDAO.doRetriveByUser(utente);
+                                if(addressBean!=null){
+                                    utente.setIndirizzo(addressBean);
+                                }
+                            }
+
+
                             HttpSession session = request.getSession();
                             session.setAttribute("utente", utente);
                         }
@@ -77,12 +92,11 @@ public class ServletUpdateUser extends HttpServlet {
             }
 
 
-
-
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/user.jsp?msgOutput="+msgOutput);
-            dispatcher.forward(request, response);
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/user.jsp?msgOutput="+msgOutput);
+        dispatcher.forward(request, response);
     }
 }

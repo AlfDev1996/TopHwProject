@@ -1,6 +1,8 @@
 package it.unisa.tophw.server.controller.user;
 
+import it.unisa.tophw.server.model.beans.AddressBean;
 import it.unisa.tophw.server.model.beans.UserBean;
+import it.unisa.tophw.server.model.management.AddressDAO;
 import it.unisa.tophw.server.model.management.UserDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -46,6 +48,18 @@ public class ServletLogin extends HttpServlet {
             }
             if(!error) {
                 msgOutput="Login effettuato con successo";
+
+                //Inizializzo l'indirizzo se esiste
+                if(userToLogin.getId_utente()>0){
+                    AddressBean addressBean=null;
+                    AddressDAO addressDAO = new AddressDAO();
+
+                    addressBean = addressDAO.doRetriveByUser(userToLogin);
+                    if(addressBean!=null){
+                        userToLogin.setIndirizzo(addressBean);
+                    }
+                }
+
                 HttpSession session = request.getSession();
                 session.setAttribute("utente", userToLogin);
             }else {

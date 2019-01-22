@@ -413,7 +413,7 @@ public class ProductDAO {
         {
             Connection connection = null;
             PreparedStatement preparedStatement = null;
-            String sqlInsert = "Insert into prodotto (nome,descrizione_breve,descrizione_estesa,prezzo,id_marca,quantita,perc_sconto,id_catalogo) values (?,?,?,?,?,?,?,?) ";
+            String sqlInsert = "Insert into prodotto (nome,descrizione_breve,descrizione_estesa,prezzo,id_marca,quantita,perc_sconto,id_catalogo,path_img1,path_img2,path_img3) values (?,?,?,?,?,?,?,?,?,?,?) ";
             int res=0;
             try {
 
@@ -428,6 +428,10 @@ public class ProductDAO {
                 preparedStatement.setInt(6, prodotto.getQuantita());
                 preparedStatement.setInt(7, prodotto.getPerc_sconto());
                 preparedStatement.setInt(8, prodotto.getId_catalogo());
+                preparedStatement.setString(9, prodotto.getPathImg1());
+                preparedStatement.setString(10, prodotto.getPathImg2());
+                preparedStatement.setString(11, prodotto.getPathImg3());
+
 
                 res = preparedStatement.executeUpdate();
 
@@ -486,7 +490,7 @@ public class ProductDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int res=0;
-        String sqlUpdate = "UPDATE prodotto SET nome = ? , descrizione_breve = ? , descrizione_estesa = ? , prezzo = ? , id_marca = ? ,quantita = ? , perc_sconto = ?, id_catalogo=? where id_prodotto = ?";
+        String sqlUpdate = "UPDATE prodotto SET nome = ? , descrizione_breve = ? , descrizione_estesa = ? , prezzo = ? , id_marca = ? ,quantita = ? , perc_sconto = ?, id_catalogo=? , path_img1 = ?, path_img2= ?,path_img3= ? where id_prodotto = ?";
         try {
             connection = (Connection) DriverManagerConnectionPool.getConnection();
             preparedStatement=(PreparedStatement) connection.prepareStatement(sqlUpdate);
@@ -499,8 +503,11 @@ public class ProductDAO {
             preparedStatement.setInt(6, prodotto.getQuantita());
             preparedStatement.setInt(7, prodotto.getPerc_sconto());
             preparedStatement.setInt(8, prodotto.getId_catalogo());
+            preparedStatement.setString(9, prodotto.getPathImg1());
+            preparedStatement.setString(10, prodotto.getPathImg2());
+            preparedStatement.setString(11, prodotto.getPathImg3());
 
-            preparedStatement.setInt(9, prodotto.getId_prodotto());
+            preparedStatement.setInt(12, prodotto.getId_prodotto());
 
             res = preparedStatement.executeUpdate();
 
