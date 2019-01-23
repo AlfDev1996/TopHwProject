@@ -84,7 +84,7 @@ public class BrandDAO {
 
 
 
-    public synchronized void doSave(BrandBean marca) {
+    public synchronized boolean doSave(BrandBean marca) {
 
         if(marca!=null&& marca.getNome()!=null && !marca.getNome().equals("")) {
             Connection connection=null;
@@ -99,10 +99,11 @@ public class BrandDAO {
                 preparedStatement.setString(1, marca.getNome());
                 preparedStatement.executeUpdate();
 
-
+                return true;
 
             }catch(SQLException e) {
                 e.printStackTrace();
+                return false;
 
             }finally{
                 try {
@@ -114,7 +115,7 @@ public class BrandDAO {
                 }
             }
         }
-
+        return false;
     }
 
 
