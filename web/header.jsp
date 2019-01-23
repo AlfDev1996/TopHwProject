@@ -45,6 +45,7 @@
                                 <li class="hassubs">
                                     <a href="categories.jsp">Categorie</a>
                                     <ul>
+                                        <li><a href="ServletProductFindAll?filtro=aaa">ProvaProd</a></li>
                                         <li><a href="categories.jsp">Processori</a></li>
                                         <li><a href="categories.jsp">Monitor</a></li>
                                         <li><a href="categories.jsp">Schede video</a></li>

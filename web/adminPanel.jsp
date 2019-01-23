@@ -13,6 +13,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!------ Include the above in your HEAD tag ---------->
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -40,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
 </head>
-<body onload="loadMarche(); loadCatalog(); loadUsers()">
+<body onload="loadMarche(); loadCatalog();">
 <%UserBean utente = new UserBean();
 
     if( session.getAttribute("utente")!= null)
@@ -84,6 +85,8 @@
                     <li><a data-toggle="tab" href="#tab4">Rimuovi Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab5">Modifica Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab6">Visualizza Utenti</a></li>
+                    <li><a data-toggle="tab" href="#tab7">Inserisci Marca</a></li>
+                    <li><a data-toggle="tab" href="#tab8">Rimuovi Marca</a></li>
 
 
                 </ul>
@@ -382,59 +385,140 @@
 
 
                     <div class="tab-pane" id="tab6">
-                        <% ArrayList<UserBean> utenti = new ArrayList<UserBean>();
-                            utenti = (ArrayList<UserBean>) request.getAttribute("utenti");
 
-                        %>
-                        <h1><%=utenti.size()+"<---------------"%></h1>
                         <h2></h2>
 
                         <hr>
 
-
+                        <form method="GET" action="ServletUserFindAll">
                             <div class="form-group">
                                 <div class="col-xs-9" style="margin-bottom: 10px;">
-                                    <label ><h4>Catalogo</h4></label>
-                                    <select name="selectCatalog" onchange="updateField(this)">
-                                        <option value ="null"></option>
-
-                                    </select>
+                                    <label ><h4>Nome</h4></label>
+                                    <input class="form-control" type="text" id="findnome" name="nome">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-9" style="margin-bottom: 10px;">
-                                    <label ><h4>Nome Catalogo</h4></label>
-                                    <input type="text" id="mod_namecatalog" name="mod_namecatalog" value ="" >
-                                </div>
+                        <div class="form-group">
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label ><h4>Cognome</h4></label>
+                                <input class="form-control" type="text" id="findcognome" name="cognome">
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-9" style="margin-bottom: 10px;">
-
-                                    <textarea id="mod_descrizionecatalogo" name="mod_descrizionecatalogo" >Descrizione Catalogo</textarea>
-                                </div>
+                        <div class="form-group">
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <label ><h4>Email</h4></label>
+                                <input class="form-control" type="text" id="findemail" name="email">
                             </div>
+                        </div>
 
-                            <div class="form-group">
 
-                                <div class="col-xs-6">
-                                    <label ><h4>Sconto</h4></label>
-                                    <input type="number" class="form-control" min ="0" max="100" name="modscontocatalogo" id="modscontocatalogo" value ="" placeholder="es:10" >
-                                </div>
-                            </div>
+
 
 
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <br>
 
-                                    <input type="submit" class="btn btn-warning btn-lg" value="Applica Modifiche" name ="updateCatalog" id="updateCatalog">
+                                    <input type="submit" class="btn btn-success btn-lg" value="Cerca Utente" name ="findutente" id="findutente">
+                                </div>
+                            </div>
+                        </form>
+
+                       <%if(request.getAttribute("utenti")!=null) {ArrayList<UserBean> users= (ArrayList<UserBean>) request.getAttribute("utenti"); %>
+                        <table class="table">
+                            <thead>
+                            <tr>
+
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cognome</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%for(int i =0; i<users.size();++i){%>
+                            <tr>
+
+                                <td><%=users.get(i).getNome()%></td>
+                                <td><%=users.get(i).getCognome()%></td>
+                                <td><%=users.get(i).getEmail()%></td>
+                            </tr>
+                        <%}%>
+                            </tbody>
+                        </table>
+
+
+<%}%>
+                    </div>
+
+                    <div class="tab-pane" id="tab7">
+
+                        <h2></h2>
+
+                        <hr>
+                        <form method="POST" action="ServletCreateBrand">
+
+
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+                                    <label ><h4>Nome Marca</h4></label>
+                                    <input type="text" class="form-control" id="namebrand" name="namebrand" >
                                 </div>
                             </div>
 
 
+
+
+
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+
+                                    <input type="submit" class="btn btn-success btn-lg" value="Inserisci Marca" name ="saveBrand" id="saveBrand">
+                                </div>
+                            </div>
+                        </form>
+
                     </div>
+
+
+                    <div class="tab-pane" id="tab8">
+
+                        <h2></h2>
+
+                        <hr>
+                        <form method="POST" action="ServletDeleteBrand">
+
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+                                    <label ><h4>Marca</h4></label>
+                                    <select name="selectMarca" >
+                                        <option value ="null"></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+
+                                    <input type="submit" class="btn btn-danger btn-lg" value="Rimuovi Marca" name ="removeBrand" id="removeBrand">
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
 
                 </div><!--/tab-pane-->
 

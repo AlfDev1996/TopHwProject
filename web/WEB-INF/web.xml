@@ -227,4 +227,13 @@
         <url-pattern>/ServletUserFindAll</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servletProductFindAll</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.product.ServletProductFindAll</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletProductFindAll</servlet-name>
+        <url-pattern>/ServletProductFindAll</url-pattern>
+    </servlet-mapping>
+
 </web-app>

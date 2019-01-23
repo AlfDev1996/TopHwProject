@@ -24,27 +24,7 @@
 	<%@include  file="header.jsp" %>
 	<!-- Home -->
 
-	<div class="home">
-		<div class="home_container">
-			<div class="home_background" style="background-image:url(images/contact.jpg)"></div>
-			<div class="home_content_container">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="home_content">
-								<div class="breadcrumbs">
-									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li>Contact</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 
 	<!-- Contact -->
 	
@@ -56,31 +36,31 @@
 				<div class="col-lg-8 contact_col">
 					<div class="get_in_touch">
 						<div class="section_title">Get in Touch</div>
-						<div class="section_subtitle">Say hello</div>
+						<div class="section_subtitle">Ciao, inviaci la tua richiesta</div>
 						<div class="contact_form_container">
-							<form action="#" id="contact_form" class="contact_form">
+							<form action="#" id="contact_form" class="contact_form" onsubmit="window.open('confirmRequest.jsp','nome', 'height=600,width=600');">
 								<div class="row">
 									<div class="col-xl-6">
 										<!-- Name -->
-										<label for="contact_name">First Name*</label>
+										<label for="contact_name">Nome</label>
 										<input type="text" id="contact_name" class="contact_input" required="required">
 									</div>
 									<div class="col-xl-6 last_name_col">
 										<!-- Last Name -->
-										<label for="contact_last_name">Last Name*</label>
+										<label for="contact_last_name">Cognome</label>
 										<input type="text" id="contact_last_name" class="contact_input" required="required">
 									</div>
 								</div>
 								<div>
 									<!-- Subject -->
-									<label for="contact_company">Subject</label>
+									<label for="contact_company">Ogetto</label>
 									<input type="text" id="contact_company" class="contact_input">
 								</div>
 								<div>
-									<label for="contact_textarea">Message*</label>
+									<label for="contact_textarea">Messaggio</label>
 									<textarea id="contact_textarea" class="contact_input contact_textarea" required="required"></textarea>
 								</div>
-								<button class="button contact_button"><span>Send Message</span></button>
+								<button class="button contact_button"><span>Invia Richiesta</span></button>
 							</form>
 						</div>
 					</div>
@@ -91,23 +71,20 @@
 					<div class="contact_info">
 						<div class="contact_info_section">
 							<div class="contact_info_title">Marketing</div>
+
+						</div>
+						<div class="contact_info_section">
+							<div class="contact_info_title">Spedizioni e Resi</div>
 							<ul>
-								<li>Phone: <span>+53 345 7953 3245</span></li>
-								<li>Email: <span>yourmail@gmail.com</span></li>
+								<li>Tel: <span>+53 345 7953 3245</span></li>
+								<li>Email: <span>assistenza@tophw.it</span></li>
 							</ul>
 						</div>
 						<div class="contact_info_section">
-							<div class="contact_info_title">Shippiing & Returns</div>
+							<div class="contact_info_title">Informazioni</div>
 							<ul>
-								<li>Phone: <span>+53 345 7953 3245</span></li>
-								<li>Email: <span>yourmail@gmail.com</span></li>
-							</ul>
-						</div>
-						<div class="contact_info_section">
-							<div class="contact_info_title">Information</div>
-							<ul>
-								<li>Phone: <span>+53 345 7953 3245</span></li>
-								<li>Email: <span>yourmail@gmail.com</span></li>
+								<li>Phone: <span>+39 333 222 111 000</span></li>
+								<li>Email: <span>informazioni@tophw.it</span></li>
 							</ul>
 						</div>
 					</div>

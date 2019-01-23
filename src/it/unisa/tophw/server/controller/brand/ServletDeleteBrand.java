@@ -20,7 +20,7 @@ public class ServletDeleteBrand extends HttpServlet {
         int id_brand=0;
         boolean error=false;
         String msgOutput="";
-        id_brand = Integer.parseInt((request.getParameter("selectBrand")!=null && request.getParameter("selectBrand").length()>0) ? request.getParameter("selectBrand").toString() : "0");
+        id_brand = Integer.parseInt((request.getParameter("selectMarca")!=null && request.getParameter("selectMarca").length()>0) ? request.getParameter("selectMarca").toString() : "0");
 
         if(!(id_brand>0)){
             error=true;

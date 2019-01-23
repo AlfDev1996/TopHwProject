@@ -13,25 +13,23 @@ function loadMarche(){
 
             var marcheJson= JSON.parse(response);
 
-            var select = document.getElementById("selectMarca");
+            var select = document.getElementsByName("selectMarca");
 
+        for(var j =0; j<select.length;++j){
 
-
-            for(var i=0; i<marcheJson.length; ++i)
-
-            {
+            for(var i=0; i<marcheJson.length; ++i) {
 
                 var option = document.createElement("option");
 
                 option.text = marcheJson[i].nome;
 
-                option.value= marcheJson[i].id_marca;
+                option.value = marcheJson[i].id_marca;
 
-                option.id=marcheJson[i].id_marca;
+                option.id = marcheJson[i].id_marca;
 
-                select.add(option);
+                select[j].add(option);
 
-
+            }
             }
 
         }

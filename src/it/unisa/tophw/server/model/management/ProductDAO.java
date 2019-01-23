@@ -365,6 +365,7 @@ public class ProductDAO {
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                prodotto.setPathImg1(res.getString("path_img1"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
