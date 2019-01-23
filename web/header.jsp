@@ -55,6 +55,9 @@
                                         <li><a href="categories.jsp">Mouse e tastiere</a></li>
                                     </ul>
                                 </li>
+
+
+
                                 <li><a href="#">Accessori</a></li>
                                 <li><a href="#">Offerte</a></li>
                                 <li><a href="contact.jsp">Contatti</a></li>
@@ -74,8 +77,11 @@
 											</g>
 										</svg>
                                     <div>Cart <span>(0)</span></div>
+
+
                                 </a>
                             </div>
+
                             <div class="search">
                                 <div class="search_icon">
                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

@@ -135,9 +135,11 @@ function updateField(object){
                             descCatalog= catalogJson[i].descrizioneCatalogo;
                         if(catalogJson[i].sconto != null && catalogJson[i].sconto != undefined )
                             sconto = catalogJson[i].sconto;
-                            n_catalog.setAttribute("value",""+nomeCatalogo);
+
+
+                            n_catalog.value=nomeCatalogo;
                             desc_catalogo.value= descCatalog;
-                            sconto_catalogo.setAttribute("value", sconto);
+                            sconto_catalogo.value= sconto;
                     }
 
 
@@ -153,6 +155,34 @@ function updateField(object){
 
     xh.send();
 
+
+
+}
+
+
+function loadUsers(){
+
+
+    var xh= new XMLHttpRequest;
+
+    xh.onreadystatechange=function(){
+
+
+
+        if(xh.readyState==4 && xh.status==200){
+
+          console.log("utenti OKKKKK");
+
+
+        }
+
+        }
+
+
+
+    xh.open("GET","ServletUserFindAll",true);
+
+    xh.send();
 
 
 }

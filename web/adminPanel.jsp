@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: Alfonso
   Date: 21/01/2019
@@ -40,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
 </head>
-<body onload="loadMarche(); loadCatalog()">
+<body onload="loadMarche(); loadCatalog(); loadUsers()">
 <%UserBean utente = new UserBean();
 
     if( session.getAttribute("utente")!= null)
@@ -159,7 +159,9 @@
                     <div class="form-group">
                         <div class="col-xs-9" style="margin-bottom: 10px;">
                             <label for="prezzo"><h4>Marca</h4></label>
-                            <select name ="selectMarca" id="selectMarca"></select>
+                            <select name ="selectMarca" id="selectMarca">
+
+                            </select>
                         </div>
                     </div>
 
@@ -303,7 +305,10 @@
                             <div class="form-group">
                                 <div class="col-xs-9" style="margin-bottom: 10px;">
                                     <label ><h4>Catalogo</h4></label>
-                                    <select name="selectCatalog" ></select>
+                                    <select name="selectCatalog" >
+                                        <option value ="null"></option>
+
+                                    </select>
                                 </div>
                             </div>
 
@@ -332,14 +337,17 @@
                             <div class="form-group">
                                 <div class="col-xs-9" style="margin-bottom: 10px;">
                                     <label ><h4>Catalogo</h4></label>
-                                    <select name="selectCatalog" onchange="updateField(this)"></select>
+                                    <select name="selectCatalog" onchange="updateField(this)">
+                                        <option value ="null"></option>
+
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-9" style="margin-bottom: 10px;">
                                     <label ><h4>Nome Catalogo</h4></label>
-                                    <input type="text" id="mod_namecatalog" name="mod_namecatalog" >
+                                    <input type="text" id="mod_namecatalog" name="mod_namecatalog" value ="" >
                                 </div>
                             </div>
 
@@ -354,7 +362,7 @@
 
                                 <div class="col-xs-6">
                                     <label ><h4>Sconto</h4></label>
-                                    <input type="number" class="form-control" min ="0" max="100" name="modscontocatalogo" id="modscontocatalogo" placeholder="es:10" >
+                                    <input type="number" class="form-control" min ="0" max="100" name="modscontocatalogo" id="modscontocatalogo" value ="" placeholder="es:10" >
                                 </div>
                             </div>
 
@@ -370,6 +378,63 @@
 
                     </div>
 
+
+
+
+                    <div class="tab-pane" id="tab6">
+                        <% ArrayList<UserBean> utenti = new ArrayList<UserBean>();
+                            utenti = (ArrayList<UserBean>) request.getAttribute("utenti");
+
+                        %>
+                        <h1><%=utenti.size()+"<---------------"%></h1>
+                        <h2></h2>
+
+                        <hr>
+
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+                                    <label ><h4>Catalogo</h4></label>
+                                    <select name="selectCatalog" onchange="updateField(this)">
+                                        <option value ="null"></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+                                    <label ><h4>Nome Catalogo</h4></label>
+                                    <input type="text" id="mod_namecatalog" name="mod_namecatalog" value ="" >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-9" style="margin-bottom: 10px;">
+
+                                    <textarea id="mod_descrizionecatalogo" name="mod_descrizionecatalogo" >Descrizione Catalogo</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label ><h4>Sconto</h4></label>
+                                    <input type="number" class="form-control" min ="0" max="100" name="modscontocatalogo" id="modscontocatalogo" value ="" placeholder="es:10" >
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+
+                                    <input type="submit" class="btn btn-warning btn-lg" value="Applica Modifiche" name ="updateCatalog" id="updateCatalog">
+                                </div>
+                            </div>
+
+
+                    </div>
 
                 </div><!--/tab-pane-->
 

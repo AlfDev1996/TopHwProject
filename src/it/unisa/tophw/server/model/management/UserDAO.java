@@ -92,10 +92,10 @@ public class UserDAO {
     }
 
     public synchronized ArrayList<UserBean> doRetrieveAll(String orderBy){
-        ArrayList<UserBean> utenti = null;
+        ArrayList<UserBean> utenti = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        UserBean utente = null ;
+        UserBean utente = new UserBean() ;
 
         String sqlSelect = "select * from utente ";
         if(orderBy!=null && (orderBy.equalsIgnoreCase("id_utente") || orderBy.equalsIgnoreCase("nome") || orderBy.equalsIgnoreCase("cognome") || orderBy.equalsIgnoreCase("email") ) )
