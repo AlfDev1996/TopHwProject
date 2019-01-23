@@ -312,7 +312,7 @@
                                 <div class="col-xs-12">
                                     <br>
 
-                                    <input type="button" class="btn btn-danger btn-lg" value="Rimuovi Catalogo" name ="deleteCatalog" id="deleteCatalog">
+                                    <input type="submit" class="btn btn-danger btn-lg" value="Rimuovi Catalogo" name ="deleteCatalog" id="deleteCatalog">
                                 </div>
                             </div>
                         </form>
