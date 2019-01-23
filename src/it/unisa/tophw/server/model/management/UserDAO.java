@@ -91,6 +91,61 @@ public class UserDAO {
         return utente;
     }
 
+    public synchronized ArrayList<UserBean> doRetriveByFilters(UserBean userBean,String orderBy){
+        ArrayList<UserBean> utenti = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        UserBean utente = new UserBean() ;
+
+        String sqlSelect = "select * from utente ";
+
+        if(userBean!=null){
+            sqlSelect+="where id_utente>0 ";
+            if(userBean.getEmail()!=null)
+                sqlSelect+=" and email like '%"+userBean.getEmail()+"%'";
+            if(userBean.getNome()!=null)
+                sqlSelect+=" and nome like '%"+userBean.getNome()+"%'";
+            if(userBean.getCognome()!=null)
+                sqlSelect+=" and cognome like '%"+userBean.getCognome()+"%'";
+        }
+
+        if(orderBy!=null && (orderBy.equalsIgnoreCase("id_utente") || orderBy.equalsIgnoreCase("nome") || orderBy.equalsIgnoreCase("cognome") || orderBy.equalsIgnoreCase("email") ) )
+            sqlSelect+=" order by "+orderBy;
+
+        try {
+            connection = (Connection) DriverManagerConnectionPool.getConnection();
+            preparedStatement = (PreparedStatement) connection.prepareStatement(sqlSelect);
+
+            ResultSet res = preparedStatement.executeQuery();
+
+            while(res.next()) {
+
+                utente=new UserBean();
+                utente.setId_utente(res.getInt("id_utente"));
+                utente.setNome(res.getString("nome"));
+                utente.setCognome(res.getString("cognome"));
+                utente.setEmail(res.getString("email"));
+                utente.setPassword(res.getString("password"));
+                utente.setRuolo(res.getString("ruolo"));
+                utenti.add(utente);
+
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            try {
+                preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+        return utenti;
+    }
+
     public synchronized ArrayList<UserBean> doRetrieveAll(String orderBy){
         ArrayList<UserBean> utenti = new ArrayList<>();
         Connection connection = null;

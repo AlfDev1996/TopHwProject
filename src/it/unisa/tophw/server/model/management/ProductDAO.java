@@ -409,6 +409,92 @@ public class ProductDAO {
         return prodotti;
     }
 
+    public synchronized ArrayList<ProductBean> doRetriveByFilters(ProductBean productBean,String orderBy){
+        ArrayList<ProductBean> prodotti = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ProductBean prodotto = new ProductBean();
+
+        String sqlSelect = "select * from prodotto ";
+
+        if(productBean!=null){
+            sqlSelect+=" where id_prodotto>0 ";
+            if(productBean.getNome()!=null)
+                sqlSelect+=" and nome like '%"+productBean.getNome()+"%'";
+            if(productBean.getPrezzo()!=-1)
+                sqlSelect+=" and prezzo > "+productBean.getPrezzo()+" ";
+            if(productBean.getQuantita()!=-1)
+                sqlSelect+=" and prezzo < "+productBean.getQuantita()+" ";
+
+            if(productBean.getId_marca()!=-1)
+                sqlSelect+=" and id_marca = "+productBean.getId_marca()+" ";
+        }
+
+        if(orderBy!=null && (orderBy.equalsIgnoreCase("id_prodotto") || orderBy.equalsIgnoreCase("id_marca") || orderBy.equalsIgnoreCase("nome") || orderBy.equalsIgnoreCase("prezzo") ) )
+            sqlSelect+="order by "+orderBy;
+
+        try {
+
+            connection = (Connection) DriverManagerConnectionPool.getConnection();
+
+            preparedStatement = (PreparedStatement) connection.prepareStatement(sqlSelect);
+
+            ResultSet res = preparedStatement.executeQuery();
+
+            while(res.next()) {
+
+                prodotto = new ProductBean();
+                prodotto.setId_prodotto(res.getInt("id_prodotto"));
+                prodotto.setNome(res.getString("nome"));
+                prodotto.setDescrizione_breve(res.getString("descrizione_breve"));
+                prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
+                prodotto.setPrezzo(res.getDouble("prezzo"));
+                prodotto.setQuantita(res.getInt("quantita"));
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                prodotto.setPathImg1(res.getString("path_img1"));
+                int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
+                if(id_marca!=0)
+                {
+                    BrandDAO marcaDao= new BrandDAO();
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
+                    if(marca!=null && marca.getIdMarca()>0)
+                        prodotto.setId_marca(marca.getIdMarca());
+                    else
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
+                }
+                prodotti.add(prodotto);
+
+
+            }
+
+            res.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            try {
+                preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+        return prodotti;
+    }
+
     public synchronized boolean doSave(ProductBean prodotto) {
         if(prodotto!=null)
         {

@@ -236,4 +236,22 @@
         <url-pattern>/ServletProductFindAll</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servletFindUserByFilters</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.user.ServletFindUserByFilters</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletFindUserByFilters</servlet-name>
+        <url-pattern>/ServletFindUserByFilters</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletFindProductByFilters</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.product.ServletFindProductByFilters</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletFindProductByFilters</servlet-name>
+        <url-pattern>/ServletFindProductByFilters</url-pattern>
+    </servlet-mapping>
+
 </web-app>
