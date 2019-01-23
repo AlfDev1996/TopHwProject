@@ -283,7 +283,7 @@
                         <div class="col-xs-12">
                             <br>
 
-                            <input type="button" class="btn btn-success btn-lg" value="Inserisci Catalogo" name ="saveCatalog" id="saveCatalog">
+                            <input type="submit" class="btn btn-success btn-lg" value="Inserisci Catalogo" name ="saveCatalog" id="saveCatalog">
                         </div>
                     </div>
                     </form>
