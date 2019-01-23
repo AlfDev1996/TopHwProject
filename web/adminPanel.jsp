@@ -363,7 +363,7 @@
                                 <div class="col-xs-12">
                                     <br>
 
-                                    <input type="button" class="btn btn-warning btn-lg" value="Applica Modifiche" name ="updateCatalog" id="updateCatalog">
+                                    <input type="submit" class="btn btn-warning btn-lg" value="Applica Modifiche" name ="updateCatalog" id="updateCatalog">
                                 </div>
                             </div>
                         </form>
