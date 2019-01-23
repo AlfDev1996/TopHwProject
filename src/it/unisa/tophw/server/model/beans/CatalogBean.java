@@ -9,12 +9,14 @@ public class CatalogBean {
     private int id_catalogo;
     private String nomeCatalogo, descrizioneCatalogo;
     private ArrayList<ProductBean> prodottiCatalogo;
+    private int sconto;
 
-    public CatalogBean(int id_catalogo, String nomeCatalogo, String descrizioneCatalogo, ArrayList<ProductBean> prodottiCatalogo) {
+    public CatalogBean(int id_catalogo, String nomeCatalogo, String descrizioneCatalogo, ArrayList<ProductBean> prodottiCatalogo,int sconto) {
         this.id_catalogo = id_catalogo;
         this.nomeCatalogo = nomeCatalogo;
         this.descrizioneCatalogo = descrizioneCatalogo;
         this.prodottiCatalogo = prodottiCatalogo;
+        this.sconto=sconto;
     }
 
     public CatalogBean(){
@@ -22,6 +24,7 @@ public class CatalogBean {
         this.nomeCatalogo="";
         this.descrizioneCatalogo="";
         this.prodottiCatalogo=new ArrayList<>();
+        this.sconto=0;
 
     }
 
@@ -55,6 +58,14 @@ public class CatalogBean {
 
     public void setProdottiCatalogo(ArrayList<ProductBean> prodottiCatalogo) {
         this.prodottiCatalogo = prodottiCatalogo;
+    }
+
+    public int getSconto() {
+        return sconto;
+    }
+
+    public void setSconto(int sconto) {
+        this.sconto = sconto;
     }
 
     public String addProduct(ProductBean prodotto){

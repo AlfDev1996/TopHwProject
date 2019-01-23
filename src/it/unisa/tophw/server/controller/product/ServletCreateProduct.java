@@ -96,23 +96,25 @@ public class ServletCreateProduct extends HttpServlet {
                 // iterates over form's fields
                 for (FileItem item : formItems) {
                     // processes only fields that are not form fields
-                    if (!item.isFormField()) {
-                        String fileName = new File(item.getName()).getName();
-                        String filePath = uploadPath + File.separator + fileName;
-                        File storeFile = new File(filePath);
+                    if ( !item.isFormField()) {
+                        if(item!=null & item.getName()!=null && item.getName().length()>0){
+                            String fileName = new File(item.getName()).getName();
+                            String filePath = uploadPath + File.separator + fileName;
+                            File storeFile = new File(filePath);
 
-                        switch (item.getFieldName()){
-                            case "img1" : pathImg1 = filePath.toString();
-                                          break;
-                            case "img2" : pathImg2 = filePath.toString();
-                                break;
-                            case "img3" : pathImg3 = filePath.toString();
-                                break;
-                            default : break;
+                            switch (item.getFieldName()){
+                                case "img1" : pathImg1 = filePath.toString();
+                                    break;
+                                case "img2" : pathImg2 = filePath.toString();
+                                    break;
+                                case "img3" : pathImg3 = filePath.toString();
+                                    break;
+                                default : break;
+                            }
+                            // saves the file on disk
+                            item.write(storeFile);
+                            System.out.println("Immagine "+ fileName +" salvato con successo ");
                         }
-                        // saves the file on disk
-                        item.write(storeFile);
-                        System.out.println("Immagine "+ fileName +" salvato con successo ");
                     } else {
 
                         switch (item.getFieldName()) {

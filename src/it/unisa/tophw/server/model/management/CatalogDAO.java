@@ -88,12 +88,12 @@ public class CatalogDAO {
 
 
 
-    public synchronized void doSave(CatalogBean catalogBean) {
+    public synchronized boolean doSave(CatalogBean catalogBean) {
 
         if(catalogBean!=null && catalogBean.getNomeCatalogo()!=null && !catalogBean.getNomeCatalogo().equals("")) {
             Connection connection=null;
             PreparedStatement preparedStatement=null;
-            String sqlInsert="Insert into catalogo (nome,descrizione) values (?,?)";
+            String sqlInsert="Insert into catalogo (nome,descrizione,sconto) values (?,?,?)";
 
 
             try {
@@ -102,10 +102,10 @@ public class CatalogDAO {
                 preparedStatement = (PreparedStatement) connection.prepareStatement(sqlInsert);
                 preparedStatement.setString(1, catalogBean.getNomeCatalogo());
                 preparedStatement.setString(2,catalogBean.getDescrizioneCatalogo());
+                preparedStatement.setInt(3,catalogBean.getSconto());
                 preparedStatement.executeUpdate();
 
-
-
+                return true;
             }catch(SQLException e) {
                 e.printStackTrace();
 
@@ -116,9 +116,11 @@ public class CatalogDAO {
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
+                    return false;
                 }
             }
         }
+        return false;
 
     }
 
@@ -177,6 +179,7 @@ public class CatalogDAO {
                 catalogBean.setId_catalogo(rs.getInt("id_catalogo"));
                 catalogBean.setNomeCatalogo(rs.getString("nome"));
                 catalogBean.setDescrizioneCatalogo(rs.getString("descrizione"));
+                catalogBean.setSconto(rs.getInt("sconto"));
                 cataloghi.add(catalogBean);
 
             }
@@ -206,7 +209,7 @@ public class CatalogDAO {
         PreparedStatement preparedStatement = null;
         int res=0;
 
-        String sqlUpdate = "UPDATE catalogo SET nome = ? , descrizione = ? WHERE id_catalogo = ?";
+        String sqlUpdate = "UPDATE catalogo SET nome = ? , descrizione = ?, sconto= ? WHERE id_catalogo = ?";
 
         try {
 
@@ -214,7 +217,8 @@ public class CatalogDAO {
             preparedStatement=(PreparedStatement) connection.prepareStatement(sqlUpdate);
             preparedStatement.setString(1, catalogBean.getNomeCatalogo());
             preparedStatement.setString(2, catalogBean.getDescrizioneCatalogo());
-            preparedStatement.setInt(3,catalogBean.getId_catalogo());
+            preparedStatement.setInt(3,catalogBean.getSconto());
+            preparedStatement.setInt(4,catalogBean.getId_catalogo());
 
 
             res = preparedStatement.executeUpdate();

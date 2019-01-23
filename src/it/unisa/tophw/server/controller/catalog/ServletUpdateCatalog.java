@@ -11,6 +11,9 @@ import java.io.IOException;
 public class ServletUpdateCatalog extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String nomeCatalogo="" ;
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
