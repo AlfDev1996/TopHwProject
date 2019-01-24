@@ -184,3 +184,42 @@ function loadUsers(){
 
 
 }
+
+
+
+function controlQuantity(max){
+    var field= document.getElementById("quantity_input");
+    var quantita =field.value;
+    if(eval(quantita)+1 <=max) {
+        field.value = eval(quantita)+1;
+    }
+}
+
+function addToCart(id){
+
+    var id= 0;
+    var quantita = document.getElementById("quantity_input").value;
+
+    var xh= new XMLHttpRequest;
+
+    xh.onreadystatechange=function(){
+
+
+
+        if(xh.readyState==4 && xh.status==200){
+
+            console.log("cart OKKKKK");
+
+
+        }
+
+    }
+
+
+
+    xh.open("GET","ServletAddProductToCart?id_prodotto="+id+"?quantita="+quantita,true);
+
+    xh.send();
+
+
+}

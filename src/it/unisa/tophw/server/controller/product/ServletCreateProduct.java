@@ -103,11 +103,11 @@ public class ServletCreateProduct extends HttpServlet {
                             File storeFile = new File(filePath);
 
                             switch (item.getFieldName()){
-                                case "img1" : pathImg1 = filePath.toString();
+                                case "img1" : pathImg1 = fileName.toString();
                                     break;
-                                case "img2" : pathImg2 = filePath.toString();
+                                case "img2" : pathImg2 = fileName.toString();
                                     break;
-                                case "img3" : pathImg3 = filePath.toString();
+                                case "img3" : pathImg3 = fileName.toString();
                                     break;
                                 default : break;
                             }

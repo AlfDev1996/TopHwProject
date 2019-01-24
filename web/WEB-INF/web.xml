@@ -254,4 +254,17 @@
         <url-pattern>/ServletFindProductByFilters</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>servletFindProductById</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.product.ServletFindProductById</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletFindProductById</servlet-name>
+        <url-pattern>/ServletFindProductById</url-pattern>
+    </servlet-mapping>
+
+
+
+
 </web-app>

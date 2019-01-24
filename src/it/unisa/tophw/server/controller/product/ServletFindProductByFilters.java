@@ -78,7 +78,7 @@ public class ServletFindProductByFilters extends HttpServlet {
 
         request.setAttribute("prodotti", products);
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
         dispatcher.forward(request, response);
 
 
