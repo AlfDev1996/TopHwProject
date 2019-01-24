@@ -447,4 +447,75 @@ public class OrderDAO {
         return (res!=0);
     }
 
+    public ArrayList<OrderBean> doRetriveByFilters(OrderBean orderBean) {
+
+        ArrayList<OrderBean> ordini =new ArrayList<>();
+
+        if(orderBean!=null ){
+            Connection connection = null;
+            PreparedStatement preparedStatement = null;
+            OrderBean ordine = null;
+            String sqlSelect="select * from ordine";
+            sqlSelect+=" where id_ordine>0 ";
+            boolean existDateFilter=false;
+
+            if(orderBean.getUtente()!=null && orderBean.getUtente().getId_utente()>0){
+                sqlSelect+=" and id_utente="+orderBean.getUtente().getId_utente()+"";
+            }
+
+            if(orderBean.getData_creazione()!=null){
+                sqlSelect+=" and data_creazione = ?";
+                existDateFilter=true;
+            }
+
+            sqlSelect=" order by data_creazione";
+
+            try {
+                connection = (Connection) DriverManagerConnectionPool.getConnection();
+                preparedStatement = (PreparedStatement) connection.prepareStatement(sqlSelect);
+                if(existDateFilter)
+                    preparedStatement.setDate(1, (java.sql.Date) orderBean.getData_creazione());
+
+                ResultSet res = preparedStatement.executeQuery();
+
+                while(res.next()) {
+                    ordine= new OrderBean();
+                    ordine.setId_ordine(res.getInt("id_ordine"));
+                    ordine.setData_creazione(res.getDate("data_creazione"));
+                    ordine.setStato(res.getString("stato"));
+                    ordine.setTotale(res.getFloat("totale"));
+
+                    ordine.setUtente(orderBean.getUtente());
+
+                    ordini.add(ordine);
+                }
+
+
+            }catch(SQLException e) {
+                e.printStackTrace();
+
+            }finally{
+                try {
+                    preparedStatement.close();
+                    DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+
+
+
+
+
+        }else{
+            return null;
+        }
+
+
+
+
+        return ordini;
+        }
+
 }
