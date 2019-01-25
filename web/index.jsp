@@ -118,7 +118,7 @@
     <div class="avds">
       <div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
         <div class="avds_small">
-          <div class="avds_background" style="background-image:url(images/avds_small.jpg)"></div>
+          <div class="avds_background" style="background-image:url(images/mobo.jpg)"></div>
           <div class="avds_small_inner">
             <div class="avds_discount_container">
               <img src="images/discount.png" alt="">
@@ -130,8 +130,8 @@
               </div>
             </div>
             <div class="avds_small_content">
-              <div class="avds_title">Smart Phones</div>
-              <div class="avds_link"><a href="categories.jsp">See More</a></div>
+              <div class="avds_title">Nuove Mo.Bo.</div>
+              <div class="avds_link"><a href="categories.jsp">Vai al prodotto</a></div>
             </div>
           </div>
         </div>

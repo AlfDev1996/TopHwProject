@@ -51,7 +51,7 @@ public class ServletFindUserByFilters extends HttpServlet {
         }
 
         request.setAttribute("utenti", users);
-
+        request.setAttribute("selectedTab", "y");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
         dispatcher.forward(request, response);
 

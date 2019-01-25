@@ -195,9 +195,9 @@ function controlQuantity(max){
     }
 }
 
-function addToCart(id){
+function addToCart(object_id){
 
-    var id= 0;
+    var id= object_id;
     var quantita = document.getElementById("quantity_input").value;
 
     var xh= new XMLHttpRequest;
@@ -215,9 +215,9 @@ function addToCart(id){
 
     }
 
+    console.log("ServletAddProductToCart?id_prodotto="+id+"?quantita="+quantita);
 
-
-    xh.open("GET","ServletAddProductToCart?id_prodotto="+id+"?quantita="+quantita,true);
+    xh.open("GET","ServletAddProductToCart?id_prodotto="+id+"&quantita="+quantita,false);
 
     xh.send();
 

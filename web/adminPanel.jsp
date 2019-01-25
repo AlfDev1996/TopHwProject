@@ -27,6 +27,16 @@
     <script src="js/userFunction.js"></script>
     <script src="js/productFunction.js"></script>
 
+    <%
+        int flag=0;
+        if(request.getAttribute("selectedTab")!=null)
+        {
+            flag=1;
+
+        }
+    %>
+
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,12 +89,12 @@
             </div><!--/col-3-->
             <div class="col-sm-9" style="margin-bottom: 5%;">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#tab1">Inserisci Articolo</a></li>
+                    <li <%if (flag==0){%>class='active'<%}%> id="principale"><a data-toggle="tab" href="#tab1">Inserisci Articolo</a></li>
                     <li><a data-toggle="tab" href="#tab2">Rimuovi Articolo</a></li>
                     <li><a data-toggle="tab" href="#tab3">Inserisci Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab4">Rimuovi Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab5">Modifica Catalogo</a></li>
-                    <li><a data-toggle="tab" href="#tab6">Visualizza Utenti</a></li>
+                    <li><a data-toggle="tab" href="#tab6" class ='<%if (flag==1){%>active<%}%>' id="secondario" >Visualizza Utenti</a></li>
                     <li><a data-toggle="tab" href="#tab7">Inserisci Marca</a></li>
                     <li><a data-toggle="tab" href="#tab8">Rimuovi Marca</a></li>
 
@@ -93,7 +103,7 @@
 
 
                 <div class="tab-content">
-                    <div class="tab-pane active" id="tab1">
+                    <div class="tab-pane <%if (flag==0){%>active<%}%>" id="tab1">
                         <hr>
                 <form method="POST" action="ServletCreateProduct" enctype="multipart/form-data">
                         <div class="form-group"  >
@@ -384,13 +394,13 @@
 
 
 
-                    <div class="tab-pane" id="tab6">
+                    <div class="tab-pane <%if (flag==1){%>active<%}%>" id="tab6">
 
                         <h2></h2>
 
                         <hr>
 
-                        <form method="GET" action="ServletUserFindAll">
+                        <form method="GET" action="ServletFindUserByFilters">
                             <div class="form-group">
                                 <div class="col-xs-9" style="margin-bottom: 10px;">
                                     <label ><h4>Nome</h4></label>
@@ -534,6 +544,10 @@
 
     <%@include  file="footer.jsp" %>
 </div>
+
+
+
+
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>

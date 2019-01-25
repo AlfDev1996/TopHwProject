@@ -1,4 +1,5 @@
 <%@ page import="it.unisa.tophw.server.model.beans.UserBean" %>
+<%@ page import="it.unisa.tophw.server.model.beans.CartBean" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +25,15 @@
 
 </head>
 <body>
-
 <%UserBean us=(UserBean)session.getAttribute("utente");%>
+<%CartBean carrello = (CartBean) session.getAttribute("carrello");
+    if(carrello == null){
+        carrello = new CartBean();
+
+    }
+%>
+
+
 
 <!-- Header -->
 
@@ -77,8 +85,8 @@
 													c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z"/>
 											</g>
 										</svg>
-                                    <div>Cart <span>(0)</span></div>
-
+                                    <div>Cart <span>(<%=carrello.getProdotti().size()%>)</span></div>
+                                        <%System.out.println("carrello ---->"+ carrello.getProdotti().size());%>
 
                                 </a>
                             </div>

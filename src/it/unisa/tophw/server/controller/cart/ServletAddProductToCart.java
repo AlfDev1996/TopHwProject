@@ -5,6 +5,7 @@ import it.unisa.tophw.server.model.beans.ProductBean;
 import it.unisa.tophw.server.model.beans.UserBean;
 import it.unisa.tophw.server.model.management.ProductDAO;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,13 +19,25 @@ public class ServletAddProductToCart extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        if(request.getParameter("id_prodotto")!= null && Integer.parseInt( request.getParameter("id_prodotto"))>0){
-            int id = Integer.parseInt( request.getParameter("id_prodotto")) ;
-            ProductBean prodotto = new ProductBean();
+
+
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id=0;
+        int quantita =0;
+        if(request.getParameter("id_prodotto")!=null)
+            id= Integer.parseInt(request.getParameter("id_prodotto"));
+        if(request.getParameter("quantita")!=null)
+            quantita= Integer.parseInt(request.getParameter("quantita"));
+        ProductBean prodotto = new ProductBean();
+        if(quantita>0 && id>0) {
+
+
             ProductDAO prodDao = new ProductDAO();
             prodotto = prodDao.doRetriveById(id);
-            if(request.getParameter("quantita")!=null)
-            prodotto.setQuantita(Integer.parseInt(request.getParameter("quantita")));
+            prodotto.setQuantita(quantita);
 
 
             HttpSession currentSession = request.getSession();
@@ -32,15 +45,29 @@ public class ServletAddProductToCart extends HttpServlet {
 
             UserBean utente = (UserBean) currentSession.getAttribute("utente");
 
-            if(utente!=null)
+
+            if (utente != null) {
                 carrello.setUtente(utente);
+            }
+
+            if (currentSession.getAttribute("carrello") != null) {
+                carrello = (CartBean) currentSession.getAttribute("carrello");
+                carrello.addProduct(prodotto);
+                currentSession.setAttribute("carrello", carrello);
+
+
+            } else {
+                carrello.addProduct(prodotto);
+                currentSession.setAttribute("carrello", carrello);
+
+
+            }
 
         }
+    if(prodotto!=null)
+        request.setAttribute("prodotto", prodotto);
 
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
+        dispatcher.forward(request, response);
     }
 }

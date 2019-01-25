@@ -21,6 +21,8 @@
 <link rel="stylesheet" type="text/css" href="styles/product.css">
 <link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
 	<script src="js/productFunction.js"></script>
+
+
 </head>
 <body>
 <%@include  file="header.jsp" %>
@@ -33,7 +35,15 @@
 		{ProductBean prodotto= (ProductBean)request.getAttribute("prodotto");
 
 	%>
+<script>
+    var qta=0;
+    function updateqta (){
+        qta= document.getElementById("quantity_input").value;
+        var link = "ServletAddProductToCart?id_prodotto=<%=prodotto.getId_prodotto()%>&quantita="+qta;
+        window.location=link;
+    }
 
+</script>
 
 
 	<!-- Product Details -->
@@ -84,7 +94,7 @@
 									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 								</div>
 							</div>
-							<div class="button cart_button" onclick="addToCart(<%=prodotto.getId_prodotto()%>)"><a href="#">Aggiungi al carrello</a></div>
+							<div class="button cart_button" ><a onclick="updateqta();"> Aggiungi al carrello</a></div>
 						</div>
 
 						<!-- Share -->
