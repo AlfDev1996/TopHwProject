@@ -68,7 +68,7 @@
 
 
 
-                                <li><a href="#">Accessori</a></li>
+
                                 <li><a href="#">Offerte</a></li>
                                 <li><a href="contact.jsp">Contatti</a></li>
 
@@ -88,7 +88,7 @@
                                 <form method="post" action="ServletLogout" id="logoutForm"><li onclick="submit()"> <a href="#">Logout</a></li></form>
                                 <%} else {%>
 
-                                <li><a href="login.jsp">Accedi</a></li>
+                                <li><a href="login.jsp"><span>Accedi</span></a></li>
                                 <li>|</li>
                                 <li><a href="registration.jsp">Registrati </a></li>
 
