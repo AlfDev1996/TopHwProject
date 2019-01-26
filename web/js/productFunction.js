@@ -270,7 +270,7 @@ function updateProductsFromCart(){
 
         }
         var json= JSON.stringify(arrJson);
-        xh.open("GET","ServletCart?operazione=modifica&arrayProdottiModificaJson="+encodeURIComponent(json),true);
+        xh.open("POST","ServletUpdateProductInCart?arrayProdottiModificaJson="+encodeURIComponent(json),true);
         xh.send();
 
     }

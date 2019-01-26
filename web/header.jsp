@@ -71,6 +71,32 @@
                                 <li><a href="#">Accessori</a></li>
                                 <li><a href="#">Offerte</a></li>
                                 <li><a href="contact.jsp">Contatti</a></li>
+
+                                <% if(us!=null){%>
+                                <li class="hassubs">
+                                    Ciao, <%=us.getNome()%>
+                                    <ul>
+                                        <li><a href="user.jsp">Profilo utente</a></li>
+                                        <li><a href="categories.jsp">I miei ordini</a></li>
+                                        <%if(us.getRuolo().equalsIgnoreCase("Admin")){%>
+                                        <li><a href="adminPanel.jsp">Pannello Admin</a></li>
+                                        <%}%>
+
+                                    </ul>
+                                </li>
+                                <li>|</li>
+                                <form method="post" action="ServletLogout" id="logoutForm"><li onclick="submit()"> <a href="#">Logout</a></li></form>
+                                <%} else {%>
+
+                                <li><a href="login.jsp">Accedi</a></li>
+                                <li>|</li>
+                                <li><a href="registration.jsp">Registrati </a></li>
+
+
+
+                                <%}%>
+
+
                             </ul>
                         </nav>
                         <div class="header_extra ml-auto">
@@ -139,29 +165,7 @@
     <!-- Social -->
     <div class="header_social">
         <ul>
-    <% if(us!=null){%>
-            <li class="hassubs">
-               Ciao, <%=us.getNome()%>
-                <ul>
-                    <li><a href="user.jsp">Profilo utente</a></li>
-                    <li><a href="categories.jsp">I miei ordini</a></li>
-                    <%if(us.getRuolo().equalsIgnoreCase("Admin")){%>
-                    <li><a href="adminPanel.jsp">Pannello Admin</a></li>
-                    <%}%>
 
-                </ul>
-            </li>
-            <li>|</li>
-            <form method="post" action="ServletLogout" id="logoutForm"><li onclick="submit()"> <a href="#">Logout</a></li></form>
-<%} else {%>
-
-            <li><a href="login.jsp">Accedi</a></li>
-            <li>|</li>
-            <li><a href="registration.jsp">Registrati </a></li>
-
-
-
-            <%}%>
         </ul>
     </div>
 </header>
