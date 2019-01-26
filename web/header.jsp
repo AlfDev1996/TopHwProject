@@ -43,7 +43,8 @@
             <div class="row">
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo"><a href="#">Sublime.</a></div>
+                       <!-- <div class="logo"><a href="#">Sublime.</a></div> -->
+                        <div class="logo" style="width: 17%;"><a><img style="width: 100%;height: 100%;" src="images/logohome.png"></a></div>
                         <nav class="main_nav">
                             <ul>
 

@@ -222,3 +222,57 @@ function addToCart(object_id){
 
 
 }
+
+
+
+
+
+
+
+
+
+function updateProductsFromCart(){
+    //Se la checkBox elimina e' settata, bisogna eliminare i prodotti dal carrello.
+    var eliminaProdottiChecked = $("input[name='prodotti[]']:checked").map(function() {
+        return this.id;
+    }).get();
+    //Per eliminare prodotti dal carrello, passo semplicemente gli id dei prodotti.
+    if(eliminaProdottiChecked.length>0)
+    {
+        var xh= new XMLHttpRequest;
+        xh.onreadystatechange=function(){
+            if(xh.readyState==4 && xh.status==200){
+                var response = xh.responseText;
+                location.reload(true);
+            }
+
+        }
+        xh.open("GET","ServletCart?operazione=elimina&prodottiDaRimuovere="+(eliminaProdottiChecked+""),true);
+        xh.send();
+    }else{
+        //UPDATE
+        var arrJson=[];
+        $("input[type='number'][name='qtaProdotti[]']").each(function(){
+
+            arrJson.push({
+                "id":$(this).attr('id'),
+                "quantita" : $(this).attr('value')
+            });
+            //alert($(this).attr('id')+"------"+$(this).attr('value'));
+        });
+
+        var xh= new XMLHttpRequest;
+        xh.onreadystatechange=function(){
+            if(xh.readyState==4 && xh.status==200){
+                var response = xh.responseText;
+                location.reload(true);
+            }
+
+        }
+        var json= JSON.stringify(arrJson);
+        xh.open("GET","ServletCart?operazione=modifica&arrayProdottiModificaJson="+encodeURIComponent(json),true);
+        xh.send();
+
+    }
+
+}
