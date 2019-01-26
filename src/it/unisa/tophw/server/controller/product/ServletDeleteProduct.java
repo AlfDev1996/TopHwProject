@@ -14,9 +14,10 @@ import java.io.IOException;
 @WebServlet(name = "ServletDeleteProduct")
 public class ServletDeleteProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        String nome = request.getParameter("Nome_Prodotto").trim();
+        String nome=null;
+        if(request.getParameter("Nome_Prodotto") !=null) {
+            nome = request.getParameter("Nome_Prodotto").trim();
+        }
         int idProdotto = Integer.parseInt( !request.getParameter("id_prodotto").isEmpty() ? request.getParameter("id_prodotto") : "0");
 
         ProductBean prodotto=new ProductBean();
@@ -39,13 +40,13 @@ public class ServletDeleteProduct extends HttpServlet {
             msgOutput="Errore durante l'eliminazione del prodotto";
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ModificaArticolo.jsp?msgOutput="+msgOutput+"");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
         dispatcher.forward(request, response);
 
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 }

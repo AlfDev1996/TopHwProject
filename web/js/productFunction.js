@@ -95,6 +95,58 @@ function loadCatalog(){
 }
 
 
+
+
+
+function loadCatalogHeader(){
+
+
+    var xh= new XMLHttpRequest;
+
+    xh.onreadystatechange=function(){
+
+
+
+        if(xh.readyState==4 && xh.status==200){
+
+            var response=xh.responseText;
+
+            var catalogJson= JSON.parse(response);
+            console.log(catalogJson);
+
+
+
+
+
+
+                for (var i = 0; i < catalogJson.length; ++i) {
+
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    var y = document.createTextNode(""+catalogJson[i].nomeCatalogo);
+                    a.setAttribute("href","ServletFindProductFromCatalog?id_catalogo="+catalogJson[i].id_catalogo);
+                    a.appendChild(y);
+                    li.appendChild(a);
+                    var menu = document.getElementById("cataloghi");
+                        menu.appendChild(li);
+
+
+
+                }
+
+        }
+
+    }
+
+    xh.open("GET","ServletCatalogFindAll",true);
+
+    xh.send();
+
+
+}
+
+
+
 function updateField(object){
     var idCatalogo= object.options[object.selectedIndex].id;
     var n_catalog= document.getElementById("mod_namecatalog");

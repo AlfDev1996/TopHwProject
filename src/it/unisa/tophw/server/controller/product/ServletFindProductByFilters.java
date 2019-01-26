@@ -51,21 +51,26 @@ public class ServletFindProductByFilters extends HttpServlet {
         else
             productBean.setQuantita(-1);
 
+        productBean.setId_marca(-1);
         if(id_marca!=null || nomeMarca!=null){
             BrandDAO brandDAO=new BrandDAO();
             BrandBean brandBean = new BrandBean();
 
-            if(id_marca!=null)
+
+            if(id_marca!=null){
                 brandBean=brandDAO.doRetriveByKey(id_marca);
+            }
             else
-            if(nomeMarca!=null)
+            if(nomeMarca!=null){
                 brandBean=brandDAO.doRetriveBynome(nomeMarca);
-            else
-                productBean.setId_marca(-1);
+            }
+
+
             if(brandBean!=null)
                 productBean.setId_marca(brandBean.getIdMarca());
             else
                 productBean.setId_marca(-1);
+
 
         }
 

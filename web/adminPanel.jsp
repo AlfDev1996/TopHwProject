@@ -235,6 +235,7 @@
                                 <th scope="col">Nome</th>
                                 <th scope="col">Descrizione</th>
                                 <th scope="col">Prezzo</th>
+                                <th scope ="col"> Rimuovi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -244,6 +245,7 @@
                                 <td><%=productBeans.get(i).getNome()%></td>
                                 <td><%=productBeans.get(i).getDescrizione_breve()%></td>
                                 <td><%=productBeans.get(i).getPrezzo()%></td>
+                                <td><a  href="ServletDeleteProduct?id_prodotto=<%=productBeans.get(i).getId_prodotto()%>"> Rimuovi</a></td>
                             </tr>
                             <%}%>
                             </tbody>

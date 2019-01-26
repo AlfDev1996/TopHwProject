@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <script src="js/productFunction.js"></script>
     <script>
         function submit(){
             document.getElementById("logoutForm").submit();
@@ -24,7 +25,7 @@
     </script>
 
 </head>
-<body>
+<body onload="loadCatalogHeader()">
 <%UserBean us=(UserBean)session.getAttribute("utente");%>
 <%CartBean carrello = (CartBean) session.getAttribute("carrello");
     if(carrello == null){
@@ -44,7 +45,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                        <!-- <div class="logo"><a href="#">Sublime.</a></div> -->
-                        <div class="logo" style="width: 17%;"><a><img style="width: 100%;height: 100%;" src="images/logohome.png"></a></div>
+                        <div class="logo" style="width: 17%;height: 60%;"><a><img style="width: 100%;height: 100%;" src="images/logohome.png"></a></div>
                         <nav class="main_nav">
                             <ul>
 
@@ -52,9 +53,9 @@
 
 
                                 <li class="hassubs">
-                                    <a href="categories.jsp">Categorie</a>
-                                    <ul>
-                                        <li><a href="ServletProductFindAll?filtro=aaa">ProvaProd</a></li>
+                                    <a href="categories.jsp">Cataloghi</a>
+                                    <ul id="cataloghi">
+                                       <!-- <li><a href="ServletProductFindAll?filtro=aaa">ProvaProd</a></li>
                                         <li><a href="categories.jsp">Processori</a></li>
                                         <li><a href="categories.jsp">Monitor</a></li>
                                         <li><a href="categories.jsp">Schede video</a></li>
@@ -62,7 +63,7 @@
                                         <li><a href="categories.jsp">Pc assemblati</a></li>
                                         <li><a href="categories.jsp">Schede madri</a></li>
                                         <li><a href="categories.jsp">RAM</a></li>
-                                        <li><a href="categories.jsp">Mouse e tastiere</a></li>
+                                        <li><a href="categories.jsp">Mouse e tastiere</a></li> -->
                                     </ul>
                                 </li>
 
