@@ -273,6 +273,70 @@ public class ProductDAO {
         return prodotti;
     }
 
+    public synchronized ArrayList<ProductBean> doRetriveByCatalog(int id_catalog)  {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ProductBean prodotto =  new ProductBean();
+        ArrayList<ProductBean> prodotti = new ArrayList<>();
+        try {
+
+            conn = (Connection) DriverManagerConnectionPool.getConnection();
+            ps=(PreparedStatement) conn.prepareStatement("SELECT * from prodotto where id_catalogo = ? ");
+            ps.setInt(1, id_catalog);
+
+            ResultSet res =ps.executeQuery();
+
+            //Prendo il risultato dalla query
+            while(res.next()) {
+                prodotto=new ProductBean();
+                prodotto.setId_prodotto(res.getInt("id_prodotto"));
+                prodotto.setNome(res.getString("nome"));
+                prodotto.setDescrizione_breve(res.getString("descrizione_breve"));
+                prodotto.setDescrizione_estesa(res.getString("descrizione_estesa"));
+                prodotto.setPrezzo(res.getDouble("prezzo"));
+                prodotto.setQuantita(res.getInt("quantita"));
+                prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
+                if(id_marca!=0)
+                {
+                    BrandDAO marcaDao= new BrandDAO();
+                    BrandBean marca = marcaDao.doRetriveByKey(id_marca);
+                    if(marca!=null && marca.getIdMarca()>0)
+                        prodotto.setId_marca(marca.getIdMarca());
+                    else
+                        prodotto.setId_marca(0);
+                }
+
+                int id_catalogo = res.getInt("id_catalogo") != 0 ? res.getInt("id_catalogo") : 0;
+                if(id_catalogo!=0)
+                {
+                    CatalogDAO catalogDAO= new CatalogDAO();
+                    CatalogBean catalogBean = catalogDAO.doRetriveByKey(id_catalogo);
+                    if(catalogBean!=null && catalogBean.getId_catalogo()>0)
+                        prodotto.setId_catalogo(catalogBean.getId_catalogo());
+                    else
+                        prodotto.setId_catalogo(0);
+                }
+                prodotti.add(prodotto);
+            }
+
+            res.close();
+        }catch(SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            try {
+                ps.close();
+
+                DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) conn);
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return prodotti;
+    }
+
     public synchronized ArrayList<ProductBean> doRetriveByBestSeller()  {
 
         Connection conn = null;
