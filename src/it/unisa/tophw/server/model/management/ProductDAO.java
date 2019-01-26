@@ -43,6 +43,7 @@ public class ProductDAO {
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
+
                     BrandDAO marcaDao= new BrandDAO();
                     BrandBean marca = marcaDao.doRetriveByKey(id_marca);
                     if(marca!=null && marca.getIdMarca()>0)
