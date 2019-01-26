@@ -23,10 +23,6 @@ public class ServletAddProductToCart extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,6 +30,11 @@ public class ServletAddProductToCart extends HttpServlet {
         int quantita =0;
         HttpSession currentSession = request.getSession();
         hmProductInCart = (HashMap<Integer, ProductBean>) currentSession.getAttribute("hashMapCart");
+
+        CartBean carrello = new CartBean();
+        carrello = (CartBean) currentSession.getAttribute("carrello");
+        if(carrello==null)
+            carrello=new CartBean();
         if(hmProductInCart==null)
             hmProductInCart=new HashMap<Integer, ProductBean>();
 
@@ -54,41 +55,27 @@ public class ServletAddProductToCart extends HttpServlet {
                 prodotto = prodDao.doRetriveById(id);
 
             int qtaRealeProdotto = prodotto.getQuantita();
+            int newQta =0;
 
             if(prodotto.getId_prodotto()>0 && hmProductInCart!=null){
                 ProductBean pMap = hmProductInCart.get(prodotto.getId_prodotto());
                 if(pMap!=null){
                     pMap.setQuantita(pMap.getQuantita()+quantita);
+                    newQta=carrello.addProduct(pMap);
+                    prodotto.setQuantita(newQta);
                 }
                 else{
                     prodotto.setQuantita(quantita);
                     ProductBean tempProd = new ProductBean(prodotto);
                     hmProductInCart.put(tempProd.getId_prodotto(),tempProd);
+                    carrello.addProduct(tempProd);
                 }
             }
-
-
-            int newQta =0;
-
-
-            CartBean carrello = new CartBean();
-
             UserBean utente = (UserBean) currentSession.getAttribute("utente");
-
-
             if (utente != null) {
                 carrello.setUtente(utente);
             }
-
-            if (currentSession.getAttribute("carrello") != null) {
-                carrello = (CartBean) currentSession.getAttribute("carrello");
-                newQta=carrello.addProduct(prodotto);
-                prodotto.setQuantita(newQta);
-                currentSession.setAttribute("carrello", carrello);
-            } else {
-                carrello.addProduct(prodotto);
-                currentSession.setAttribute("carrello", carrello);
-            }
+            currentSession.setAttribute("carrello", carrello);
 
             if(hmProductInCart.get(prodotto.getId_prodotto())!=null){
                 qtaRealeProdotto = qtaRealeProdotto - hmProductInCart.get(prodotto.getId_prodotto()).getQuantita();
@@ -98,7 +85,6 @@ public class ServletAddProductToCart extends HttpServlet {
             if(hmProductInCart!=null){
                 currentSession.setAttribute("hashMapCart",hmProductInCart);
             }
-
 
         }
     if(prodotto!=null)

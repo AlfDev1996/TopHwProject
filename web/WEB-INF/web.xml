@@ -264,6 +264,16 @@
         <url-pattern>/ServletFindProductById</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servletFindCatalogById</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.catalog.ServletFindCatalogById</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletFindCatalogById</servlet-name>
+        <url-pattern>/ServletFindCatalogById</url-pattern>
+    </servlet-mapping>
+
+
 
 
 </web-app>

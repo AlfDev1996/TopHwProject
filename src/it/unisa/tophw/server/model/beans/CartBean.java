@@ -52,7 +52,8 @@ public class CartBean {
                     if(productBean.getId_prodotto()==prodotto.getId_prodotto())
                     {
                         this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
-                        productBean.setQuantita(productBean.getQuantita()+prodotto.getQuantita());
+                        //productBean.setQuantita(productBean.getQuantita()+prodotto.getQuantita());
+                        productBean.setQuantita(prodotto.getQuantita());
                         return productBean.getQuantita();
                     }
                 }
@@ -82,9 +83,8 @@ public class CartBean {
         if(this.prodotti!=null && this.prodotti.size()>0){
 
             this.prodotti.stream().forEach(productBean -> {
-                if(productBean.getId_prodotto()==prodotto.getId_prodotto() && productBean.getNome().equalsIgnoreCase(prodotto.getNome())){
-                    productBean.setQuantita(productBean.getQuantita() !=0 ? (productBean.getQuantita()+quantita) : ( 0+quantita ) );
-
+                if(productBean.getId_prodotto()==prodotto.getId_prodotto()){
+                    productBean.setQuantita(quantita);
                 }
             });
 
