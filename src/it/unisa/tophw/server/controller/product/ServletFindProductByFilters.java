@@ -19,10 +19,6 @@ import java.util.ArrayList;
 public class ServletFindProductByFilters extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String nome=null;
         Integer prezzoMin=null;
         Integer prezzoMax=null;
@@ -62,8 +58,10 @@ public class ServletFindProductByFilters extends HttpServlet {
             if(id_marca!=null)
                 brandBean=brandDAO.doRetriveByKey(id_marca);
             else
-                if(nomeMarca!=null)
-                    brandBean=brandDAO.doRetriveBynome(nomeMarca);
+            if(nomeMarca!=null)
+                brandBean=brandDAO.doRetriveBynome(nomeMarca);
+            else
+                productBean.setId_marca(-1);
             if(brandBean!=null)
                 productBean.setId_marca(brandBean.getIdMarca());
             else
@@ -75,11 +73,17 @@ public class ServletFindProductByFilters extends HttpServlet {
         if(products!=null){
             products = productDAO.doRetriveByFilters(productBean,null);
         }
+        System.out.println(products.size()+"<--- size");
 
         request.setAttribute("prodotti", products);
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
         dispatcher.forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 
 
 

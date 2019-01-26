@@ -1,9 +1,8 @@
 package it.unisa.tophw.server.model.beans;
 
-import java.security.ProtectionDomain;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CartBean {
 
@@ -44,23 +43,38 @@ public class CartBean {
         this.prezzoTotale = prezzoTotale;
     }
 
-    public String addProduct(ProductBean prodotto){
+    public int addProduct(ProductBean prodotto){
+
         if(prodotto!=null)
         {
             if(this.prodotti!=null && this.prodotti.size()>0){
-
-                this.prodotti.stream().forEach(productBean -> {
-                    if(productBean.getId_prodotto()==prodotto.getId_prodotto() && productBean.getNome().equalsIgnoreCase(prodotto.getNome())){
-                        productBean.setQuantita(productBean.getQuantita() !=0 ? (productBean.getQuantita()+prodotto.getQuantita()) : ( 0+prodotto.getQuantita() ) );
-
+                for( ProductBean productBean : this.prodotti)
+                    if(productBean.getId_prodotto()==prodotto.getId_prodotto())
+                    {
+                        this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
+                        productBean.setQuantita(productBean.getQuantita()+prodotto.getQuantita());
+                        return productBean.getQuantita();
+                    }else{
+                        this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
+                        this.prodotti.add(prodotto);
+                        return prodotto.getQuantita();
                     }
-                });
             }else{
+                this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
                 this.prodotti.add(prodotto);
-
+                return prodotto.getQuantita();
             }
         }
-        return "ok";
+        return 0;
+    }
+
+    public boolean check(ProductBean productBean, ProductBean productNew){
+        if(productBean.getId_prodotto()==productNew.getId_prodotto()){
+            productBean.setQuantita(productBean.getQuantita()+productNew.getQuantita());
+            return true;
+        }
+        return false;
+
     }
 
     public String updateProdotto(int quantita, ProductBean prodotto) {

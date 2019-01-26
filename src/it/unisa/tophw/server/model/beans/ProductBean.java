@@ -34,6 +34,22 @@ public class ProductBean {
         this.id_catalogo=catalogBean;
     }
 
+    public ProductBean(ProductBean productBean){
+        if(productBean!=null){
+            this.id_prodotto = productBean.getId_prodotto();
+            this.quantita = productBean.getQuantita();
+            this.nome = productBean.getNome();
+            this.descrizione_breve = productBean.getDescrizione_breve();
+            this.descrizione_estesa = productBean.getDescrizione_estesa();
+            this.pathImg1 = productBean.getPathImg1();
+            this.pathImg2 = productBean.getPathImg2();
+            this.pathImg3 = productBean.getPathImg3();
+            this.prezzo = productBean.getPrezzo();
+            this.id_marca = productBean.getId_marca();
+            this.id_catalogo=productBean.getId_catalogo();
+        }
+    }
+
 
 
     public int getPerc_sconto() {

@@ -1,4 +1,5 @@
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="it.unisa.tophw.server.model.beans.ProductBean" %><%--
   Created by IntelliJ IDEA.
   User: Alfonso
   Date: 21/01/2019
@@ -207,58 +208,49 @@
 
                         <hr>
 
+                        <form method="POST" action="ServletFindProductByFilters">
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="modvia"><h4>Via</h4></label>
-                                <input type="text" class="form-control"  name="modvia" id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="modcivico"><h4>civico</h4></label>
-                                <input type="number" class="form-control" name="last_name" id="modcivico" placeholder="es: 10" readonly="readonly" title="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="modcomune"><h4>Comune</h4></label>
-                                <input type="text" class="form-control" name="phone" id="modcomune" placeholder="es: Somma Vesuviana" title="" readonly="readonly">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="modprovincia"><h4>Provincia</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="modprovincia" placeholder="Napoli" title="" readonly="readonly">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="modcap"><h4>CAP</h4></label>
-                                <input type="number" class="form-control" name="email" id="modcap" placeholder="es: 80049" title="" readonly="readonly">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="modnazione"><h4>Nazione</h4></label>
-                                <input type="text" class="form-control" id="modnazione" placeholder="es: ITALIA " title="" readonly="readonly">
+                                <label for="nome"><h4>Nome Prodotto</h4></label>
+                                <input type="text" class="form-control"  name="nome" id="nome" placeholder="Tastiera" title="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
-                                <input type="button" class="btn btn-warning" value="Modifica" id="modIndirizzo" onclick="enableMod(this)">
-                                <input type="button" class="btn btn-success" value="Salva" name ="saveButton" id="saveIndirizzo" onclick="saveAddress(this)" style="display:none;">
+                                <input type="submit" class="btn btn-success btn-lg" value="Find" name ="findButton" id="findProduct" >
+
+
                             </div>
                         </div>
+                        </form>
 
+                        <%if(request.getAttribute("prodotti")!=null) {ArrayList<ProductBean> productBeans= (ArrayList<ProductBean>) request.getAttribute("prodotti"); %>
+                        <table class="table">
+                            <thead>
+                            <tr>
+
+                                <th scope="col">Nome</th>
+                                <th scope="col">Descrizione</th>
+                                <th scope="col">Prezzo</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%for(int i =0; i<productBeans.size();++i){%>
+                            <tr>
+
+                                <td><%=productBeans.get(i).getNome()%></td>
+                                <td><%=productBeans.get(i).getDescrizione_breve()%></td>
+                                <td><%=productBeans.get(i).getPrezzo()%></td>
+                            </tr>
+                            <%}%>
+                            </tbody>
+                        </table>
+
+
+                        <%}%>
 
                     </div><!--/tab-pane-->
 

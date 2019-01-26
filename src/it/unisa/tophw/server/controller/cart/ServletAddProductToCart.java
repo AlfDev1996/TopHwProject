@@ -12,10 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.spi.http.HttpContext;
 import java.io.IOException;
+import java.util.HashMap;
 
 @WebServlet(name = "ServletAddProductToCart")
 public class ServletAddProductToCart extends HttpServlet {
+
+    static HashMap<Integer, ProductBean> hmProductInCart;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
@@ -27,20 +32,45 @@ public class ServletAddProductToCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id=0;
         int quantita =0;
+        HttpSession currentSession = request.getSession();
+        hmProductInCart = (HashMap<Integer, ProductBean>) currentSession.getAttribute("hashMapCart");
+        if(hmProductInCart==null)
+            hmProductInCart=new HashMap<Integer, ProductBean>();
+
         if(request.getParameter("id_prodotto")!=null)
             id= Integer.parseInt(request.getParameter("id_prodotto"));
         if(request.getParameter("quantita")!=null)
             quantita= Integer.parseInt(request.getParameter("quantita"));
+
+
         ProductBean prodotto = new ProductBean();
+
         if(quantita>0 && id>0) {
 
-
             ProductDAO prodDao = new ProductDAO();
-            prodotto = prodDao.doRetriveById(id);
-            prodotto.setQuantita(quantita);
+            if(request.getAttribute("prodotto")!=null)
+                prodotto= (ProductBean) request.getAttribute("prodotto");
+            else
+                prodotto = prodDao.doRetriveById(id);
+
+            int qtaRealeProdotto = prodotto.getQuantita();
+
+            if(prodotto.getId_prodotto()>0 && hmProductInCart!=null){
+                ProductBean pMap = hmProductInCart.get(prodotto.getId_prodotto());
+                if(pMap!=null){
+                    pMap.setQuantita(pMap.getQuantita()+quantita);
+                }
+                else{
+                    prodotto.setQuantita(quantita);
+                    ProductBean tempProd = new ProductBean(prodotto);
+                    hmProductInCart.put(tempProd.getId_prodotto(),tempProd);
+                }
+            }
 
 
-            HttpSession currentSession = request.getSession();
+            int newQta =0;
+
+
             CartBean carrello = new CartBean();
 
             UserBean utente = (UserBean) currentSession.getAttribute("utente");
@@ -52,22 +82,29 @@ public class ServletAddProductToCart extends HttpServlet {
 
             if (currentSession.getAttribute("carrello") != null) {
                 carrello = (CartBean) currentSession.getAttribute("carrello");
-                carrello.addProduct(prodotto);
+                newQta=carrello.addProduct(prodotto);
+                prodotto.setQuantita(newQta);
                 currentSession.setAttribute("carrello", carrello);
-
-
             } else {
                 carrello.addProduct(prodotto);
                 currentSession.setAttribute("carrello", carrello);
-
-
             }
+
+            if(hmProductInCart.get(prodotto.getId_prodotto())!=null){
+                qtaRealeProdotto = qtaRealeProdotto - hmProductInCart.get(prodotto.getId_prodotto()).getQuantita();
+                prodotto.setQuantita(qtaRealeProdotto);
+            }
+
+            if(hmProductInCart!=null){
+                currentSession.setAttribute("hashMapCart",hmProductInCart);
+            }
+
 
         }
     if(prodotto!=null)
         request.setAttribute("prodotto", prodotto);
-
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
         dispatcher.forward(request, response);
     }
+
 }

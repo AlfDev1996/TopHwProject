@@ -179,7 +179,6 @@ function loadUsers(){
 
 
     xh.open("GET","ServletUserFindAll",true);
-
     xh.send();
 
 
