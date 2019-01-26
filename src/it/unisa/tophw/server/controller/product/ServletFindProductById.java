@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 
 @WebServlet(name = "ServletFindProductById")
 public class ServletFindProductById extends HttpServlet {
@@ -30,6 +32,14 @@ public class ServletFindProductById extends HttpServlet {
 
 
         request.setAttribute("prodotto", productBean);
+
+        HashMap<Integer, ProductBean> hmProductInCart = (HashMap<Integer, ProductBean>) request.getSession().getAttribute("hashMapCart");
+        if(hmProductInCart!=null && hmProductInCart.get(productBean.getId_prodotto())!=null){
+            ProductBean tempProd = hmProductInCart.get(productBean.getId_prodotto());
+            productBean.setQuantita(productBean.getQuantita()-tempProd.getQuantita());
+        }
+
+
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
         dispatcher.forward(request, response);

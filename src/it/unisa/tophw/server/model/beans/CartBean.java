@@ -48,17 +48,17 @@ public class CartBean {
         if(prodotto!=null)
         {
             if(this.prodotti!=null && this.prodotti.size()>0){
-                for( ProductBean productBean : this.prodotti)
+                for( ProductBean productBean : this.prodotti){
                     if(productBean.getId_prodotto()==prodotto.getId_prodotto())
                     {
                         this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
                         productBean.setQuantita(productBean.getQuantita()+prodotto.getQuantita());
                         return productBean.getQuantita();
-                    }else{
-                        this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
-                        this.prodotti.add(prodotto);
-                        return prodotto.getQuantita();
                     }
+                }
+                this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
+                this.prodotti.add(prodotto);
+                return prodotto.getQuantita();
             }else{
                 this.prezzoTotale+=(prodotto.getPrezzo()*prodotto.getQuantita());
                 this.prodotti.add(prodotto);
