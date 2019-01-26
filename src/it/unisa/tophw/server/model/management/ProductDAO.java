@@ -103,6 +103,9 @@ public class ProductDAO {
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                prodotto.setPathImg1(res.getString("path_img1"));
+                prodotto.setPathImg2(res.getString("path_img2"));
+                prodotto.setPathImg3(res.getString("path_img3"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -167,6 +170,9 @@ public class ProductDAO {
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                prodotto.setPathImg1(res.getString("path_img1"));
+                prodotto.setPathImg2(res.getString("path_img2"));
+                prodotto.setPathImg3(res.getString("path_img3"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -233,6 +239,9 @@ public class ProductDAO {
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                prodotto.setPathImg1(res.getString("path_img1"));
+                prodotto.setPathImg2(res.getString("path_img2"));
+                prodotto.setPathImg3(res.getString("path_img3"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -297,6 +306,9 @@ public class ProductDAO {
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                prodotto.setPathImg1(res.getString("path_img1"));
+                prodotto.setPathImg2(res.getString("path_img2"));
+                prodotto.setPathImg3(res.getString("path_img3"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -362,6 +374,9 @@ public class ProductDAO {
                 prodotto.setPrezzo(res.getDouble("prezzo"));
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
+                prodotto.setPathImg1(res.getString("path_img1"));
+                prodotto.setPathImg2(res.getString("path_img2"));
+                prodotto.setPathImg3(res.getString("path_img3"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -433,6 +448,8 @@ public class ProductDAO {
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
                 prodotto.setPathImg1(res.getString("path_img1"));
+                prodotto.setPathImg2(res.getString("path_img2"));
+                prodotto.setPathImg3(res.getString("path_img3"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
@@ -519,6 +536,8 @@ public class ProductDAO {
                 prodotto.setQuantita(res.getInt("quantita"));
                 prodotto.setPerc_sconto(res.getInt("perc_sconto"));
                 prodotto.setPathImg1(res.getString("path_img1"));
+                prodotto.setPathImg2(res.getString("path_img2"));
+                prodotto.setPathImg3(res.getString("path_img3"));
                 int id_marca = res.getInt("id_marca") != 0 ? res.getInt("id_marca") : 0;
                 if(id_marca!=0)
                 {
