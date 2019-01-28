@@ -48,7 +48,8 @@ public class ServletUpdateProduct extends HttpServlet {
             msgOutput="Errore durante l'update";
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ModificaArticolo.jsp?msgOutput="+msgOutput+"");
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
         dispatcher.forward(request, response);
     }
 

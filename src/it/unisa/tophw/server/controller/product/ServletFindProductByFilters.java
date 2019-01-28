@@ -80,6 +80,20 @@ public class ServletFindProductByFilters extends HttpServlet {
         }
         System.out.println(products.size()+"<--- size");
 
+        if(request.getParameter("operation")!=null)
+        {
+            String op = (String) request.getParameter("operation");
+            if(op.equalsIgnoreCase("modProduct")){
+                request.setAttribute("selectedTab", "modProduct");
+                request.setAttribute("prodottiMod", products);
+
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
+                dispatcher.forward(request, response);
+
+            }
+
+        }
+        request.setAttribute("selectedTab", "findProduct");
         request.setAttribute("prodotti", products);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");

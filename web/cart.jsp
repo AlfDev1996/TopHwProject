@@ -60,7 +60,7 @@
 						<td><a href=""><img alt="" src="themes/images/non-disponibile.png"></a></td>
 						<% } %>
 						<td><%= prodotto.getNome() %></td>
-						<td><input type="number" min="1" class="input-mini" name="qtaProdotti[]" id="<%=prodotto.getId_prodotto()  %>" value="<%= prodotto.getQuantita() %>"> </td>
+						<td><input type="number" disabled min="1" class="input-mini" name="qtaProdotti[]" id="<%=prodotto.getId_prodotto()  %>" value="<%= prodotto.getQuantita() %>"> </td>
 
 						<td><%= prodotto.getPrezzo() %></td>
 						<td><%= prodotto.getPrezzo()*prodotto.getQuantita() %></td>

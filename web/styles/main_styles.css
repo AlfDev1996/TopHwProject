@@ -138,7 +138,8 @@ h6::selection
 }
 .form-control
 {
-	color: #db5246;
+	color: green;
+	font-size: 100%;
 }
 section
 {
