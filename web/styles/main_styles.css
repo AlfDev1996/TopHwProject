@@ -138,7 +138,8 @@ h6::selection
 }
 .form-control
 {
-	color: #db5246;
+	color: green;
+	font-size: 100%;
 }
 section
 {
@@ -335,12 +336,13 @@ section
 {
 	font-size: 30px;
 	font-weight: 700;
-	color: #1b1b1b;
+	color: black;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
+
 }
 .header.scrolled .logo a
 {

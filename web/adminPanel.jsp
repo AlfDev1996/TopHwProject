@@ -26,13 +26,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/userFunction.js"></script>
-    <script src="js/productFunction.js"></script>
+  <script src="js/productFunction.js"></script>
 
     <%
         int flag=0;
         if(request.getAttribute("selectedTab")!=null)
         {
-            flag=1;
+            String s = (String) request.getAttribute("selectedTab");
+            if(s.equalsIgnoreCase("findProduct")){
+                flag=2;
+
+            }else
+                if(s.equalsIgnoreCase("modProduct"))
+                {
+                        flag=3;
+                }
+                else
+                    flag=1;
 
         }
     %>
@@ -58,6 +68,7 @@
     if( session.getAttribute("utente")!= null)
         utente = (UserBean) session.getAttribute("utente");
     else
+
 
     {String redirectURL = "/index.jsp";
         response.sendRedirect(request.getContextPath() + redirectURL);
@@ -91,7 +102,8 @@
             <div class="col-sm-9" style="margin-bottom: 5%;">
                 <ul class="nav nav-tabs">
                     <li <%if (flag==0){%>class='active'<%}%> id="principale"><a data-toggle="tab" href="#tab1">Inserisci Articolo</a></li>
-                    <li><a data-toggle="tab" href="#tab2">Rimuovi Articolo</a></li>
+                    <li><a data-toggle="tab" href="#tab9" class ='<%if (flag==3){%>active<%}%>'>Modifica Articolo</a></li>
+                    <li><a data-toggle="tab" href="#tab2" class ='<%if (flag==2){%>active<%}%>'>Rimuovi Articolo</a></li>
                     <li><a data-toggle="tab" href="#tab3">Inserisci Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab4">Rimuovi Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab5">Modifica Catalogo</a></li>
@@ -202,7 +214,7 @@
                         <hr>
 
                     </div><!--/tab-pane-->
-                    <div class="tab-pane" id="tab2">
+                    <div class="tab-pane   <%if (flag==2){%>active<%}%>" id="tab2">
 
                         <h2></h2>
 
@@ -523,8 +535,64 @@
                     </div>
 
 
+                    <div class="tab-pane <%if (flag==3){%>active<%}%>" id="tab9">
 
-                </div><!--/tab-pane-->
+                        <h2></h2>
+
+                        <hr>
+
+                        <form method="POST" action="ServletFindProductByFilters">
+                            <input type="hidden" id="operation" name="operation" value="modProduct">
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="nome"><h4>Nome Prodotto</h4></label>
+                                    <input type="text" class="form-control"  name="nome"  placeholder="Tastiera" title="">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <input type="submit" class="btn btn-success btn-lg" value="Find" name ="findButton" >
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <%if(request.getAttribute("prodottiMod")!=null) {ArrayList<ProductBean> productBeans= (ArrayList<ProductBean>) request.getAttribute("prodottiMod"); %>
+                        <table class="table">
+                            <thead>
+                            <tr>
+
+                                <th scope="col">Nome</th>
+                                <th scope="col">Descrizione</th>
+                                <th scope="col">Prezzo</th>
+                                <th scope ="col"> Modifica</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%for(int i =0; i<productBeans.size();++i){%>
+                            <tr>
+
+                                <td><%=productBeans.get(i).getNome()%></td>
+                                <td><%=productBeans.get(i).getDescrizione_breve()%></td>
+                                <td><%=productBeans.get(i).getPrezzo()%></td>
+
+                                <td><a  href="ServletModifyRequest?id_prodotto=<%=productBeans.get(i).getId_prodotto()%>"> Modifica</a></td>
+                            </tr>
+                            <%}%>
+                            </tbody>
+                        </table>
+
+
+                        <%}%>
+
+
+
+
+                    </div><!--/tab-pane-->
 
 
 

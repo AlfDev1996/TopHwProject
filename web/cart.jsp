@@ -15,7 +15,6 @@
 <meta name="description" content="Sublime project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/cart.css">
 <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
@@ -45,16 +44,15 @@
 					</thead>
 					<tbody id="listProdotti">
 					<%
-						carrello = (CartBean) session.getAttribute("carrello");
 						if(carrello!=null)
 						{
 							if(carrello.getProdotti()!=null && carrello.getProdotti().size()>0)
 							{
 								for(ProductBean prodotto : carrello.getProdotti())
 								{
-									int val = new Integer(prodotto.getQuantita());
+
 					%>
-					<tr id="<%=prodotto.getNome()%>">
+					<tr id="prod<%=prodotto.getNome()%>">
 						<td id="Alfonso"><input type="checkbox" name="prodotti[]" id='<%= prodotto.getId_prodotto()%>%>'></td>
 						<% if( prodotto.getPathImg1()!=null) { %>
 						<td style="width:25%"><a href=""><img class="imgCarrello" style="width: 50%;height: 50%;" alt="" src='<%="images/products/"+prodotto.getPathImg1()%>' onerror='this.onerror=null;this.src="themes/images/defaultImages/<%=prodotto.getPathImg1() %>"'></a></td>
@@ -62,8 +60,7 @@
 						<td><a href=""><img alt="" src="themes/images/non-disponibile.png"></a></td>
 						<% } %>
 						<td><%= prodotto.getNome() %></td>
-						<td><input type="text" class="input-mini" name="qtaProdotti[]" id="<%=prodotto.getId_prodotto()%>" value="<%=val%>"> </td>
-						<td><input type="text" class="input-mini" value="<%=prodotto.getQuantita()%>"> </td>
+						<td><input type="number" disabled min="1" class="input-mini" name="qtaProdotti[]" id="<%=prodotto.getId_prodotto()  %>" value="<%= prodotto.getQuantita() %>"> </td>
 
 						<td><%= prodotto.getPrezzo() %></td>
 						<td><%= prodotto.getPrezzo()*prodotto.getQuantita() %></td>

@@ -283,6 +283,15 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>servletModifyRequest</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.product.ServletModifyRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletModifyRequest</servlet-name>
+        <url-pattern>/ServletModifyRequest</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>
