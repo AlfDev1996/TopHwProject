@@ -30,7 +30,7 @@ public class OrderDAO {
 
             if(rs.next()) {
                 ordine = new OrderBean();
-                ordine.setData_creazione( rs.getDate("data_creazione") );
+                ordine.setData_creazione( rs.getDate("data_ordine") );
                 ordine.setId_ordine(rs.getInt("id_ordine"));
                 ordine.setStato(rs.getString("stato"));
                 ordine.setTotale(rs.getFloat("totale"));
@@ -82,16 +82,18 @@ public class OrderDAO {
 
             while(res.next()) {
                 ordine= new OrderBean();
-                ordine.setData_creazione(res.getDate("data_creazione"));
+                ordine.setData_creazione(res.getDate("data_ordine"));
+                ordine.setId_ordine(res.getInt("id_ordine"));
                 ordine.setStato(res.getString("stato"));
                 ordine.setTotale(res.getFloat("totale"));
+
 
                 int id_utente= res.getInt("id_utente") !=0 ? res.getInt("id_utente"):0;
 
                 if(id_utente!=0) {
                     UserDAO UserDAO= new UserDAO();
                     UserBean utente = UserDAO.doRetriveById(id_utente);
-                    if(utente!=null &&utente.getId_utente()>0)
+                    if(utente!=null && utente.getId_utente()>0)
                         ordine.setUtente(utente);
                     else
                         ordine.setUtente(null);
@@ -124,14 +126,14 @@ public class OrderDAO {
         ArrayList<OrderBean> ordini = new ArrayList<>();
         try {
             conn = (Connection) DriverManagerConnectionPool.getConnection();
-            ps=(PreparedStatement) conn.prepareStatement("SELECT * from ordine where data_creazione = ? ");
+            ps=(PreparedStatement) conn.prepareStatement("SELECT * from ordine where data_ordine = ? ");
             ps.setString(1, Data_creazione);
 
             ResultSet res =ps.executeQuery();
 
             while(res.next()) {
                 ordine= new OrderBean();
-                ordine.setData_creazione(res.getDate("data_creazione"));
+                ordine.setData_creazione(res.getDate("data_ordine"));
                 ordine.setStato(res.getString("stato"));
                 ordine.setTotale(res.getFloat("totale"));
 
@@ -188,10 +190,9 @@ public class OrderDAO {
             while(res.next()) {
                 ordine= new OrderBean();
                 ordine.setId_ordine(res.getInt("id_ordine"));
-                ordine.setData_creazione(res.getDate("data_creazione"));
+                ordine.setData_creazione(res.getDate("data_ordine"));
                 ordine.setStato(res.getString("stato"));
                 ordine.setTotale(res.getFloat("totale"));
-
                 int id_utente= res.getInt("id_utente") !=0 ? res.getInt("id_utente"):0;
 
                 if(id_utente!=0) {
@@ -251,7 +252,7 @@ public class OrderDAO {
 
                 while(res.next()) {
                     ordine= new OrderBean();
-                    ordine.setData_creazione(res.getDate("data_creazione"));
+                    ordine.setData_creazione(res.getDate("data_ordine"));
                     ordine.setStato(res.getString("stato"));
                     ordine.setTotale(res.getFloat("totale"));
 
@@ -308,7 +309,7 @@ public class OrderDAO {
                 while(res.next()) {
                     ordine= new OrderBean();
                     ordine.setId_ordine(res.getInt("id_ordine"));
-                    ordine.setData_creazione(res.getDate("data_creazione"));
+                    ordine.setData_creazione(res.getDate("data_ordine"));
                     ordine.setStato(res.getString("stato"));
                     ordine.setTotale(res.getFloat("totale"));
 
@@ -342,7 +343,7 @@ public class OrderDAO {
         if(ordine!=null) {
             Connection connection = null;
             PreparedStatement preparedStatement = null;
-            String sqlInsert="insert into ordine (data_creazione, stato,indirizzo,totale,id_utente) values(?,?,?,?,?)";
+            String sqlInsert="insert into ordine (data_ordine, stato,totale,id_utente) values(?,?,?,?)";
             int res=0;
             try {
 
@@ -351,8 +352,8 @@ public class OrderDAO {
 
                 preparedStatement.setDate(1, (java.sql.Date) ordine.getData_creazione());
                 preparedStatement.setString(2, ordine.getStato());
-                preparedStatement.setFloat(4, ordine.getTotale());
-                preparedStatement .setInt(5, ordine.getUtente().getId_utente());
+                preparedStatement.setFloat(3, ordine.getTotale());
+                preparedStatement .setInt(4, ordine.getUtente().getId_utente());
 
 
                 res = preparedStatement.executeUpdate();
@@ -418,7 +419,7 @@ public class OrderDAO {
         PreparedStatement preparedStatement = null;
         int res=0;
 
-        String sqlUpdate = "UPDATE ordine SET data_creazione = ? , stato = ? , indirizzo = ? , totale = ? , id_utente = ? where id_ordine=? ";
+        String sqlUpdate = "UPDATE ordine SET data_ordine = ? , stato = ? , indirizzo = ? , totale = ? , id_utente = ? where id_ordine=? ";
         try {
             connection = (Connection) DriverManagerConnectionPool.getConnection();
             preparedStatement=(PreparedStatement) connection.prepareStatement(sqlUpdate);
@@ -464,7 +465,7 @@ public class OrderDAO {
             }
 
             if(orderBean.getData_creazione()!=null){
-                sqlSelect+=" and data_creazione = ?";
+                sqlSelect+=" and data_ordine = ?";
                 existDateFilter=true;
             }
 
@@ -481,7 +482,7 @@ public class OrderDAO {
                 while(res.next()) {
                     ordine= new OrderBean();
                     ordine.setId_ordine(res.getInt("id_ordine"));
-                    ordine.setData_creazione(res.getDate("data_creazione"));
+                    ordine.setData_creazione(res.getDate("data_ordine"));
                     ordine.setStato(res.getString("stato"));
                     ordine.setTotale(res.getFloat("totale"));
 

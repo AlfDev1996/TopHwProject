@@ -1,4 +1,7 @@
-<%--
+<%@ page import="it.unisa.tophw.server.model.beans.AddressBean" %>
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.util.concurrent.atomic.AtomicReference" %>
+<%@ page import="it.unisa.tophw.server.model.beans.ProductBean" %><%--
   Created by IntelliJ IDEA.
   User: the_l
   Date: 12/01/2019
@@ -17,8 +20,48 @@
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/checkout.css">
 <link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
+
+	<script src="js/userFunction.js"></script>
 </head>
 <body>
+
+<%UserBean utente = new UserBean();
+	Integer numProdotti = 0;
+	if( session.getAttribute("utente")!= null)
+	{
+		utente = (UserBean) session.getAttribute("utente");
+		if(utente.getIndirizzo()!=null){
+			;
+		}else{
+			utente.setIndirizzo(new AddressBean());
+		}
+	}
+	else
+	{String redirectURL = "/index.jsp";
+		response.sendRedirect(request.getContextPath() + redirectURL);
+	}
+
+	CartBean cartBean = new CartBean();
+	if(session.getAttribute("carrello")!=null){
+		cartBean = (CartBean) session.getAttribute("carrello");
+		if(cartBean!=null && cartBean.getProdotti()!=null && cartBean.getProdotti().size()>0){
+			for (ProductBean p : cartBean.getProdotti()){
+				numProdotti+=p.getQuantita();
+			}
+		}
+
+	}else{
+		;
+	}
+
+	DecimalFormat f = new DecimalFormat("##.00");
+
+
+
+
+
+
+%>
 
 <div class="super_container">
 	<%@include  file="header.jsp" %>
@@ -57,96 +100,45 @@
 				<!-- Billing Info -->
 				<div class="col-lg-6">
 					<div class="billing checkout_section">
-						<div class="section_title">Billing Address</div>
-						<div class="section_subtitle">Enter your address info</div>
+						<div class="section_title">Indirizzo di spedizione</div>
 						<div class="checkout_form_container">
 							<form action="#" id="checkout_form" class="checkout_form">
-								<div class="row">
-									<div class="col-xl-6">
-										<!-- Name -->
-										<label for="checkout_name">First Name*</label>
-										<input type="text" id="checkout_name" class="checkout_input" required="required">
-									</div>
-									<div class="col-xl-6 last_name_col">
-										<!-- Last Name -->
-										<label for="checkout_last_name">Last Name*</label>
-										<input type="text" id="checkout_last_name" class="checkout_input" required="required">
-									</div>
+								<div>
+									<!-- Via -->
+									<label for="modvia">Via</label>
+									<input type="text" id="modvia" name="modvia" class="checkout_input" readonly="readonly"  value ='<%=utente.getIndirizzo().getVia()%>'>
 								</div>
 								<div>
-									<!-- Company -->
-									<label for="checkout_company">Company</label>
-									<input type="text" id="checkout_company" class="checkout_input">
+									<!-- Civico -->
+									<label for="modcivico">Civico</label>
+									<input type="text" id="modcivico" name="modcivico" class="checkout_input" readonly="readonly"  value ='<%=utente.getIndirizzo().getCivico()%>'>
 								</div>
 								<div>
-									<!-- Country -->
-									<label for="checkout_country">Country*</label>
-									<select name="checkout_country" id="checkout_country" class="dropdown_item_select checkout_input" require="required">
-										<option></option>
-										<option>Lithuania</option>
-										<option>Sweden</option>
-										<option>UK</option>
-										<option>Italy</option>
-									</select>
-								</div>
-								<div>
-									<!-- Address -->
-									<label for="checkout_address">Address*</label>
-									<input type="text" id="checkout_address" class="checkout_input" required="required">
-									<input type="text" id="checkout_address_2" class="checkout_input checkout_address_2" required="required">
+									<!-- Comune -->
+									<label for="modcomune">Comune</label>
+									<input type="text" id="modcomune" name="modcomune" class="checkout_input" required="required" readonly="readonly"  value ='<%=utente.getIndirizzo().getComune()%>'>
 								</div>
 								<div>
 									<!-- Zipcode -->
-									<label for="checkout_zipcode">Zipcode*</label>
-									<input type="text" id="checkout_zipcode" class="checkout_input" required="required">
+									<label for="modcap">Codice Postale</label>
+									<input type="text" id="modcap" name="modcap" class="checkout_input" required="required" readonly="readonly"  value ='<%=utente.getIndirizzo().getCap()%>'>
 								</div>
 								<div>
-									<!-- City / Town -->
-									<label for="checkout_city">City/Town*</label>
-									<select name="checkout_city" id="checkout_city" class="dropdown_item_select checkout_input" require="required">
-										<option></option>
-										<option>City</option>
-										<option>City</option>
-										<option>City</option>
-										<option>City</option>
-									</select>
+									<!-- Provincia -->
+									<label for="modprovincia">Provincia</label>
+									<input type="text" id="modprovincia" name="modprovincia" class="checkout_input" required="required" readonly="readonly"  value ='<%=utente.getIndirizzo().getProvincia()%>'>
 								</div>
 								<div>
-									<!-- Province -->
-									<label for="checkout_province">Province*</label>
-									<select name="checkout_province" id="checkout_province" class="dropdown_item_select checkout_input" require="required">
-										<option></option>
-										<option>Province</option>
-										<option>Province</option>
-										<option>Province</option>
-										<option>Province</option>
-									</select>
+									<!-- Nazione -->
+									<label for="modnazione">Nazione</label>
+									<input type="text" id="modnazione" name="modnazione" class="checkout_input" required="required" readonly="readonly"  value ='<%=utente.getIndirizzo().getNazione()%>'>
 								</div>
-								<div>
-									<!-- Phone no -->
-									<label for="checkout_phone">Phone no*</label>
-									<input type="phone" id="checkout_phone" class="checkout_input" required="required">
-								</div>
-								<div>
-									<!-- Email -->
-									<label for="checkout_email">Email Address*</label>
-									<input type="phone" id="checkout_email" class="checkout_input" required="required">
-								</div>
-								<div class="checkout_extra">
-									<div>
-										<input type="checkbox" id="checkbox_terms" name="regular_checkbox" class="regular_checkbox" checked="checked">
-										<label for="checkbox_terms"><img src="images/check.png" alt=""></label>
-										<span class="checkbox_title">Terms and conditions</span>
-									</div>
-									<div>
-										<input type="checkbox" id="checkbox_account" name="regular_checkbox" class="regular_checkbox">
-										<label for="checkbox_account"><img src="images/check.png" alt=""></label>
-										<span class="checkbox_title">Create an account</span>
-									</div>
-									<div>
-										<input type="checkbox" id="checkbox_newsletter" name="regular_checkbox" class="regular_checkbox">
-										<label for="checkbox_newsletter"><img src="images/check.png" alt=""></label>
-										<span class="checkbox_title">Subscribe to our newsletter</span>
+								<input type="hidden" id= "id_utente" value='<%=utente.getId_utente()%>'>
+								<div class="form-group">
+									<div class="col-xs-12">
+										<br>
+										<input type="button" class="btn btn-warning" value="Modifica" id="modIndirizzo" onclick="enableMod(this)">
+										<input type="button" class="btn btn-success" value="Salva" name ="saveButton" id="saveIndirizzo" onclick="saveAddress(this)" style="display:none;">
 									</div>
 								</div>
 							</form>
@@ -158,31 +150,27 @@
 
 				<div class="col-lg-6">
 					<div class="order checkout_section">
-						<div class="section_title">Your order</div>
-						<div class="section_subtitle">Order details</div>
+						<div class="section_title">Il tuo ordine</div>
+						<div class="section_subtitle">Dettagli ordine</div>
 
 						<!-- Order details -->
 						<div class="order_list_container">
 							<div class="order_list_bar d-flex flex-row align-items-center justify-content-start">
-								<div class="order_list_title">Product</div>
-								<div class="order_list_value ml-auto">Total</div>
+								<div class="order_list_title">Num. Prodotti</div>
+								<div class="order_list_value ml-auto"> <%= numProdotti%></div>
 							</div>
 							<ul class="order_list">
 								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="order_list_title">Cocktail Yellow dress</div>
-									<div class="order_list_value ml-auto">$59.90</div>
+									<div class="order_list_title">Subtotale</div>
+									<div class="order_list_value ml-auto"> <%= f.format(cartBean.getPrezzoTotale()/(1.22))   %> </div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="order_list_title">Subtotal</div>
-									<div class="order_list_value ml-auto">$59.90</div>
+									<div class="order_list_title">Spedizione</div>
+									<div class="order_list_value ml-auto">Gratuita</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="order_list_title">Shipping</div>
-									<div class="order_list_value ml-auto">Free</div>
-								</li>
-								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="order_list_title">Total</div>
-									<div class="order_list_value ml-auto">$59.90</div>
+									<div class="order_list_title">Totale</div>
+									<div class="order_list_value ml-auto"> <%= cartBean.getPrezzoTotale()  %> </div>
 								</li>
 							</ul>
 						</div>
@@ -190,28 +178,60 @@
 						<!-- Payment Options -->
 						<div class="payment">
 							<div class="payment_options">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+									<div class=text-right>
+										<!-- Identify your business so that you can collect the payments. -->
+										<input type="hidden" name="business" value="pagamenti@eshoes.it">
+
+										<!-- Specify a Buy Now button. -->
+										<input type="hidden" name="cmd" value="_xclick">
+
+										<!-- Specify details about the item that buyers will purchase. -->
+										<input type="hidden" name="item_name" value="">
+
+										<input type="hidden" name="amount" value='<%=cartBean.getPrezzoTotale() %>'>
+										<input type="hidden" name="currency_code" value="EUR">
+
+										<!-- Display the payment button. -->
+										<input class="pull-right" type="image" name="submit" border="0"
+											   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+											   alt="Buy Now">
+										<img alt="" border="0" width="1" height="1"
+											 src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+									</div>
+								</form>
 								<label class="payment_option clearfix">Paypal
-									<input type="radio" name="radio">
-									<span class="checkmark"></span>
 								</label>
-								<label class="payment_option clearfix">Cach on delivery
-									<input type="radio" name="radio">
-									<span class="checkmark"></span>
-								</label>
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+									<div class=text-right>
+										<!-- Identify your business so that you can collect the payments. -->
+										<input type="hidden" name="business" value="pagamenti@eshoes.it">
+
+										<!-- Specify a Buy Now button. -->
+										<input type="hidden" name="cmd" value="_xclick">
+
+										<!-- Specify details about the item that buyers will purchase. -->
+										<input type="hidden" name="item_name" value="">
+
+										<input type="hidden" name="amount" value='<%=cartBean.getPrezzoTotale() %>'>
+										<input type="hidden" name="currency_code" value="EUR">
+
+										<!-- Display the payment button. -->
+										<input class="pull-right" type="image" name="submit" border="0"
+											   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+											   alt="Buy Now">
+										<img alt="" border="0" width="1" height="1"
+											 src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+									</div>
+								</form>
 								<label class="payment_option clearfix">Credit card
-									<input type="radio" name="radio">
-									<span class="checkmark"></span>
 								</label>
-								<label class="payment_option clearfix">Direct bank transfer
-									<input type="radio" checked="checked" name="radio">
-									<span class="checkmark"></span>
-								</label>
+
 							</div>
 						</div>
 
 						<!-- Order Text -->
-						<div class="order_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra temp or so dales. Phasellus sagittis auctor gravida. Integ er bibendum sodales arcu id te mpus. Ut consectetur lacus.</div>
-						<div class="button order_button"><a href="#">Place Order</a></div>
+						<div class="button order_button"><a href="ServletCreateOrder">Effettua l'ordine</a></div>
 					</div>
 				</div>
 			</div>
