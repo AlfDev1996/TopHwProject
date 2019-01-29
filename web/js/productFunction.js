@@ -336,7 +336,48 @@ function searchScript(e) {
     var valore = document.getElementById("searchBar").value;
     //See notes about 'which' and 'key'
     if (e.keyCode == 13) {
-        console.log("Hai premuto invio");
+       //alert("Hai premuto invio !!!!!!!!!!!! ohhhh ");
+        ///ServletFindProductByFilters?operation=ricerca&nome=alim
+
+        window.location.replace("http://localhost:8081/TopHwProject/index.jsp");
+
+
+
+        alert();
+        //sleep(5000)
+
         window.location="ServletFindProductByFilters?operation=ricerca&nome="+valore;
+
+
+
+
     }
 }
+
+function sleep(milliseconds) {
+    console.log("in sleep");
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds){
+            break;
+        }
+    }
+}
+
+/*
+function searchScript(e) {
+    var valore = document.getElementById("searchBar").value;
+    //See notes about 'which' and 'key'
+    if (e.keyCode == 13) {
+        var xh= new XMLHttpRequest;
+        xh.onreadystatechange=function(){
+            if(xh.readyState==4 && xh.status==200){
+                    console.log("ok");
+            }
+
+        }
+        xh.open("GET","ServletFindProductByFilters?operation=ricerca&nome="+valore,false) ;
+        xh.send();
+
+    }
+}*/
