@@ -17,15 +17,18 @@
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
     <script src="js/productFunction.js"></script>
     <script>
         function submit(){
             document.getElementById("logoutForm").submit();
         }
+
+        window.onload(loadCatalogHeader());
     </script>
 
 </head>
-<body onload="loadCatalogHeader()">
+<body>
 <%UserBean us=(UserBean)session.getAttribute("utente");%>
 <%CartBean carrello = (CartBean) session.getAttribute("carrello");
     if(carrello == null){
@@ -45,7 +48,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                        <!-- <div class="logo"><a href="#">Sublime.</a></div> -->
-                        <div class="logo" style="width: 17%;height: 60%;"><a><img style="width: 100%;height: 100%;" src="images/logohome.png"></a></div>
+                        <div  class="logo"><a>TopHardware</a></div>
                         <nav class="main_nav">
                             <ul>
 
