@@ -517,7 +517,7 @@ public class ProductDAO {
 
         if(orderBy!=null && (orderBy.equalsIgnoreCase("id_prodotto") || orderBy.equalsIgnoreCase("id_marca") || orderBy.equalsIgnoreCase("nome") || orderBy.equalsIgnoreCase("prezzo") ) )
             sqlSelect+="order by "+orderBy;
-
+        System.out.println(sqlSelect);
         try {
 
             connection = (Connection) DriverManagerConnectionPool.getConnection();

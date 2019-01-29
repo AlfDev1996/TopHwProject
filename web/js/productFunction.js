@@ -27,6 +27,8 @@ function loadMarche(){
 
                 option.id = marcheJson[i].id_marca;
 
+                select[j].remove(i);
+
                 select[j].add(option);
 
             }
@@ -78,6 +80,7 @@ function loadCatalog(){
 
 
                     option.setAttribute("title", catalogJson[i].sconto );
+                    select[j].remove(i);
                     select[j].add(option);
 
 
@@ -327,4 +330,13 @@ function updateProductsFromCart(){
 
     }
 
+}
+
+function searchScript(e) {
+    var valore = document.getElementById("searchBar").value;
+    //See notes about 'which' and 'key'
+    if (e.keyCode == 13) {
+        console.log("Hai premuto invio");
+        window.location="ServletFindProductByFilters?operation=ricerca&nome="+valore;
+    }
 }

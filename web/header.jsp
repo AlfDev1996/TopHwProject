@@ -17,14 +17,22 @@
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
-
     <script src="js/productFunction.js"></script>
+
+
+
+
     <script>
         function submit(){
             document.getElementById("logoutForm").submit();
         }
 
         window.onload(loadCatalogHeader());
+    </script>
+
+    <script>
+
+
     </script>
 
 </head>
@@ -48,6 +56,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                        <!-- <div class="logo"><a href="#">Sublime.</a></div> -->
+
                         <div  class="logo"><a>TopHardware</a></div>
                         <nav class="main_nav">
                             <ul>
@@ -81,7 +90,7 @@
                                     Ciao, <%=us.getNome()%>
                                     <ul>
                                         <li><a href="user.jsp">Profilo utente</a></li>
-                                        <li><a href="categories.jsp">I miei ordini</a></li>
+                                        <li><a href="ServletFindOrderByUser">I miei ordini</a></li>
                                         <%if(us.getRuolo().equalsIgnoreCase("Admin")){%>
                                         <li><a href="adminPanel.jsp">Pannello Admin</a></li>
                                         <%}%>
@@ -158,7 +167,7 @@
                 <div class="col">
                     <div class="search_panel_content d-flex flex-row align-items-center justify-content-end">
                         <form action="#">
-                            <input type="text" class="search_input" placeholder="Search" required="required">
+                            <input type="text" id="searchBar" class="search_input" onkeypress="searchScript(event)" placeholder="Cerca Qui...">
                         </form>
                     </div>
                 </div>

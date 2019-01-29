@@ -62,7 +62,7 @@
     <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
 </head>
-<body onload="loadMarche(); loadCatalog();">
+<body onload="loadMarche(); console.log('chiamata1' ); loadCatalog();  console.log('chiamata2' );">
 <%UserBean utente = new UserBean();
 
     if( session.getAttribute("utente")!= null)
