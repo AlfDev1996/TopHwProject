@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 @WebServlet(name = "ServletCreateOrder")
 public class ServletCreateOrder extends HttpServlet {
@@ -73,7 +74,10 @@ public class ServletCreateOrder extends HttpServlet {
             carrello.getProdotti().clear();
 
             request.setAttribute("ordine", ordine);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp?error="+error);
+            request.setAttribute("carrello", new CartBean());
+            request.setAttribute("hashMapCart", new HashMap<Integer, ProductBean>());
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/riepilogo_ordine.jsp?error="+error);
+
             dispatcher.forward(request, response);
         }
     }

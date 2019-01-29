@@ -38,6 +38,7 @@
 	}
 	else
 	{String redirectURL = "/index.jsp";
+
 		response.sendRedirect(request.getContextPath() + redirectURL);
 	}
 

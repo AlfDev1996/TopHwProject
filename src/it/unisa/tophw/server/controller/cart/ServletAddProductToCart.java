@@ -75,6 +75,7 @@ public class ServletAddProductToCart extends HttpServlet {
             if (utente != null) {
                 carrello.setUtente(utente);
             }
+            carrello.calcolaPrezzoCarrello();
             currentSession.setAttribute("carrello", carrello);
 
             if(hmProductInCart.get(prodotto.getId_prodotto())!=null){

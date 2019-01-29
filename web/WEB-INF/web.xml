@@ -292,6 +292,25 @@
         <url-pattern>/ServletModifyRequest</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servletFindOrderByUser</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.order.ServletFindOrderByUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletFindOrderByUser</servlet-name>
+        <url-pattern>/ServletFindOrderByUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletFindOrderById</servlet-name>
+        <servlet-class>it.unisa.tophw.server.controller.order.ServletFindOrderById</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletFindOrderById</servlet-name>
+        <url-pattern>/ServletFindOrderById</url-pattern>
+    </servlet-mapping>
+
+
 
 
 </web-app>

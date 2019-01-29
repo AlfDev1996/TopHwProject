@@ -1,5 +1,7 @@
 package it.unisa.tophw.server.model.beans;
 
+import it.unisa.tophw.server.model.management.OrderVoiceDAO;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -154,5 +156,16 @@ public class OrderBean {
                 ", utente=" + utente +
                 ", indirizzoSpedizione=" + indirizzoSpedizione +
                 '}';
+    }
+
+    public void inizializzaVociOrdine() {
+
+        if(this!=null && this.id_ordine!=0)
+        {
+            OrderVoiceDAO voceDao=new OrderVoiceDAO();
+            this.vociOrdine.addAll(voceDao.doRetriveByOrdine(this.id_ordine));
+        }
+
+
     }
 }
