@@ -40,7 +40,7 @@
                                ArrayList<ProductBean> prodotti = (ArrayList<ProductBean>) request.getAttribute("prodotti");
 
                            %>
-    <%if(prodotti.size()>0)
+    <%if(prodotti.size()>0){
         for(int i =0;i<prodotti.size();++i)
     {%>
     <div class="product">
@@ -55,7 +55,18 @@
 
 
 
-                            <%}}%>
+                            <%}}
+                           else{%>
+
+                            <div class="alert alert-danger" style="margin-top: 10%;margin-left: 20%;margin-right: 20%;">
+                                <strong>La Ricerca non ha prodotto alcun risultato. Riprova.</strong>
+                            </div>
+
+
+                           <% }
+
+                           }%>
+
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,9 @@
 </head>
 <body>
 
+<div class="super_container">
+	<%@include  file="header.jsp" %>
+
 	<% String error = request.getParameter("error");
 	   if(error==null)
 		   error="";
@@ -35,13 +38,15 @@
 		}
 		if(!error.equals("")) {
 	%>
-	<div class="alert alert-success">
+
+	<div class="alert alert-success" style="margin-top: 10%;margin-left: 20%;margin-right: 20%;">
  		 <strong><%= error %></strong> 
 	</div>
 	<% } %>
+	<div id="containers" style="margin-left: 20%; margin-right: 20%;">
 	<div class="row">
 	
-	<div class="span6">
+	<div class="span6" style="margin-left: 3%;">
 	<table class="table borderless">
   <tbody>
     <tr>
@@ -64,7 +69,7 @@
 </table>
 	
 	</div>
-	<div class="span6">
+	<div class="span6" style="margin-left: 3%;">
 	 <div class="table-responsive">
 		<table class="table borderless">
   <tbody>
@@ -93,7 +98,7 @@
 	
 	<div class="row">
 	
-	<div class="span12">
+	<div class="span12" style="margin-left: 3%;">
 	<table class="table table-hover">
   <tbody>
   <thead>
@@ -119,15 +124,16 @@
 	</div>
 	
 	</div>
-	
+	</div>
 	<% }  else { 
 		 String redirectURL = "index.jsp";
 		    response.sendRedirect(redirectURL);
 	}%>
-	
-	
-	
 
 
+
+		<div class="footer_overlay"></div>
+		<%@include  file="footer.jsp" %>
+</div>
 </body>
 </html>

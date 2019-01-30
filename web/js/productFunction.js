@@ -343,11 +343,11 @@ function searchScript(e) {
 
 
 
-        alert();
+        //alert();
         //sleep(5000)
 
         window.location="ServletFindProductByFilters?operation=ricerca&nome="+valore;
-
+        history.pushState(null,'', '/index.jsp');
 
 
 
