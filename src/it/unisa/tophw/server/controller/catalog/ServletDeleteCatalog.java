@@ -44,7 +44,7 @@ public class ServletDeleteCatalog extends HttpServlet {
 
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutput=" + msgOutput + "");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputDeleteCatalog=" + msgOutput + "");
         dispatcher.forward(request, response);
 
     }

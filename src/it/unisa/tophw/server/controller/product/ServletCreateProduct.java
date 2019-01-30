@@ -208,7 +208,7 @@ public class ServletCreateProduct extends HttpServlet {
             } else {
                 msgOutput = "Errore durante l'inserimento del prodotto";
             }
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutput=" + msgOutput + "");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputCreateProduct=" + msgOutput + "");
             dispatcher.forward(request, response);
 
         }

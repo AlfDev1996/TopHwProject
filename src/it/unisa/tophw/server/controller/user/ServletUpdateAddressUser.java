@@ -163,7 +163,7 @@ public class ServletUpdateAddressUser extends HttpServlet {
                 msgOutput="Dati inconsistenti";
             }
 
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/user.jsp?msgOutput="+msgOutput);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/user.jsp?msgOutputUpdateAddressUser="+msgOutput);
             dispatcher.forward(request, response);
         } catch (ParseException e) {
             e.printStackTrace();

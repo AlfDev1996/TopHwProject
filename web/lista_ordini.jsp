@@ -1,6 +1,7 @@
 
 <%@page import="java.util.ArrayList"%>
-<%@ page import="it.unisa.tophw.server.model.beans.*" %>
+<%@ page import="it.unisa.tophw.server.model.beans.OrderBean" %>
+<%@ page import="it.unisa.tophw.server.model.beans.UserBean" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,8 +22,7 @@
 			<% }  } %>
 </head>
 <body>
-	
-	<%@ include file="header.jsp" %>
+
 	
 	<% ArrayList<OrderBean> ordini = (ArrayList<OrderBean>) request.getAttribute("ordini");
 		if(ordini!=null )
@@ -72,7 +72,7 @@
 	
 	<% }  }
 	%>
-	<%@ include file="footer.jsp" %>
+
 	
 </body>
 </html>

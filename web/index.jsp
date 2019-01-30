@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="it.unisa.tophw.server.model.beans.ProductBean" %><%--
   Created by IntelliJ IDEA.
   User: the_l
   Date: 12/01/2019
@@ -25,8 +26,6 @@
   <div class="super_container">
 
   <%@include  file="header.jsp" %>
-
-
 
     <!-- Home -->
 
@@ -131,7 +130,7 @@
             </div>
             <div class="avds_small_content">
               <div class="avds_title">Nuove Mo.Bo.</div>
-              <div class="avds_link"><a href="categories.jsp">Vai al prodotto</a></div>
+
             </div>
           </div>
         </div>
@@ -141,7 +140,7 @@
             <div class="avds_large_content">
               <div class="avds_title">Professional Cameras</div>
               <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viver ra velit venenatis fermentum luctus.</div>
-              <div class="avds_link avds_link_large"><a href="categories.jsp">See More</a></div>
+
             </div>
           </div>
         </div>
@@ -149,15 +148,15 @@
     </div>
 
     <!-- Products -->
+    <!--
+        <div class="products">
+          <div class="container">
+            <div class="row">
+              <div class="col">
 
-    <div class="products">
-      <div class="container">
-        <div class="row">
-          <div class="col">
+                <div class="product_grid">
 
-            <div class="product_grid">
 
-              <!-- Product -->
               <div class="product">
                 <div class="product_image"><img src="images/product_1.jpg" alt=""></div>
                 <div class="product_extra product_new"><a href="categories.jsp">New</a></div>
@@ -167,7 +166,8 @@
                 </div>
               </div>
 
-              <!-- Product -->
+
+
               <div class="product">
                 <div class="product_image"><img src="images/product_2.jpg" alt=""></div>
                 <div class="product_extra product_sale"><a href="categories.jsp">Sale</a></div>
@@ -177,7 +177,7 @@
                 </div>
               </div>
 
-              <!-- Product -->
+
               <div class="product">
                 <div class="product_image"><img src="images/product_3.jpg" alt=""></div>
                 <div class="product_content">
@@ -186,7 +186,7 @@
                 </div>
               </div>
 
-              <!-- Product -->
+
               <div class="product">
                 <div class="product_image"><img src="images/product_4.jpg" alt=""></div>
                 <div class="product_content">
@@ -195,7 +195,7 @@
                 </div>
               </div>
 
-              <!-- Product -->
+
               <div class="product">
                 <div class="product_image"><img src="images/product_5.jpg" alt=""></div>
                 <div class="product_content">
@@ -204,7 +204,7 @@
                 </div>
               </div>
 
-              <!-- Product -->
+
               <div class="product">
                 <div class="product_image"><img src="images/product_6.jpg" alt=""></div>
                 <div class="product_extra product_hot"><a href="categories.jsp">Hot</a></div>
@@ -214,7 +214,7 @@
                 </div>
               </div>
 
-              <!-- Product -->
+
               <div class="product">
                 <div class="product_image"><img src="images/product_7.jpg" alt=""></div>
                 <div class="product_content">
@@ -223,7 +223,7 @@
                 </div>
               </div>
 
-              <!-- Product -->
+
               <div class="product">
                 <div class="product_image"><img src="images/product_8.jpg" alt=""></div>
                 <div class="product_extra product_sale"><a href="categories.jsp">Hot</a></div>
@@ -238,11 +238,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Ad -->
 
-    <div class="avds_xl">
+   <!-- <div class="avds_xl">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -251,13 +251,13 @@
               <div class="avds_xl_content">
                 <div class="avds_title">Amazing Devices</div>
                 <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus.</div>
-                <div class="avds_link avds_xl_link"><a href="categories.jsp">See More</a></div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Icon Boxes -->
 

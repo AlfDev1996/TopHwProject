@@ -48,7 +48,7 @@ public class ServletCreateBrand extends HttpServlet {
         }
 
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutput=" + msgOutput + "");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputCreateBrand=" + msgOutput + "");
         dispatcher.forward(request, response);
 
     }

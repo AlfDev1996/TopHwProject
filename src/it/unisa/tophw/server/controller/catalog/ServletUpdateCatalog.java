@@ -60,7 +60,7 @@ public class ServletUpdateCatalog extends HttpServlet {
             msgOutput="Non c'è riferimento al catalogo!";
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutput=" + msgOutput + "");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputUpdateCatalog=" + msgOutput + "");
         dispatcher.forward(request, response);
 
 

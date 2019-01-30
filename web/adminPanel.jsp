@@ -109,7 +109,7 @@
                     <li><a data-toggle="tab" href="#tab5">Modifica Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab6" class ='<%if (flag==1){%>active<%}%>' id="secondario" >Visualizza Utenti</a></li>
                     <li><a data-toggle="tab" href="#tab7">Inserisci Marca</a></li>
-                    <li><a data-toggle="tab" href="#tab8">Rimuovi Marca</a></li>
+                 <!--    <li><a data-toggle="tab" href="#tab8">Rimuovi Marca</a></li> -->
 
 
                 </ul>

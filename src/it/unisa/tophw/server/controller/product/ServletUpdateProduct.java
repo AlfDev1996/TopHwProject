@@ -49,7 +49,7 @@ public class ServletUpdateProduct extends HttpServlet {
         }
 
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputUpdateProduct="+msgOutput+"");
         dispatcher.forward(request, response);
     }
 

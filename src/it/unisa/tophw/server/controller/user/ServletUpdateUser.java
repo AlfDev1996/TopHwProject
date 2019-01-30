@@ -96,7 +96,7 @@ public class ServletUpdateUser extends HttpServlet {
             e.printStackTrace();
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/user.jsp?msgOutput="+msgOutput);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/user.jsp?msgOutputUpdateUser="+msgOutput);
         dispatcher.forward(request, response);
     }
 }

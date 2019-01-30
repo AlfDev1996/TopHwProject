@@ -82,7 +82,7 @@
 
 
 
-                                <li><a href="#">Offerte</a></li>
+
                                 <li><a href="contact.jsp">Contatti</a></li>
 
                                 <% if(us!=null){%>

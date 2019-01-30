@@ -57,7 +57,7 @@ public class ServletCreateCatalog extends HttpServlet {
         }
 
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutput=" + msgOutput + "");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputCreateCatalog=" + msgOutput + "");
         dispatcher.forward(request, response);
 
     }

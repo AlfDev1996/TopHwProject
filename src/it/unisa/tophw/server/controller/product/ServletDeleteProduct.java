@@ -40,7 +40,7 @@ public class ServletDeleteProduct extends HttpServlet {
             msgOutput="Errore durante l'eliminazione del prodotto";
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputDeleteProduct="+msgOutput+"");
         dispatcher.forward(request, response);
 
 
