@@ -2,6 +2,7 @@ package it.unisa.tophw.server.model.management;
 
 import it.unisa.tophw.server.model.beans.BrandBean;
 import it.unisa.tophw.server.model.beans.CatalogBean;
+import it.unisa.tophw.server.model.beans.OrderVoiceBean;
 import it.unisa.tophw.server.model.beans.ProductBean;
 import it.unisa.tophw.server.model.connection.DriverManagerConnectionPool;
 
@@ -580,6 +581,55 @@ public class ProductDAO {
         }
 
         return prodotti;
+    }
+
+    public synchronized boolean decreaseQuantityProduct(OrderVoiceBean orderVoiceBean){
+
+        if(orderVoiceBean!=null && orderVoiceBean.getProdotto()!=null){
+            ProductBean p = orderVoiceBean.getProdotto();
+            String nomeProdotto = p.getNome()!=null && p.getNome().length()>0 ? p.getNome() : null;
+            int id_prodotto = p.getId_prodotto()>0 ? p.getId_prodotto() : -1;
+            if(id_prodotto>0 || nomeProdotto!=null){
+                Connection connection = null;
+                PreparedStatement preparedStatement = null;
+                int res=0;
+                String sqlUpdate = "UPDATE prodotto SET quantita = quantita - "+p.getQuantita()+" where ";
+                if(id_prodotto>0)
+                    sqlUpdate+=" id_prodotto="+id_prodotto+" ";
+                else
+                    if(nomeProdotto!=null)
+                        sqlUpdate+=" nome like '"+nomeProdotto+"' ";
+                    else
+                        return false;
+                try {
+                    connection = (Connection) DriverManagerConnectionPool.getConnection();
+                    preparedStatement=(PreparedStatement) connection.prepareStatement(sqlUpdate);
+                    res = preparedStatement.executeUpdate();
+                    if(res>-1)
+                        return true;
+                    else
+                        return false;
+
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }finally{
+                    try {
+                        preparedStatement.close();
+
+                        DriverManagerConnectionPool.releaseConnection((com.mysql.jdbc.Connection) connection);
+                    } catch (SQLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }else{
+            return false;
+        }
+
+
+        return false;
     }
 
     public synchronized boolean doSave(ProductBean prodotto) {
