@@ -43,12 +43,12 @@ public class ServletUpdateProduct extends HttpServlet {
 
         String msgOutput="";
         if(res){
-            msgOutput="ok";
+            msgOutput="Prodotto Modificato Correttamente ";
         }else{
             msgOutput="Errore durante l'update";
         }
 
-
+        request.setAttribute("selectedTab", "modProduct");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputUpdateProduct="+msgOutput+"");
         dispatcher.forward(request, response);
     }

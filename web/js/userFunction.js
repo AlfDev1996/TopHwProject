@@ -77,6 +77,14 @@ function save(salva){
 
 function saveAddress(salva){
 
+    var via = document.getElementById("modvia").value;
+    var comune = document.getElementById("modcomune").value ;
+    var provincia= document.getElementById("modprovincia").value ;
+    var nazione = document.getElementById("modnazione").value ;
+    var reg = /^[a-zA-Z ]{3,30}$/;
+
+    if(via.match(reg)&& comune.match(reg)&& provincia.match(reg)&& nazione.match(reg)){
+
     salva.setAttribute("style","display:none;");
     var mod= document.getElementById("modIndirizzo");
 
@@ -139,4 +147,9 @@ function saveAddress(salva){
 
     }
 
+}else
+    {
+        alert("Errore nell'indirizzo, controlla la compilazione dei campi e riprova")
+
+    }
 }

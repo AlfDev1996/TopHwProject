@@ -35,7 +35,7 @@ public class ServletDeleteProduct extends HttpServlet {
 
         String msgOutput="";
         if(res){
-            msgOutput="ok";
+            msgOutput="Prodotto Rimosso Dal Sistema";
         }else{
             msgOutput="Errore durante l'eliminazione del prodotto";
         }

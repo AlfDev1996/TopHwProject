@@ -43,7 +43,7 @@ public class ServletDeleteCatalog extends HttpServlet {
             }
 
         }
-
+        request.setAttribute("selectedTab", "removeCatalog");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputDeleteCatalog=" + msgOutput + "");
         dispatcher.forward(request, response);
 

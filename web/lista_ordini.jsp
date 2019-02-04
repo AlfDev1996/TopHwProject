@@ -23,7 +23,8 @@
 </head>
 <body>
 
-	
+<div  class="super_container">
+	<%@include  file="header.jsp" %>
 	<% ArrayList<OrderBean> ordini = (ArrayList<OrderBean>) request.getAttribute("ordini");
 		if(ordini!=null )
 		{	
@@ -33,7 +34,7 @@
 	<!--  se ci sono ordini -->
 	<div class="row">
 	
-	<div class="span12">
+	<div class="span12" style="margin-left: auto;margin-right: auto;">
 	<table class="table table-hover">
   <tbody>
   <thead>
@@ -68,11 +69,15 @@
 	
 	<% } else { %>
 	<!--  Se non ci sono ordini stampo messaggio  -->
-	
+	<div class="alert alert-warning" style="margin-top: 10%;">
+		<strong>Non Hai Acncora concluso un ordine</strong>
+	</div>
 	
 	<% }  }
 	%>
-
+	<div class="footer_overlay"></div>
+	<%@include  file="footer.jsp" %>
+</div>
 	
 </body>
 </html>

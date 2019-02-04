@@ -59,7 +59,7 @@ public class ServletUpdateCatalog extends HttpServlet {
             error=true;
             msgOutput="Non c'è riferimento al catalogo!";
         }
-
+        request.setAttribute("selectedTab", "updateCatalog");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputUpdateCatalog=" + msgOutput + "");
         dispatcher.forward(request, response);
 

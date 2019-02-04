@@ -56,7 +56,7 @@ public class ServletCreateCatalog extends HttpServlet {
             msgOutput="Errore ";
         }
 
-
+        request.setAttribute("selectedTab", "insertCatalog");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputCreateCatalog=" + msgOutput + "");
         dispatcher.forward(request, response);
 

@@ -204,7 +204,7 @@ public class ServletCreateProduct extends HttpServlet {
 
             ProductDAO productDAO = new ProductDAO();
             if (productDAO.doSave(prodotto)) {
-                msgOutput = "ok";
+                msgOutput = "Prodotto Inserito Correttamente";
             } else {
                 msgOutput = "Errore durante l'inserimento del prodotto";
             }

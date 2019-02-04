@@ -43,8 +43,8 @@
                 <div class="row">
                   <div class="col">
                     <div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-                      <div class="home_slider_title">Top Hardware, una nuova esperienza di acquisto Online.</div>
-                      <div class="home_slider_subtitle">Il meglio dell'Hardware per il tuo pc.</div>
+                      <div class="home_slider_title">Top Hardware</div>
+                      <div class="home_slider_subtitle"> una nuova esperienza di acquisto Online.</div>
                       <div class="button button_light home_button"><a href="#">Acquista Ora.</a></div>
                     </div>
                   </div>
@@ -55,15 +55,15 @@
 
           <!-- Slider Item -->
           <div class="owl-item home_slider_item">
-            <div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+            <div class="home_slider_background" style="background-image:url(images/slider3.jpg)"></div>
             <div class="home_slider_content_container">
               <div class="container">
                 <div class="row">
                   <div class="col">
                     <div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-                      <div class="home_slider_title">A new Online Shop experience.</div>
-                      <div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-                      <div class="button button_light home_button"><a href="#">Shop Now</a></div>
+                      <div class="home_slider_title">Il miglior hardware</div>
+                      <div class="home_slider_subtitle">A tua disposizione</div>
+                      <div class="button button_light home_button"><a href="#">Acquista Ora.</a></div>
                     </div>
                   </div>
                 </div>
@@ -73,7 +73,7 @@
 
           <!-- Slider Item -->
           <div class="owl-item home_slider_item">
-            <div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+            <div class="home_slider_background" style="background-image:url(images/slider2.png)"></div>
             <div class="home_slider_content_container">
               <div class="container">
                 <div class="row">
@@ -81,7 +81,7 @@
                     <div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
                       <div class="home_slider_title">A new Online Shop experience.</div>
                       <div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-                      <div class="button button_light home_button"><a href="#">Shop Now</a></div>
+                      <div class="button button_light home_button"><a href="#">Acquista Ora.</a></div>
                     </div>
                   </div>
                 </div>
@@ -135,11 +135,11 @@
           </div>
         </div>
         <div class="avds_large">
-          <div class="avds_background" style="background-image:url(images/avds_large.jpg)"></div>
+          <div class="avds_background" style="background-image:url(images/slider4.jpg)"></div>
           <div class="avds_large_container">
             <div class="avds_large_content">
-              <div class="avds_title">Professional Cameras</div>
-              <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viver ra velit venenatis fermentum luctus.</div>
+              <div class="avds_title">Ultime novità</div>
+              <div class="avds_text">Da noi sempre disponibili gli ultimi arrivi anche in anteprima</div>
 
             </div>
           </div>
@@ -269,9 +269,9 @@
           <div class="col-lg-4 icon_box_col">
             <div class="icon_box">
               <div class="icon_box_image"><img src="images/icon_1.svg" alt=""></div>
-              <div class="icon_box_title">Free Shipping Worldwide</div>
+              <div class="icon_box_title">Spedizione Gratuita</div>
               <div class="icon_box_text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
+                <p>Spedizione tracciata con DHL il 24/48h</p>
               </div>
             </div>
           </div>
@@ -280,9 +280,9 @@
           <div class="col-lg-4 icon_box_col">
             <div class="icon_box">
               <div class="icon_box_image"><img src="images/icon_2.svg" alt=""></div>
-              <div class="icon_box_title">Free Returns</div>
+              <div class="icon_box_title">Reso Gratuito</div>
               <div class="icon_box_text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
+                <p>Restituisci facilmente i tuoi prodotti</p>
               </div>
             </div>
           </div>
@@ -291,9 +291,9 @@
           <div class="col-lg-4 icon_box_col">
             <div class="icon_box">
               <div class="icon_box_image"><img src="images/icon_3.svg" alt=""></div>
-              <div class="icon_box_title">24h Fast Support</div>
+              <div class="icon_box_title">Supporto 24h</div>
               <div class="icon_box_text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
+                <p>Tramite la pagina Contattaci siamo a tua disposizione Sempre</p>
               </div>
             </div>
           </div>
@@ -314,12 +314,12 @@
         <div class="row">
           <div class="col-lg-8 offset-lg-2">
             <div class="newsletter_content text-center">
-              <div class="newsletter_title">Subscribe to our newsletter</div>
-              <div class="newsletter_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros</p></div>
+              <div class="newsletter_title">Ti aggiorniamo sui nuovi arrivi</div>
+              <div class="newsletter_text"><p>Cliccando potrai essere informato in qualunque momento tramite e-mail di tutti i nuovi arrivi</p></div>
               <div class="newsletter_form_container">
                 <form action="#" id="newsletter_form" class="newsletter_form">
                   <input type="email" class="newsletter_input" required="required">
-                  <button class="newsletter_button trans_200"><span>Subscribe</span></button>
+                  <button class="newsletter_button trans_200"><span>Iscriviti</span></button>
                 </form>
               </div>
             </div>

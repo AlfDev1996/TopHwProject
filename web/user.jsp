@@ -28,7 +28,8 @@
 
 </head>
 <body>
-<%UserBean utente = new UserBean();
+<%
+    UserBean utente = new UserBean();
 
        if( session.getAttribute("utente")!= null)
             utente = (UserBean) session.getAttribute("utente");
@@ -131,7 +132,7 @@
 
                             <div class="col-xs-6">
                                 <label for="modvia"><h4>Via</h4></label>
-                                <input type="text" class="form-control"  name="modvia" value ='<%=utente.getIndirizzo().getVia()%>' id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
+                                <input type="text" class="form-control"   name="modvia" value ='<%=utente.getIndirizzo().getVia()%>' id="modvia" placeholder="es : Via Roma" readonly="readonly" title="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -146,14 +147,14 @@
 
                             <div class="col-xs-6">
                                 <label for="modcomune"><h4>Comune</h4></label>
-                                <input type="text" class="form-control" name="phone" value ='<%=utente.getIndirizzo().getComune()%>' id="modcomune" placeholder="es: Somma Vesuviana" title="" readonly="readonly">
+                                <input type="text" class="form-control"  name="phone" value ='<%=utente.getIndirizzo().getComune()%>' id="modcomune" placeholder="es: Somma Vesuviana" title="" readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label for="modprovincia"><h4>Provincia</h4></label>
-                                <input type="text" class="form-control" name="mobile" value ='<%=utente.getIndirizzo().getProvincia()%>' id="modprovincia" placeholder="Napoli" title="" readonly="readonly">
+                                <input type="text" class="form-control"  name="mobile" value ='<%=utente.getIndirizzo().getProvincia()%>' id="modprovincia" placeholder="Napoli" title="" readonly="readonly">
                             </div>
                         </div>
                         <div class="form-group">

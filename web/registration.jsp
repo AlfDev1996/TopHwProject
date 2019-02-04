@@ -24,7 +24,10 @@
 
     <title>Registrazione</title>
     <meta charset="utf-8">
+   <script src="js/validate.js">
 
+
+   </script>
 </head>
 <body>
 
@@ -40,7 +43,7 @@
                 </div> -->
             </div>
             <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="ServletRegister">
+                <form class="form-horizontal" method="post" action="ServletRegister" onsubmit='return validatePass() , validateName(), validateEmail()'>
 
                     <div class="form-group">
                         <label for="name" class="cols-sm-2 control-label">Nome</label>
@@ -79,20 +82,12 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="password" required id="password"  placeholder="Password"/>
+                                <input type="password" class="form-control" name="password" id="password" required id="password"  placeholder="Password"/>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="confirm" class="cols-sm-2 control-label">Ripeti Password</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="confirm" required id="confirm"  placeholder="Ripeti --- Password"/>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="form-group ">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registrati</button>

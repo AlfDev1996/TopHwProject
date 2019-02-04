@@ -33,6 +33,22 @@
         if(request.getAttribute("selectedTab")!=null)
         {
             String s = (String) request.getAttribute("selectedTab");
+            if(s.equalsIgnoreCase("createBrand")){
+                flag=7;
+
+            }else
+            if(s.equalsIgnoreCase("updateCatalog")){
+                flag=6;
+
+            }else
+            if(s.equalsIgnoreCase("removeCatalog")){
+                flag=5;
+
+            }else
+            if(s.equalsIgnoreCase("insertCatalog")){
+                flag=4;
+
+            }else
             if(s.equalsIgnoreCase("findProduct")){
                 flag=2;
 
@@ -104,11 +120,11 @@
                     <li <%if (flag==0){%>class='active'<%}%> id="principale"><a data-toggle="tab" href="#tab1">Inserisci Articolo</a></li>
                     <li><a data-toggle="tab" href="#tab9" class ='<%if (flag==3){%>active<%}%>'>Modifica Articolo</a></li>
                     <li><a data-toggle="tab" href="#tab2" class ='<%if (flag==2){%>active<%}%>'>Rimuovi Articolo</a></li>
-                    <li><a data-toggle="tab" href="#tab3">Inserisci Catalogo</a></li>
-                    <li><a data-toggle="tab" href="#tab4">Rimuovi Catalogo</a></li>
-                    <li><a data-toggle="tab" href="#tab5">Modifica Catalogo</a></li>
+                    <li><a data-toggle="tab" href="#tab3" class ='<%if (flag==4){%>active<%}%>'>Inserisci Catalogo</a></li>
+                    <li><a data-toggle="tab" href="#tab4" class ='<%if (flag==5){%>active<%}%>'>Rimuovi Catalogo</a></li>
+                    <li><a data-toggle="tab" href="#tab5" class ='<%if (flag==6){%>active<%}%>'>Modifica Catalogo</a></li>
                     <li><a data-toggle="tab" href="#tab6" class ='<%if (flag==1){%>active<%}%>' id="secondario" >Visualizza Utenti</a></li>
-                    <li><a data-toggle="tab" href="#tab7">Inserisci Marca</a></li>
+                    <li><a data-toggle="tab" href="#tab7" class ='<%if (flag==7){%>active<%}%>'>Inserisci Marca</a></li>
                  <!--    <li><a data-toggle="tab" href="#tab8">Rimuovi Marca</a></li> -->
 
 
@@ -119,6 +135,11 @@
                     <div class="tab-pane <%if (flag==0){%>active<%}%>" id="tab1">
                         <hr>
                 <form method="POST" action="ServletCreateProduct" enctype="multipart/form-data">
+                    <%if(request.getParameter("msgOutputCreateProduct")!=null){%>
+                    <div class="alert alert-warning">
+                        <strong><%=request.getParameter("msgOutputCreateProduct")%></strong>
+                    </div>
+                    <%}%>
                         <div class="form-group"  >
 
                             <div class="col-xs-9" style="margin-bottom: 10px;">
@@ -221,6 +242,12 @@
                         <hr>
 
                         <form method="POST" action="ServletFindProductByFilters">
+                            <%if(request.getParameter("msgOutputDeleteProduct")!=null){%>
+                            <div class="alert alert-warning">
+                                <strong><%=request.getParameter("msgOutputDeleteProduct")%></strong>
+                            </div>
+                            <%}%>
+
                         <div class="form-group">
 
                             <div class="col-xs-6">
@@ -269,12 +296,17 @@
                     </div><!--/tab-pane-->
 
 
-                    <div class="tab-pane" id="tab3">
+                    <div class="tab-pane  <%if (flag==4){%>active<%}%>" id="tab3">
 
                     <h2></h2>
 
                     <hr>
                     <form method="POST" action="ServletCreateCatalog">
+                        <%if(request.getParameter("msgOutputCreateCatalog")!=null){%>
+                        <div class="alert alert-warning">
+                            <strong><%=request.getParameter("msgOutputCreateCatalog")%></strong>
+                        </div>
+                        <%}%>
                     <div class="form-group">
 
                         <div class="col-xs-6">
@@ -314,12 +346,17 @@
 
 
 
-                    <div class="tab-pane" id="tab4">
+                    <div class="tab-pane <%if (flag==5){%>active<%}%>" id="tab4">
 
                         <h2></h2>
 
                         <hr>
                         <form method="POST" action="ServletDeleteCatalog">
+                            <%if(request.getParameter("msgOutputDeleteCatalog")!=null){%>
+                            <div class="alert alert-warning">
+                                <strong><%=request.getParameter("msgOutputDeleteCatalog")%></strong>
+                            </div>
+                            <%}%>
 
                             <div class="form-group">
                                 <div class="col-xs-9" style="margin-bottom: 10px;">
@@ -346,12 +383,17 @@
 
 
 
-                    <div class="tab-pane" id="tab5">
+                    <div class="tab-pane <%if (flag==6){%>active<%}%>" id="tab5">
 
                         <h2></h2>
 
                         <hr>
                         <form method="POST" action="ServletUpdateCatalog">
+                            <%if(request.getParameter("msgOutputUpdateCatalog")!=null){%>
+                            <div class="alert alert-warning">
+                                <strong><%=request.getParameter("msgOutputUpdateCatalog")%></strong>
+                            </div>
+                            <%}%>
 
                             <div class="form-group">
                                 <div class="col-xs-9" style="margin-bottom: 10px;">
@@ -467,13 +509,17 @@
 <%}%>
                     </div>
 
-                    <div class="tab-pane" id="tab7">
+                    <div class="tab-pane <%if (flag==7){%>active<%}%>" id="tab7">
 
                         <h2></h2>
 
                         <hr>
                         <form method="POST" action="ServletCreateBrand">
-
+                            <%if(request.getParameter("msgOutputCreateBrand")!=null){%>
+                            <div class="alert alert-warning">
+                                <strong><%=request.getParameter("msgOutputCreateBrand")%></strong>
+                            </div>
+                            <%}%>
 
 
                             <div class="form-group">
@@ -542,6 +588,12 @@
                         <hr>
 
                         <form method="POST" action="ServletFindProductByFilters">
+                            <%if(request.getParameter("msgOutputUpdateProduct")!=null){%>
+                            <div class="alert alert-warning">
+                                <strong><%=request.getParameter("msgOutputUpdateProduct")%></strong>
+                            </div>
+                            <%}%>
+
                             <input type="hidden" id="operation" name="operation" value="modProduct">
                             <div class="form-group">
 

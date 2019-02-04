@@ -48,7 +48,7 @@
         <div class="product_extra product_new"><a href="categories.jsp">New</a></div>
         <div class="product_content">
             <div class="product_title"><a href='ServletFindProductById?id_prodotto=<%=prodotti.get(i).getId_prodotto()%>'><%=prodotti.get(i).getNome()%></a></div>
-            <div class="product_price"><%=prodotti.get(i).getPrezzo()%></div>
+            <div class="product_price">€ <%=prodotti.get(i).getPrezzo()%></div>
         </div>
     </div>
 

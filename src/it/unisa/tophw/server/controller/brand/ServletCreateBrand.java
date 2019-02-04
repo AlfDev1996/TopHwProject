@@ -47,7 +47,7 @@ public class ServletCreateBrand extends HttpServlet {
             msgOutput="Errore ";
         }
 
-
+        request.setAttribute("selectedTab", "createBrand");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputCreateBrand=" + msgOutput + "");
         dispatcher.forward(request, response);
 
