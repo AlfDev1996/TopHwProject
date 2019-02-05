@@ -39,7 +39,7 @@ public class ServletDeleteProduct extends HttpServlet {
         }else{
             msgOutput="Errore durante l'eliminazione del prodotto";
         }
-
+        request.setAttribute("selectedTab", "findProduct");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminPanel.jsp?msgOutputDeleteProduct="+msgOutput+"");
         dispatcher.forward(request, response);
 

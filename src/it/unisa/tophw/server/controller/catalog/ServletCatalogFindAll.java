@@ -1,9 +1,7 @@
 package it.unisa.tophw.server.controller.catalog;
 
 import com.google.gson.Gson;
-import it.unisa.tophw.server.model.beans.BrandBean;
 import it.unisa.tophw.server.model.beans.CatalogBean;
-import it.unisa.tophw.server.model.management.BrandDAO;
 import it.unisa.tophw.server.model.management.CatalogDAO;
 
 import javax.servlet.ServletException;

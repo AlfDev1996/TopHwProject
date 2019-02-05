@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
 @WebServlet(name = "ServletCreateOrder")
@@ -94,7 +93,7 @@ public class ServletCreateOrder extends HttpServlet {
             }
 
         }else{
-            dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp?msgOutput=IndirizzoNonInserito");
+            dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp?msgOutput=Indirizzo Non Inserito");
 
         }
 

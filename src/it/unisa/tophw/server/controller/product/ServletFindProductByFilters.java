@@ -2,7 +2,6 @@ package it.unisa.tophw.server.controller.product;
 
 import it.unisa.tophw.server.model.beans.BrandBean;
 import it.unisa.tophw.server.model.beans.ProductBean;
-import it.unisa.tophw.server.model.beans.UserBean;
 import it.unisa.tophw.server.model.management.BrandDAO;
 import it.unisa.tophw.server.model.management.ProductDAO;
 

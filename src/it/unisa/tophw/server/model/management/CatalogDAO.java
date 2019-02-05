@@ -1,6 +1,5 @@
 package it.unisa.tophw.server.model.management;
 
-import it.unisa.tophw.server.model.beans.BrandBean;
 import it.unisa.tophw.server.model.beans.CatalogBean;
 import it.unisa.tophw.server.model.connection.DriverManagerConnectionPool;
 

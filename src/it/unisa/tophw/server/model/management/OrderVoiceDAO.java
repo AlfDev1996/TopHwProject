@@ -3,7 +3,6 @@ package it.unisa.tophw.server.model.management;
 import it.unisa.tophw.server.model.beans.OrderBean;
 import it.unisa.tophw.server.model.beans.OrderVoiceBean;
 import it.unisa.tophw.server.model.beans.ProductBean;
-import it.unisa.tophw.server.model.beans.UserBean;
 import it.unisa.tophw.server.model.connection.DriverManagerConnectionPool;
 
 import java.sql.Connection;

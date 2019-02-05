@@ -1,12 +1,10 @@
 package it.unisa.tophw.server.model.management;
 
-import it.unisa.tophw.server.model.beans.BrandBean;
 import it.unisa.tophw.server.model.beans.OrderBean;
 import it.unisa.tophw.server.model.beans.PaymentBean;
 import it.unisa.tophw.server.model.connection.DriverManagerConnectionPool;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class PaymentDAO {
 

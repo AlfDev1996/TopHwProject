@@ -1,7 +1,6 @@
 package it.unisa.tophw.server.controller.brand;
 
 import it.unisa.tophw.server.model.beans.BrandBean;
-import it.unisa.tophw.server.model.beans.BrandBean;
 import it.unisa.tophw.server.model.management.BrandDAO;
 
 import javax.servlet.RequestDispatcher;

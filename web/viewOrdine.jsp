@@ -43,7 +43,7 @@
  		 <strong><%= error %></strong> 
 	</div>
 	<% } %>
-	<div id="containers" style="margin-left: 20%; margin-right: 20%;">
+	<div id="containers" style="margin-left: 20%; margin-right: 20%; margin-top: 18%;">
 	<div class="row">
 	
 	<div class="span6" style="margin-left: 3%;">

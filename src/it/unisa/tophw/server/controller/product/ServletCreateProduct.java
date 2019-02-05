@@ -8,7 +8,6 @@ import it.unisa.tophw.server.model.management.BrandDAO;
 import it.unisa.tophw.server.model.management.CatalogDAO;
 import it.unisa.tophw.server.model.management.ProductDAO;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 

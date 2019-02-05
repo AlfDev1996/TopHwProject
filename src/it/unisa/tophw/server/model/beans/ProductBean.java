@@ -1,7 +1,5 @@
 package it.unisa.tophw.server.model.beans;
 
-import java.util.ArrayList;
-
 public class ProductBean {
 
     private int id_prodotto, quantita, perc_sconto;
