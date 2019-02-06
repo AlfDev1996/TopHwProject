@@ -10,29 +10,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CartBeanTest {
 protected CartBean cart;
+protected UserBean utente = new UserBean(1,"alfonso","rianna","aaa@gmail.com","pass","Admin","italia",
+        new AddressBean(1,80049,4,"roma","somma","napoli","italia",1));
     @BeforeEach
     void setUp() {
-        cart= new CartBean(new UserBean(1,"alfonso","rianna","aaa@gmail.com","pass","Admin","italia",
-                new AddressBean(1,80049,4,"roma","somma","napoli","italia",1)), new ArrayList<ProductBean>());
+        cart= new CartBean(utente, new ArrayList<ProductBean>());
     }
 
     @Test
     void getUtente() {
-        UserBean utente = cart.getUtente();
-        UserBean user = new UserBean(1,"alfonso","rianna","aaa@gmail.com","pass","Admin","italia",
-                new AddressBean(1,80049,4,"roma","somma","napoli","italia",1));
-        assertEquals(user,utente);
+        UserBean user = cart.getUtente();
+
+        assertEquals(utente,user);
     }
 
     @Test
     void setUtente() {
-        cart.setUtente(new UserBean(1,"alfonso","dragone","aaa@gmail.com","pass","Admin","italia",
-                new AddressBean(1,80049,4,"roma","somma","napoli","italia",1)));
-        UserBean utente = cart.getUtente();
-
         UserBean user = new UserBean(1,"alfonso","dragone","aaa@gmail.com","pass","Admin","italia",
                 new AddressBean(1,80049,4,"roma","somma","napoli","italia",1));
-        assertEquals(user,utente);
+        cart.setUtente(user);
+
+
+        assertEquals(user,cart.getUtente());
 
     }
 

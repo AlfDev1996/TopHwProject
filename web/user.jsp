@@ -67,6 +67,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Dati Personali</a></li>
                 <li><a data-toggle="tab" href="#messages">Indirizzo di spedizione</a></li>
+                <li><a data-toggle="tab" href="#tab3">Azioni Account</a></li>
 
             </ul>
 
@@ -184,6 +185,38 @@
 
 
                 </div><!--/tab-pane-->
+
+                <div class="tab-pane" id="tab3">
+
+                    <h2></h2>
+
+                    <hr>
+                    <form method="POST" action ="ServletDeleteUser">
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="modvia"><h4>Operazioni Disponibili</h4></label>
+                            <select name ="selectAction">
+                                <option>Elimina Profilo</option>
+
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <input type="hidden" name="id_utente" value='<%=utente.getId_utente()%>'>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+
+                            <input type="submit" class="btn btn-danger" value="Esegui Azione" >
+                        </div>
+                    </div>
+                    </form>
+
+                </div>
 
 
             </div><!--/tab-pane-->
