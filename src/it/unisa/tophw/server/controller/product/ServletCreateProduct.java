@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 
-@MultipartConfig
+    @MultipartConfig
 @WebServlet(name = "ServletCreateProduct")
 public class ServletCreateProduct extends HttpServlet {
 

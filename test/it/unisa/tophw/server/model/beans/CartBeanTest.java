@@ -86,10 +86,9 @@ protected UserBean utente = new UserBean(1,"alfonso","rianna","aaa@gmail.com","p
     void updateProdotto() {
         ProductBean prodottoTest = new ProductBean(1,10,"monitor","testdesc","testdescestesa","a","b","c",10.0,1,2);
         cart.addProduct(prodottoTest);
-        ProductBean prodottoTest1 = new ProductBean(1,1,"monitor","testdesc","testdescestesa","a","b","c",10.0,1,2);
-        cart.updateProdotto(1,prodottoTest1);
+        cart.updateProdotto(1,prodottoTest);
 
-        assertEquals(prodottoTest1,cart.getProdotti().get(0));
+        assertEquals(prodottoTest,cart.getProdotti().get(0));
 
     }
 

@@ -1,5 +1,6 @@
 package it.unisa.tophw.server.model.management;
 
+import it.unisa.tophw.server.model.beans.AddressBean;
 import it.unisa.tophw.server.model.beans.UserBean;
 import it.unisa.tophw.server.model.connection.DriverManagerConnectionPool;
 
@@ -76,6 +77,7 @@ public class UserDAO {
                 utente.setPassword(res.getString("password"));
                 utente.setRuolo(res.getString("ruolo"));
 
+                return utente;
             }
         }catch(SQLException ex) {
             ex.printStackTrace();
@@ -250,6 +252,12 @@ public class UserDAO {
                 utente.setEmail(res.getString("email"));
                 utente.setPassword(res.getString("password"));
                 utente.setRuolo(res.getString("ruolo"));
+
+                AddressDAO addressDAO=new AddressDAO();
+                AddressBean addressBean= addressDAO.doRetriveByUser(utente);
+                if(addressBean!=null)
+                    utente.setIndirizzo(addressBean);
+
                 return utente;
             }
         }catch(SQLException ex) {

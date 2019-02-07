@@ -152,6 +152,7 @@ public class AddressDAO {
                     addressBean.setProvincia(res.getString("provincia"));
                     addressBean.setId_utente(res.getInt("id_utente"));
 
+                    return addressBean;
 
                 }
             }else{

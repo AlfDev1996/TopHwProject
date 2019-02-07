@@ -349,6 +349,7 @@ public class OrderDAO {
                 connection = (Connection) DriverManagerConnectionPool.getConnection();
                 preparedStatement = (PreparedStatement) connection.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
 
+
                 preparedStatement.setDate(1, (java.sql.Date) ordine.getData_creazione());
                 preparedStatement.setString(2, ordine.getStato());
                 preparedStatement.setFloat(3, ordine.getTotale());
