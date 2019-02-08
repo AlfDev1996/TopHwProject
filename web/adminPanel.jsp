@@ -81,8 +81,13 @@
 <body onload="loadMarche(); console.log('chiamata1' ); loadCatalog();  console.log('chiamata2' );">
 <%UserBean utente = new UserBean();
 
-    if( session.getAttribute("utente")!= null)
+    if( session.getAttribute("utente")!=null) {
         utente = (UserBean) session.getAttribute("utente");
+        if(utente.getRuolo().equalsIgnoreCase("User"))
+        {String redirectURL = "/index.jsp";
+            response.sendRedirect(request.getContextPath() + redirectURL);
+        }
+    }
     else
 
 

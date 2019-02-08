@@ -65,7 +65,7 @@
 
 
                                 <li class="hassubs">
-                                    <a href="categories.jsp">Cataloghi</a>
+                                    <a href="#">Cataloghi</a>
                                     <ul id="cataloghi">
                                        <!-- <li><a href="ServletProductFindAll?filtro=aaa">ProvaProd</a></li>
                                         <li><a href="categories.jsp">Processori</a></li>
@@ -90,9 +90,12 @@
                                     Ciao, <%=us.getNome()%>
                                     <ul>
                                         <li><a href="user.jsp">Profilo utente</a></li>
+                                        <%if(us.getRuolo().equalsIgnoreCase("User")){%>
                                         <li><a href="ServletFindOrderByUser">I miei ordini</a></li>
+                                        <%}else%>
                                         <%if(us.getRuolo().equalsIgnoreCase("Admin")){%>
                                         <li><a href="adminPanel.jsp">Pannello Admin</a></li>
+                                        <li><a href="ServletFindOrderByUser">Ordini Utenti</a></li>
                                         <%}%>
 
                                     </ul>

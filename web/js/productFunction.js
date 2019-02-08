@@ -302,7 +302,8 @@ function updateProductsFromCart(){
             }
 
         }
-        xh.open("GET","ServletCart?operazione=elimina&prodottiDaRimuovere="+(eliminaProdottiChecked+""),true);
+        xh.open("GET","ServletDeleteProductFromCart?prodottiDaRimuovere="+(eliminaProdottiChecked+""),true);
+        console.log(""+eliminaProdottiChecked);
         xh.send();
     }else{
         //UPDATE

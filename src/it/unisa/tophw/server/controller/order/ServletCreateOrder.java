@@ -87,7 +87,7 @@ public class ServletCreateOrder extends HttpServlet {
                 carrello.getProdotti().clear();
 
                 request.setAttribute("ordine", ordine);
-                dispatcher = getServletContext().getRequestDispatcher("/riepilogo_ordine.jsp?msgOutput="+error);
+                dispatcher = getServletContext().getRequestDispatcher("/riepilogo_ordine.jsp?msgOutput="+msgOutput);
 
 
             }

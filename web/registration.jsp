@@ -43,7 +43,7 @@
                 </div> -->
             </div>
             <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="ServletRegister" onsubmit='return validatePass() , validateName(), validateEmail()'>
+                <form class="form-horizontal" method="post" action="ServletRegister" onsubmit='return validatePass() && validateName()&& validateEmail()'>
 
                     <div class="form-group">
                         <label for="name" class="cols-sm-2 control-label">Nome</label>

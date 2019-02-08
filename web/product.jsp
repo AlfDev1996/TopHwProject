@@ -78,7 +78,9 @@
 						<!-- In Stock -->
 						<div class="in_stock_container">
 							<div class="availability">Disponibilità:</div>
-							<span>Dispobibile(pezzi: <%=prodotto.getQuantita()%>)</span>
+							<%if(prodotto.getQuantita()>0){%><span>Dispobibile(pezzi: <%=prodotto.getQuantita()%>)</span><%}else{%>
+							<span style ="color: red;">Non Disponibile</span>
+							<%}%>
 						</div>
 						<div class="details_text">
 							<p><%=prodotto.getDescrizione_estesa()%></p>
@@ -94,7 +96,11 @@
 									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 								</div>
 							</div>
-							<div class="button cart_button" ><a onclick="updateqta();"> Aggiungi al carrello</a></div>
+								<%if(prodotto.getQuantita()>0){ %><div class="button cart_button" ><a onclick="updateqta();"> Aggiungi al carrello</a></div> <%}else{%>
+
+							<div class="button cart_button" ><a onclick="alert('Prodotto non disponibile')"> Aggiungi al carrello</a></div>
+
+							<%}%>
 						</div>
 
 						<!-- Share -->

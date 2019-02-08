@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/cart.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
 	<script src="js/productFunction.js"></script>
 
@@ -53,7 +54,7 @@
 
 					%>
 					<tr id="prod<%=prodotto.getNome()%>">
-						<td id="Alfonso"><input type="checkbox" name="prodotti[]" id='<%= prodotto.getId_prodotto()%>%>'></td>
+						<td id="Alfonso"><input type="checkbox" name="prodotti[]" id='<%= prodotto.getId_prodotto()%>'></td>
 						<% if( prodotto.getPathImg1()!=null) { %>
 						<td style="width:25%"><a href=""><img class="imgCarrello" style="width: 50%;height: 50%;" alt="" src='<%="images/products/"+prodotto.getPathImg1()%>' onerror='this.onerror=null;this.src="themes/images/defaultImages/<%=prodotto.getPathImg1() %>"'></a></td>
 						<% } else {  %>
